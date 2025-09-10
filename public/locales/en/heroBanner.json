@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Premium Indian Exports Worldwide",
+    "subtitle": "Connecting India's Finest Products to Global Markets",
+    "description": "Experience the excellence of authentic Indian goods - from aromatic spices to exquisite textiles, handcrafted with tradition and delivered with trust.",
+    "buttonText": "Explore Products",
+    "image": "/assets/heroBanner/1.1-Salt.jpeg"
+  },
+  {
+    "id": 2,
+    "title": "Trusted Export Partners Since 2010",
+    "subtitle": "Quality Assured • Globally Certified",
+    "description": "Join thousands of international buyers who trust us for premium Indian products. ISO certified processes ensure quality at every step.",
+    "buttonText": "View Certifications",
+    "image": "/assets/heroBanner/2.1-Edible-Salt.jpeg"
+  },
+  {
+      "id": 3,
+    "title": "Seamless Global Delivery",
+    "subtitle": "Door-to-Door Export Solutions",
+    "description": "From packaging to customs clearance, we handle everything. Experience hassle-free international trade with our end-to-end export services.",
+    "buttonText": "Start Exporting",
+    "image": "/assets/heroBanner/2.2-House.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Premium Indian Exports Worldwide",
+    "subtitle": "Connecting India's Finest Products to Global Markets",
+    "description": "Experience the excellence of authentic Indian goods - from aromatic spices to exquisite textiles, handcrafted with tradition and delivered with trust.",
+    "buttonText": "Explore Products",
+    "image": "/assets/heroBanner/2.3-Food-Grade-Salt.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Trusted Export Partners Since 2010",
+    "subtitle": "Quality Assured • Globally Certified",
+    "description": "Join thousands of international buyers who trust us for premium Indian products. ISO certified processes ensure quality at every step.",
+    "buttonText": "View Certifications",
+    "image": "/assets/heroBanner/3.2-Drilling-Salt.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Seamless Global Delivery",
+    "subtitle": "Door-to-Door Export Solutions",
+    "description": "From packaging to customs clearance, we handle everything. Experience hassle-free international trade with our end-to-end export services.",
+    "buttonText": "Start Exporting",
+    "image": "/assets/heroBanner/3.2-Industrial-Salt.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Seamless Global Delivery",
+    "subtitle": "Door-to-Door Export Solutions",
+    "description": "From packaging to customs clearance, we handle everything. Experience hassle-free international trade with our end-to-end export services.",
+    "buttonText": "Start Exporting",
+    "image": "/assets/heroBanner/3.3-Pool Salt.jpg"
+  }
+]

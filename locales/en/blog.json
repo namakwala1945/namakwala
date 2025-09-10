@@ -1,0 +1,78 @@
+{
+  "page": {
+    "title": "Our Blog",
+    "description": "Stay updated with the latest insights, trends, and knowledge from Namakwala Group. Explore expert advice, industry practices, and stories that matter.",
+    "banner": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80",
+    "category":"Namakwala",
+    "metadata": {
+      "title": "Blog - Namakwala Group",
+      "description": "Read insights, trends, and updates from Namakwala Group across minerals, exports, and sustainable practices.",
+      "keywords": "Namakwala Group blog, minerals, exports, salt industry, sustainability",
+      "authors": [{ "name": "Namakwala Group" }],
+      "openGraph": {
+        "title": "Blog - Namakwala Group",
+        "description": "Read the latest articles and industry insights from Namakwala Group.",
+        "url": "https://www.namakwala.com/blog",
+        "siteName": "Namakwala Group",
+        "images": [
+          {
+            "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80",
+            "width": 1200,
+            "height": 630
+          }
+        ],
+        "locale": "en_US",
+        "type": "website"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Blog - Namakwala Group",
+        "description": "Explore articles, insights, and news from Namakwala Group.",
+        "images": ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80"]
+      }
+    }
+  },
+  "posts": [
+    {
+      "slug": "how-to-use-minerals-effectively",
+      "title": "How to Use Minerals Effectively",
+      "category":"Namakwala",
+      "author": "Namakwala Group",
+      "date": "2025-08-29",
+      "banner": "https://images.unsplash.com/photo-1590608897129-79a4cb222e6f?auto=format&fit=crop&w=1470&q=80",
+      "excerpt": "Learn the best practices for using minerals in your industry.",
+      "content": [
+        "Minerals are an essential component in many industries...",
+        "Step 1: Understand your mineral requirements...",
+        "Step 2: Ensure proper storage and handling..."
+      ],
+      "metadata": {
+        "title": "How to Use Minerals Effectively - Namakwala Group",
+        "description": "Discover best practices for using minerals in industries with Namakwala Group’s expert insights.",
+        "keywords": "minerals, Namakwala Group, industry practices, salt",
+        "authors": [{ "name": "Namakwala Group" }],
+        "openGraph": {
+          "title": "How to Use Minerals Effectively - Namakwala Group",
+          "description": "Learn the best practices for using minerals in your industry.",
+          "url": "https://www.namakwala.com/blog/how-to-use-minerals-effectively",
+          "siteName": "Namakwala Group",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1590608897129-79a4cb222e6f?auto=format&fit=crop&w=1470&q=80",
+              "width": 1200,
+              "height": 630
+            }
+          ],
+          "locale": "en_US",
+          "type": "article"
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "How to Use Minerals Effectively - Namakwala Group",
+          "description": "Discover best practices for using minerals in industries.",
+          "images": ["https://images.unsplash.com/photo-1590608897129-79a4cb222e6f?auto=format&fit=crop&w=1470&q=80"]
+        }
+      }
+    }
+  ]
+}

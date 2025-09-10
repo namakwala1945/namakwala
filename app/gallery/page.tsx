@@ -1,0 +1,29 @@
+// pages/resources/gallery.tsx
+import React from "react";
+import Head from "next/head";
+
+const images = [
+  "/images/gallery1.jpg",
+  "/images/gallery2.jpg",
+  "/images/gallery3.jpg",
+];
+
+const GalleryPage: React.FC = () => {
+  return (
+    <>
+      <Head>
+        <title>Gallery - Your Company</title>
+      </Head>
+      <div className="p-6 max-w-5xl mx-auto space-y-6">
+        <h1 className="text-3xl font-bold mb-4">Gallery</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {images.map((src, idx) => (
+            <img key={idx} src={src} alt={`Gallery ${idx + 1}`} className="w-full h-48 object-cover shadow-md" />
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default GalleryPage;
