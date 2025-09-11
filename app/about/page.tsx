@@ -1,4 +1,3 @@
-'use client';
 import content from "@/locales/en/content.json";
 import PageBanner from "@/components/PageBanner";
 import HashScroll from "@/components/HashScroll";
