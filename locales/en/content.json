@@ -3,62 +3,47 @@
     "our-journey": {
       "slug": "our-journey",
       "title": "Our Journey",
-      "content": "We started our journey in 1995 with a vision of providing high-quality salts and minerals globally. Over the years, our commitment to excellence has driven our growth and innovation.",
+      "content": "Founded in 1945 in Bhilwara, Rajasthan, Namakwala has grown from a salt shopkeeper into India’s leading manufacturer and exporter of Salt and Minerals. Today, we serve industries and households in 50+ countries, delivering products known for purity, quality, and trust.",
       "banner": {
         "title": "About",
-        "heading": "Dedication, Growth, Passion",
+        "heading": "Dedication | Growth | Passion",
         "image": "/assets/pagebanner/namakwala-about-us.jpg"
       },
       "sections": {
         "milestones": {
           "slug": "milestones",
-          "title": "Milestones",
+          "title": "Key Milestones",
           "content": [
-            "1995: Company founded with a vision for excellence.",
-            "2002: Expanded operations to include international exports.",
-            "2010: Introduced innovative product lines in minerals and salts.",
-            "2020: Became a leading exporter across multiple countries."
+            "1945 – Established by Late Shri Badrilal Lohia in Bhilwara, Rajasthan.",
+            "1970 – Began professional salt grinding.",
+            "1970 – Introduced consumer salt packs, a first in India.",
+            "1980 –2000 – Expanded into bulk trade and industrial salts, strengthening domestic presence.",
+            "2000 – 2020 – Entered global markets, building strong export relationships.",
+            "Today – Recognized as a trusted global supplier of salt and minerals, serving 50+ countries worldwide."
           ],
           "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1470&q=80"
-        },
-        "leadership": {
-          "slug": "leadership",
-          "title": "Our Leadership",
-          "content": "Our dedicated leadership team has driven the company’s growth, emphasizing quality, sustainability, and customer satisfaction. Each member brings years of expertise and passion for excellence.",
-          "image": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=1470&q=80"
         },
         "vision": {
           "slug": "vision",
           "title": "Our Vision",
-          "content": "We aim to continue delivering premium quality salts and minerals to global markets while embracing innovation, sustainability, and community development. Our journey is a story of dedication, growth, and passion.",
+          "content": "To be a global leader in salt and mineral solutions, combining tradition with innovation. We aim to provide sustainable, high-quality products while creating long-term value for customers and partners worldwide.",
           "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80"
+        },
+        "leadership": {
+          "slug": "leadership",
+          "title": "Leadership",
+          "content": "Namakwala is driven by an experienced leadership team that blends decades of expertise with a forward-looking approach. Guided by our founder’s principles, we continue to innovate, expand, and build strong global partnerships.",
+          "image": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=1470&q=80"
+        },
+        "founder-legacy": {
+          "slug": "founder-legacy",
+          "title": "Founder’s Legacy",
+          "content": "Our journey began with Late Shri Badrilal Lohia, who pioneered the concept of consumer salt packs in India. His vision and dedication laid the foundation for Namakwala’s global success. Today, his legacy of purity, quality, and trust continues to inspire us.",
+          "image": "https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=1470&q=80"
         }
       }
     }
   },
-  "founder": {
-    "founder-story": {
-      "slug": "founder-story",
-      "title": "Founder Story",
-      "content": "Our founder began the company with a vision to provide sustainable and high-quality minerals globally. His dedication laid the foundation of Namakwala Group.",
-      "banner": {
-        "title": "Founder Story",
-        "heading": "Vision, Passion & Leadership",
-        "image": "/assets/pagebanner/namakwala-about-us.jpg"
-      }
-    },
-    "leadership": {
-      "slug": "leadership",
-      "title": "Leadership",
-      "content": "Meet our leadership team, committed to innovation, growth, and excellence across industries.",
-      "banner": {
-        "title": "Leadership",
-        "heading": "Driving Success with Vision",
-        "image": "/assets/pagebanner/namakwala-about-us.jpg"
-      }
-    }
-  },
-
   "businesses": {
     "salt": {
       "food-grade-salt": {

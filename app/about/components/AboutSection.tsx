@@ -34,7 +34,7 @@ export default function AboutSection({ section }: SectionProps) {
             className="md:w-1/2 bg-white p-8 md:p-12 shadow-2xl z-10 relative hover:scale-105 transition-transform duration-300"
             style={{ minHeight: "320px" }}
           >
-            <h2 className="text-4xl md:text-5xl leading-[1.3] font-bold mb-4 text-gray-800 animate-slideUp playfair text-gradient">
+            <h2 className="text-4xl md:text-5xl md:leading-[1.5] font-bold mb-4 text-gray-800 animate-slideUp playfair text-gradient">
               {section.title}
             </h2>
             <p className="text-gray-700 whitespace-pre-line">{section.content}</p>
@@ -65,43 +65,55 @@ export default function AboutSection({ section }: SectionProps) {
 
       {/* Nested Sections */}
       {section.sections && (
-        <div className="mt-16 space-y-16">
+        <div className="mt-16 px-6 py-12 space-y-24">
           {/* Milestones */}
           {"milestones" in section.sections && (
             <div
               id={section.sections.milestones.slug}
               className="bg-white p-8 border border-[#d2ab67] shadow-2xl hover:scale-105 transition-transform duration-500"
             >
-              <h3 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 animate-slideUp playfair text-gradient">
+              <h3 className="text-4xl md:text-5xl md:leading-[1.5] font-bold mb-4 text-gray-800 animate-slideUp playfair text-gradient">
                 {section.sections.milestones.title}
               </h3>
               <div className="space-y-6">
                 {Array.isArray(section.sections.milestones.content) &&
                   section.sections.milestones.content.map((item: string, idx: number) => {
-                    const [year, ...rest] = item.split(":");
+                    // Split on en-dash or hyphen
+                    const [year, ...rest] = item.split("–"); 
                     return (
-                      <div key={idx} className="grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
-                        <div className="text-3xl md:text-4xl font-bold mb-4 text-gray-800 animate-slideUp playfair text-gradient md:col-span-1">
-                          {year}
+                      <div
+                        key={idx}
+                        className="grid grid-cols-1 md:grid-cols-4 gap-6 items-start"
+                      >
+                        {/* Left side: Year */}
+                        <div className="text-3xl md:text-4xl font-bold text-gray-800 animate-slideUp playfair text-gradient md:col-span-1">
+                          {year.trim()}
                         </div>
+
+                        {/* Right side: Description */}
                         <div className="md:col-span-3 text-gray-700 leading-relaxed">
-                          {rest.join(":").trim()}
+                          {rest.join("–").trim()}
                         </div>
                       </div>
                     );
                   })}
               </div>
+
             </div>
           )}
 
-          {/* Vision + Leadership */}
-          <div className="grid lg:grid-cols-2 gap-10">
-            {["vision", "leadership"].map((key) => {
+          {/* Vision + Leadership + Founder’s Legacy */}
+          <div className="grid lg:grid-cols-3 gap-10">
+            {["vision", "leadership", "founder-legacy"].map((key) => {
               const sub = section.sections?.[key];
               if (!sub) return null;
 
               return (
-                <div key={key} id={sub.slug} className="relative flex flex-col hover:scale-105 transition-transform duration-500 h-full">
+                <div
+                  key={key}
+                  id={sub.slug}
+                  className="relative flex flex-col hover:scale-105 transition-transform duration-500 h-full"
+                >
                   {sub.image && (
                     <div className="w-full relative h-64 overflow-hidden flex-shrink-0">
                       <img
@@ -112,10 +124,12 @@ export default function AboutSection({ section }: SectionProps) {
                     </div>
                   )}
                   <div className="w-full bg-white p-8 md:p-10 relative z-10 -mt-8 shadow-lg flex flex-col flex-grow">
-                    <h3 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 animate-slideUp playfair text-gradient">
+                    <h3 className="text-3xl md:text-4xl md:leading-[1.5] font-bold mb-4 text-gray-800 animate-slideUp playfair text-gradient">
                       {sub.title}
                     </h3>
-                    <p className="text-gray-700 leading-relaxed flex-grow">{sub.content}</p>
+                    <p className="text-gray-700 leading-relaxed flex-grow">
+                      {sub.content}
+                    </p>
                   </div>
                 </div>
               );
