@@ -23,8 +23,8 @@
           ],
           "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1470&q=80"
         },
-        "vision": {
-          "slug": "vision",
+        "our-vision": {
+          "slug": "our-vision",
           "title": "Our Vision",
           "content": "To be a global leader in salt and mineral solutions, combining tradition with innovation. We aim to provide sustainable, high-quality products while creating long-term value for customers and partners worldwide.",
           "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80"
@@ -51,7 +51,7 @@
         "slug": "food-grade-salt",
         "description": "Namakwala’s bring you premium-quality Food Grade Salts that are not just tasty but also healthy. Our Edible Salt meets all prescribed IDD (Iodine Deficiency Disorder) standards and is trusted by households and industries worldwide. Free-flowing, fine in texture, and perfectly balanced in taste, it’s an essential ingredient for everyday cooking and large-scale food production.\n\nFortified with iodine above natural levels, our Food Grade Salt goes beyond enhancing flavor—it supports overall wellness and nutritional needs. Carefully processed to maintain purity and natural minerals, it guarantees both quality and consistency in every grain.\n\nTrusted globally by chefs, home kitchens, and food manufacturers, Namakwala Food Grade Salts deliver the perfect blend of taste, health, and reliability.",
         "banner": {
-          "title": "Premium Food Grade Salt Supplier & Exporter",
+          "title": "Premium Salt Manufacturer & Exporter",
           "heading": "Healthy, Tasty & Consistent – Food Grade Salt for Every Need",
           "image": "/assets/products/namakwala-food-grade-salt.png"
         },
@@ -251,7 +251,7 @@
       "garnet-abrasive": {
         "title": "Garnet Abrasive",
         "banner": {
-          "title": "Garnet Abrasive",
+          "title": "Premium Minerals Manufacturer & Exporter",
           "heading": "High-Performance Eco-Friendly Industrial Abrasive",
           "image": "/assets/products/namakwala-garnet-abrasive.png"
         },

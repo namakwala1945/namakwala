@@ -104,7 +104,7 @@ export default function AboutSection({ section }: SectionProps) {
 
           {/* Vision + Leadership + Founder’s Legacy */}
           <div className="grid lg:grid-cols-3 gap-10">
-            {["vision", "leadership", "founder-legacy"].map((key) => {
+            {["our-vision", "leadership", "founder-legacy"].map((key) => {
               const sub = section.sections?.[key];
               if (!sub) return null;
 

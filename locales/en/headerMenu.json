@@ -5,45 +5,32 @@
     "link": "/about",
     "content": [
        {
-      "title": "About",
-      "slug": "about",
-      "categories": [
-        {
-        "title": "Our Journey",
-        "slug": "our-journey",
-        "products": [
-          {
-            "title": "Garnet Sand 80 Mesh",
-            "slug": "garnet-sand-80-mesh",
-            "image": "/images/products/garnet-sand-80.jpg",
-            "shortDescription": "High-performance garnet abrasive for waterjet cutting.",
-            "description": "Durable and sharp garnet sand, ideal for sandblasting and cutting."
-          }
-        ]
-      },
-        {
-        "title": "Milestones",
-        "slug": "milestones",
-        "products": [
-          {
-            "title": "Silica Sand",
-            "slug": "silica-sand",
-            "image": "/images/products/silica-sand.jpg",
-            "shortDescription": "High purity silica sand for industrial use.",
-            "description": "Used in glassmaking, construction, and foundry applications."
-          },
-          {
-            "title": "Gypsum Powder",
-            "slug": "gypsum-powder",
-            "image": "/images/products/gypsum-powder.jpg",
-            "shortDescription": "Fine white gypsum powder for construction.",
-            "description": "Widely used in cement production and plastering."
-          }
-        ]
-      }
+        "title": "About",
+        "slug": "about",
+        "categories": [
+            {
+              "title": "Our Journey",
+              "slug": "our-journey"
+            },
+            {
+              "title": "Milestones",
+              "slug": "milestones"
+            },
+            {
+              "title": "Our Vision",
+              "slug": "our-vision"
+            },
+            {
+              "title": "Leadership",
+              "slug": "leadership"
+            },
+            {
+              "title": "Founder’s Legacy",
+              "slug": "founders-legacy"
+            }
+          ]
+        }
       ]
-    }
-    ]
   },
   {
   "name": "Businesses",

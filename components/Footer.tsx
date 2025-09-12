@@ -219,7 +219,7 @@ export default function Footer() {
           </div>
         </div> */}
       {/* Visitor Count */}
-        <VisitorCounter/>
+        {/* <VisitorCounter/> */}
 
       {/* Bottom Bar */}
       <div className="border-t border-border bg-muted/50">

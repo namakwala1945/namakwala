@@ -39,12 +39,12 @@ export default function BusinessSection() {
       {/* Main Content */}
       <div className="relative z-10 flex flex-col md:flex-row h-full w-full md:w-[95%] mx-auto">
         {/* Tabs (Top on Mobile, Right on Desktop) */}
-        <div className="flex flex-wrap md:flex-col order-1 md:order-2 w-full md:w-1/3 p-4 md:p-12 text-white">
+        <div className="flex flex-wrap md:flex-col order-1 md:order-2 w-full md:w-1/3 p-4 md:p-12 text-white md:justify-center">
           {businesses.map((b, index) => (
             <button
               key={index}
               onClick={() => setActive(index)}
-              className={`w-1/2 md:w-full text-center md:text-left py-2 px-2 md:px-4 border-b-4 transition-all duration-300 uppercase text-sm md:text-xl ${
+              className={`w-1/2 md:w-full text-center md:text-left py-4 px-2 md:px-4 border-b-4 transition-all duration-300 uppercase text-sm md:text-xl ${
                 active === index
                   ? "border-[#be9244] text-white"
                   : "border-gray-300 hover:border-[#be9244]"
@@ -54,6 +54,7 @@ export default function BusinessSection() {
             </button>
           ))}
         </div>
+
 
         {/* Left Content */}
         <div className="order-2 md:order-1 w-full md:w-2/3 p-4 md:p-12 flex flex-col justify-center text-white">
