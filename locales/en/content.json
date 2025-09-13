@@ -51,7 +51,7 @@
         "slug": "food-grade-salt",
         "description": "Namakwala’s bring you premium-quality Food Grade Salts that are not just tasty but also healthy. Our Edible Salt meets all prescribed IDD (Iodine Deficiency Disorder) standards and is trusted by households and industries worldwide. Free-flowing, fine in texture, and perfectly balanced in taste, it’s an essential ingredient for everyday cooking and large-scale food production.\n\nFortified with iodine above natural levels, our Food Grade Salt goes beyond enhancing flavor—it supports overall wellness and nutritional needs. Carefully processed to maintain purity and natural minerals, it guarantees both quality and consistency in every grain.\n\nTrusted globally by chefs, home kitchens, and food manufacturers, Namakwala Food Grade Salts deliver the perfect blend of taste, health, and reliability.",
         "banner": {
-          "title": "Premium Salt Manufacturer & Exporter",
+          "title": "Delivering high-quality, sustainable natural sea salt for diverse households & industrial applications worldwide",
           "heading": "Healthy, Tasty & Consistent – Food Grade Salt for Every Need",
           "image": "/assets/products/namakwala-food-grade-salt.png"
         },
@@ -251,7 +251,7 @@
       "garnet-abrasive": {
         "title": "Garnet Abrasive",
         "banner": {
-          "title": "Premium Minerals Manufacturer & Exporter",
+          "title": "Delivering high-quality, sustainable minerals for diverse industrial applications worldwide",
           "heading": "High-Performance Eco-Friendly Industrial Abrasive",
           "image": "/assets/products/namakwala-garnet-abrasive.png"
         },
@@ -1326,6 +1326,21 @@
           "image": "/assets/certifications/namakwala-agricultural-and-processed-food-products-export-development-authority-apeda-vector-logo.png",
           "name": "APEDA Registered",
           "description": "Agricultural & Processed Food Products Export"
+        },
+        {
+          "image": "/assets/certifications/namakwala-hala.jpg",
+          "name": "Hala Certified",
+          "description": "Certified Halal: Trust, Purity, Faith."
+        },
+        {
+          "image": "/assets/certifications/namakwala-haccp.jpg",
+          "name": "Haccp Certified",
+          "description": "Ensuring Your Food is Safe, Certified."
+        },
+        {
+          "image": "/assets/certifications/namakwala-iso-22000.jpg",
+          "name": "22000 ISO Certified",
+          "description": "Ensuring Your Food is Safe, Certified."
         }
       ]
 

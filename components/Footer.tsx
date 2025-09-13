@@ -1,16 +1,14 @@
 import { Button } from "@/components/ui/button";
-import { Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, Globe, ArrowRight } from "lucide-react";
 import headerMenu from "@/locales/en/headerMenu.json";
-import { MapPin, Phone, Mail, Globe, Clock, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import VisitorCounter from "./VisitorCount";
+
 function getFooterLinks() {
-  return headerMenu.filter(
-    (menu) => menu.name === "About" || menu.name === "Businesses"
+  return Object.values(headerMenu).filter(
+    (menu: any) => menu.name === "About" || menu.name === "Businesses"
   );
 }
-
 
 const footerSections = [
   {
@@ -18,8 +16,8 @@ const footerSections = [
     links: [
       { name: "Privacy Policy", href: "/privacy-policy" },
       { name: "Legal Notice", href: "/legal-notice" },
-      { name: "Fraud Alert", href: "/fraud-alert" }
-    ]
+      { name: "Fraud Alert", href: "/fraud-alert" },
+    ],
   },
   {
     title: "Resources",
@@ -28,9 +26,9 @@ const footerSections = [
       { name: "News & Media", href: "/news-mdia" },
       { name: "Contact Us", href: "/contact" },
       { name: "Blog", href: "/blog" },
-      { name: "FAQs", href: "/faqs" }
-    ]
-  }
+      { name: "FAQs", href: "/faqs" },
+    ],
+  },
 ];
 
 const socialLinks = [
@@ -38,15 +36,7 @@ const socialLinks = [
   { name: "Twitter", icon: Twitter, href: "https://twitter.com/yourpage" },
   { name: "Facebook", icon: Facebook, href: "https://facebook.com/yourpage" },
   { name: "Instagram", icon: Instagram, href: "https://instagram.com/yourpage" },
-  { name: "YouTube", icon: Youtube, href: "https://youtube.com/yourpage" }
-];
-
-
-const certifications = [
-  "ISO 9001:2015",
-  "FSSAI Certified",
-  "APEDA Registered",
-  "Export Excellence Award"
+  { name: "YouTube", icon: Youtube, href: "https://youtube.com/yourpage" },
 ];
 
 export default function Footer() {
@@ -56,25 +46,27 @@ export default function Footer() {
       {/* Main Footer Content */}
       <div className="w-auto relative mx-auto px-4 md:px-8 lg:px-12 py-16 overflow-hidden">
         {/* Background Image */}
-          <div className="absolute inset-0 -z-10">
-            <Image
-              src="/assets/namakwala-footer.jpg"
-              alt="Footer background"
-              fill
-              className="object-cover opacity-40 mix-blend-multiply"
-              priority
-            />
-          </div>
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src="/assets/namakwala-footer.jpg"
+            alt="Footer background"
+            fill
+            className="object-cover opacity-40 mix-blend-multiply"
+            priority
+          />
+        </div>
+
+        {/* Footer Sections */}
         <div className="grid md:grid-cols-4 gap-8 relative">
           {/* About */}
           {footerMenus
-            .filter((menu) => menu.name === "About")
-            .map((menu) => (
+            .filter((menu: any) => menu.name === "About")
+            .map((menu: any) => (
               <div key={menu.name}>
                 <h4 className="text-lg font-semibold mb-4">{menu.name}</h4>
                 <ul className="space-y-3">
-                  {menu.content?.map((section) =>
-                    section.categories.map((cat) => (
+                  {menu.content?.map((section: any) =>
+                    section.categories.map((cat: any) => (
                       <li key={cat.slug}>
                         <Link
                           href={`/${menu.link.replace("/", "")}#${cat.slug}`}
@@ -91,17 +83,17 @@ export default function Footer() {
               </div>
             ))}
 
-          {/* Businesses (Salt & Minerals only) */}
+          {/* Businesses */}
           {footerMenus
-            .filter((menu) => menu.name === "Businesses")
-            .map((menu) => (
+            .filter((menu: any) => menu.name === "Businesses")
+            .map((menu: any) => (
               <div key={menu.name}>
                 <h4 className="text-lg font-semibold mb-4">{menu.name}</h4>
                 <ul className="space-y-3">
-                  {menu.content.map((section) => (
+                  {menu.content.map((section: any) => (
                     <li key={section.slug}>
                       <Link
-                        href={`/${section.slug}`} // 👈 goes directly to Salt / Minerals page
+                        href={`/${section.slug}`}
                         scroll={true}
                         className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm flex items-center group"
                       >
@@ -159,7 +151,7 @@ export default function Footer() {
             ))}
         </div>
 
-        {/* Follow Us (separate and centered) */}
+        {/* Social Links */}
         <div className="mt-12 text-center">
           <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
           <div className="flex justify-center space-x-6">
@@ -180,46 +172,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      {/* Newsletter Subscription
-        <div className="mt-12 pt-8 border-t border-border">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-2xl font-bold mb-2">Stay Connected</h3>
-              <p className="text-muted-foreground">
-                Get the latest updates on new products, market insights, and export opportunities
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                className="flex-1 px-4 py-3 border border-border focus:outline-none focus:ring-2 focus:ring-primary bg-background"
-              />
-              <Button variant="hero" className="px-8">
-                Subscribe
-              </Button>
-            </div>
-          </div>
-        </div> */}
-
-        {/* Certifications */}
-        {/* <div className="py-8 border-t border-border">
-          <div className="text-center">
-            <h4 className="text-lg font-semibold mb-4">Our Certifications</h4>
-            <div className="flex flex-wrap justify-center gap-4">
-              {certifications.map((cert) => (
-                <div
-                  key={cert}
-                  className="bg-white border border-border px-4 py-2 text-sm font-medium hover-lift"
-                >
-                  {cert}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div> */}
-      {/* Visitor Count */}
-        {/* <VisitorCounter/> */}
 
       {/* Bottom Bar */}
       <div className="border-t border-border bg-muted/50">
@@ -228,7 +180,6 @@ export default function Footer() {
             <div className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} NAMAKWALA. All rights reserved.
             </div>
-            
             <div className="flex items-center gap-6 text-sm">
               <a href="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">
                 Privacy Policy
@@ -236,7 +187,7 @@ export default function Footer() {
               <a href="/term-service" className="text-muted-foreground hover:text-primary transition-colors">
                 Terms of Service
               </a>
-              <a href="export-terms" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="/export-terms" className="text-muted-foreground hover:text-primary transition-colors">
                 Export Terms
               </a>
               <div className="flex items-center gap-2 text-muted-foreground">

@@ -46,18 +46,18 @@ export default function FoundationSection() {
     );
 
   return (
-    <section className="min-h-screen md:h-[80vh] flex items-center bg-[#fdf2df] shadow-lg p-4 md:p-16 poppins">
-      <div className="w-full md:w-[95%] mx-auto bg-white overflow-hidden">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
+    <section className="h-screen w-full flex items-center bg-[#fdf2df] shadow-lg p-4 md:p-16 poppins">
+      <div className="w-full md:w-[95%] mx-auto bg-white overflow-hidden h-[80vh]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 h-full">
           {/* Left Side (Content) */}
-          <div className="md:col-span-5 flex flex-col space-y-4 p-4 md:p-6">
+          <div className="md:col-span-4 flex flex-col space-y-4 p-4 md:p-6 h-full">
             {section.logo && (
               <Image
                 src={section.logo}
                 alt={section.heading}
-                width={250}
-                height={100}
-                className="object-contain mb-2 mx-auto md:mx-0"
+                width={300}
+                height={113}
+                className="object-contain mb-2 mx-auto"
               />
             )}
             <p className="text-gray-700 text-sm md:text-base leading-relaxed text-center md:text-left">
@@ -66,10 +66,10 @@ export default function FoundationSection() {
           </div>
 
           {/* Right Side (Slider) */}
-          <div className="md:col-span-7 relative w-full h-[40vh] md:h-[60vh] overflow-hidden">
+          <div className="md:col-span-8 relative w-full h-full overflow-hidden">
             {section.slider && (
               <Image
-                key={current} // ✅ forces re-render when slide changes
+                key={current}
                 src={section.slider[current]}
                 alt={`Slide ${current + 1}`}
                 fill
@@ -94,5 +94,6 @@ export default function FoundationSection() {
         </div>
       </div>
     </section>
+
   );
 }
