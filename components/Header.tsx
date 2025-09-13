@@ -147,74 +147,92 @@ export default function Header() {
       )}
 
       {/* Mobile menu */}
-        <div
-          className={`md:hidden fixed top-0 left-0 w-full h-screen bg-white text-black z-50 shadow-lg overflow-auto transition-transform duration-300 ${
-            mobileOpen ? "translate-y-0" : "-translate-y-full"
-          }`}
-        >
-          <div className="px-4 py-4 space-y-3 mt-20"> {/* mt-20 to avoid logo overlap */}
-            {menuItems.map((item, i) => (
-              <div key={`mobile-${i}`}>
-                <div className="flex items-center justify-between">
-                  <Link
-                    href={item.link || "#"}
-                    className="block py-2 font-semibold"
-                    onClick={handleLinkClick} // Close menu on link click
-                  >
-                    {item.name}
-                  </Link>
-                  {item.megamenu && (
-                    <button className="p-1" onClick={() => toggleMobileSub(i)}>
-                      {mobileSubOpen[i] ? <FiChevronUp size={20} /> : <FiChevronDown size={20} />}
-                    </button>
-                  )}
-                </div>
+      <div
+        className={`md:hidden fixed inset-0 z-50 bg-white text-black shadow-lg overflow-auto transition-transform duration-300 transform ${
+          mobileOpen ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
+        {/* Header with logo and close button */}
+        <div className="flex items-center justify-between px-4 pt-4 pb-2 border-b">
+          {/* Logo on left */}
+          <div className="flex-shrink-0">
+            <Link href="/" onClick={handleLinkClick}>
+              <Image src="/namakwala-logo.png" alt="Namakwala" width={90} height={90} className="object-contain" />
+            </Link>
+          </div>
 
-                {item.megamenu && mobileSubOpen[i] && (
-                  <div className="pl-4 pt-2 space-y-2">
-                    {item.content?.map((section, secIdx) => (
-                      <div key={`mob-section-${i}-${secIdx}`}>
-                        <div className="flex items-center justify-between">
-                          <Link
-                            href={`/${section.slug}`}
-                            className="block text-1xl uppercase mb-4"
-                            onClick={handleLinkClick}
-                          >
-                            {section.title}
-                          </Link>
-                          {section.categories && section.categories.length > 0 && (
-                            <button className="p-1" onClick={() => toggleMobileInner(i, secIdx)}>
-                              {mobileInnerOpen[`${i}-${secIdx}`] ? (
-                                <FiChevronUp size={18} />
-                              ) : (
-                                <FiChevronDown size={18} />
-                              )}
-                            </button>
-                          )}
-                        </div>
-
-                        {section.categories && mobileInnerOpen[`${i}-${secIdx}`] && (
-                          <div className="pl-4 pt-2 space-y-1">
-                            {section.categories.map(cat => (
-                              <Link
-                                key={`${i}-${secIdx}-${cat.slug}`}
-                                href={`/${section.slug}#${cat.slug}`}
-                                className="block text-sm capitalize"
-                                onClick={handleLinkClick}
-                              >
-                                {cat.title}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+          {/* Close button on right */}
+          <div>
+            <button onClick={() => setMobileOpen(false)} className="p-2">
+              <FiX size={28} />
+            </button>
           </div>
         </div>
+
+        <div className="pt-4 px-4 space-y-3">
+          {menuItems.map((item, i) => (
+            <div key={`mobile-${i}`}>
+              <div className="flex items-center justify-between">
+                <Link
+                  href={item.link || "#"}
+                  className="block py-2 font-semibold"
+                  onClick={handleLinkClick}
+                >
+                  {item.name}
+                </Link>
+                {item.megamenu && (
+                  <button className="p-1" onClick={() => toggleMobileSub(i)}>
+                    {mobileSubOpen[i] ? <FiChevronUp size={20} /> : <FiChevronDown size={20} />}
+                  </button>
+                )}
+              </div>
+
+              {item.megamenu && mobileSubOpen[i] && (
+                <div className="pl-4 pt-2 space-y-2">
+                  {item.content?.map((section, secIdx) => (
+                    <div key={`mob-section-${i}-${secIdx}`}>
+                      <div className="flex items-center justify-between">
+                        <Link
+                          href={`/${section.slug}`}
+                          className="block text-1xl uppercase mb-2"
+                          onClick={handleLinkClick}
+                        >
+                          {section.title}
+                        </Link>
+                        {section.categories && section.categories.length > 0 && (
+                          <button className="p-1" onClick={() => toggleMobileInner(i, secIdx)}>
+                            {mobileInnerOpen[`${i}-${secIdx}`] ? (
+                              <FiChevronUp size={18} />
+                            ) : (
+                              <FiChevronDown size={18} />
+                            )}
+                          </button>
+                        )}
+                      </div>
+
+                      {section.categories && mobileInnerOpen[`${i}-${secIdx}`] && (
+                        <div className="pl-4 pt-1 space-y-1">
+                          {section.categories.map(cat => (
+                            <Link
+                              key={`${i}-${secIdx}-${cat.slug}`}
+                              href={`/${section.slug}#${cat.slug}`}
+                              className="block text-sm capitalize"
+                              onClick={handleLinkClick}
+                            >
+                              {cat.title}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
 
     </header>
   );

@@ -32,11 +32,11 @@ const footerSections = [
 ];
 
 const socialLinks = [
-  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/company/yourpage" },
-  { name: "Twitter", icon: Twitter, href: "https://twitter.com/yourpage" },
-  { name: "Facebook", icon: Facebook, href: "https://facebook.com/yourpage" },
-  { name: "Instagram", icon: Instagram, href: "https://instagram.com/yourpage" },
-  { name: "YouTube", icon: Youtube, href: "https://youtube.com/yourpage" },
+  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/" },
+  { name: "Twitter", icon: Twitter, href: "https://twitter.com/" },
+  { name: "Facebook", icon: Facebook, href: "https://facebook.com/" },
+  { name: "Instagram", icon: Instagram, href: "https://instagram.com/" },
+  { name: "YouTube", icon: Youtube, href: "https://youtube.com/" },
 ];
 
 export default function Footer() {

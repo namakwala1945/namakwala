@@ -4,6 +4,7 @@
 import { useState } from "react";
 import content from "../locales/en/content.json";
 import Link from "next/link";
+import Image from "next/image";
 
 type Business = {
   title: string;
@@ -58,13 +59,20 @@ export default function BusinessSection() {
 
         {/* Left Content */}
         <div className="order-2 md:order-1 w-full md:w-2/3 p-4 md:p-12 flex flex-col justify-center text-white">
-          <h3 className="text-lg md:text-2xl font-semibold mb-4 md:mb-6 uppercase">
-            Our Businesses
+          <h3 className="flex items-center gap-3 text-lg md:text-2xl font-semibold mb-4 md:mb-6 uppercase">
+            <Image
+              src="/assets/logo-ring.png"
+              alt="Namakwala Ring"
+              width={80}
+              height={80}
+              className="object-contain"
+            />
+            <span>Our Businesses</span>
           </h3>
           <h1 className="text-3xl md:text-6xl playfair mb-4">
             {businesses[active].title}
           </h1>
-          <p className="text-sm md:text-lg whitespace-pre-line">
+          <p className="whitespace-pre-line text-sm md:text-base leading-relaxedt">
             {businesses[active].description}
           </p>
           <div className="mt-6 md:mt-12 flex flex-col sm:flex-row gap-4">

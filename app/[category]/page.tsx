@@ -106,7 +106,7 @@ export default async function CategoryPage({ params }: Props) {
   return (
     <section className="relative bg-[#d2ab67] poppins">
       {/* Hero Banner */}
-      <div className="inset-0 top-0">
+      <div className="inset-0 top-0 playfair">
         <PageBanner title={banner.title} image={banner.image} category={banner.heading} />
       </div>
 

@@ -63,7 +63,7 @@ export default function BrandSection() {
         {/* Certifications */}
         <div className="mb-8 md:mb-12">
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8">
-            <span className="playfair text-gradient">{`Quality Certifications`}</span>
+            <span className="playfair text-gradient">{`Certifications`}</span>
           </h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
@@ -80,7 +80,7 @@ export default function BrandSection() {
                     className="object-contain"
                   />
                 </div>
-                <h4 className="font-bold mb-1 sm:mb-2 text-sm sm:text-base">
+                <h4 className="font-bold mb-1 sm:mb-2 text-sm sm:text-base uppercase">
                   {cert.name}
                 </h4>
                 <p className="text-xs sm:text-sm text-muted-foreground">

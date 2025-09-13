@@ -3,7 +3,7 @@
     "our-journey": {
       "slug": "our-journey",
       "title": "Our Journey",
-      "content": "Founded in 1945 in Bhilwara, Rajasthan, Namakwala has grown from a salt shopkeeper into India’s leading manufacturer and exporter of Salt and Minerals. Today, we serve industries and households in 50+ countries, delivering products known for purity, quality, and trust.",
+      "content": "Founded in 2023 in Bhilwara, Rajasthan, Namakwala has grown from a salt shopkeeper into India’s leading manufacturer and exporter of Salt and Minerals. Today, we serve industries and households in 50+ countries, delivering products known for purity, quality, and trust.",
       "banner": {
         "title": "About",
         "heading": "Dedication | Growth | Passion",
@@ -15,7 +15,7 @@
           "title": "Key Milestones",
           "content": [
             "1945 – Established by Late Shri Badrilal Lohia in Bhilwara, Rajasthan.",
-            "1970 – Began professional salt grinding.",
+            "1960 – Began professional salt grinding.",
             "1970 – Introduced consumer salt packs, a first in India.",
             "1980 –2000 – Expanded into bulk trade and industrial salts, strengthening domestic presence.",
             "2000 – 2020 – Entered global markets, building strong export relationships.",
@@ -51,9 +51,9 @@
         "slug": "food-grade-salt",
         "description": "Namakwala’s bring you premium-quality Food Grade Salts that are not just tasty but also healthy. Our Edible Salt meets all prescribed IDD (Iodine Deficiency Disorder) standards and is trusted by households and industries worldwide. Free-flowing, fine in texture, and perfectly balanced in taste, it’s an essential ingredient for everyday cooking and large-scale food production.\n\nFortified with iodine above natural levels, our Food Grade Salt goes beyond enhancing flavor—it supports overall wellness and nutritional needs. Carefully processed to maintain purity and natural minerals, it guarantees both quality and consistency in every grain.\n\nTrusted globally by chefs, home kitchens, and food manufacturers, Namakwala Food Grade Salts deliver the perfect blend of taste, health, and reliability.",
         "banner": {
-          "title": "Delivering high-quality, sustainable natural sea salt for diverse households & industrial applications worldwide",
+          "title": "Premium Salt manufacturer & exporter from India",
           "heading": "Healthy, Tasty & Consistent – Food Grade Salt for Every Need",
-          "image": "/assets/products/namakwala-food-grade-salt.png"
+          "image": "/assets/pagebanner/namakwala-salt-banner.jpeg"
         },
         "productImage": "/assets/products/namakwala-food-grade-salt.png",
         "keyFeatures": [
@@ -82,7 +82,7 @@
           "Shelf Life": "24 months"
         },
         "specNote": "Specifications and packaging can be customized as per customer needs.",
-        "note": "We export Food Grade Salts to Asia, Middle East, Africa, Europe, and America, catering to both bulk industrial buyers and retail FMCG brands. With our strong logistics and strict quality assurance, we ensure timely delivery and consistent quality in every shipment.",
+        "note": "Namakwala is a leading food grade salt exporter from India, supplying edible salts to Asia, Middle East, Africa, Europe & America. High purity, hygienic packaging & timely delivery guaranteed.",
         "metadata": {
           "title": "Food Grade Salt - Namakwala",
           "description": "Premium Food Grade Salt fortified with iodine and trusted worldwide for everyday cooking, hospitality, and food processing.",
@@ -145,7 +145,7 @@
           "Shelf Life": "24 months"
         },
         "specNote": "Specifications and grades can be customized based on industrial requirements",
-        "note": "We export Industrial Salts to Asia, Middle East, Africa, Europe, and America, catering to both bulk industrial buyers and retail FMCG brands. With strong logistics and strict quality assurance, Namakwala ensures timely delivery and consistent quality in every shipment."
+        "note": "Namakwala is a trusted industrial salt exporter from India, supplying bulk salt to Asia, Middle East, Africa, Europe. Reliable logistics, competitive pricing & consistent quality."
       },
       "crystal-raw-salt": {
         "title": "Crystal Raw Salt",
@@ -181,7 +181,7 @@
           "Shelf Life": "36 months"
         },
         "specNote": "Specifications and crystal sizes can be customized to meet industrial requirements",
-        "note": "We export Crystal Raw Salt to Asia, Middle East, Africa, Europe, and America, catering to both bulk industrial buyers and retail FMCG brands. With strong logistics and strict quality assurance, Namakwala ensures timely delivery and consistent quality in every shipment."
+        "note": "Namakwala exports premium crystal raw salt from India to Asia, Middle East, Africa, Europe & America. Trusted supplier for bulk industries & FMCG brands with assured quality & timely delivery."
       },
       "water-softening-salt": {
         "title": "Water Softening / Pool / Tablet Salt",
@@ -217,7 +217,7 @@
           "Shelf Life": "24 months"
         },
         "specNote": "Formulation and packaging can be customized for residential or commercial pool requirements.",
-        "note": "We export Pool and Water Softening Salts to Asia, Middle East, Africa, Europe, and America, catering to both bulk commercial buyers and retail brands. With strong logistics and strict quality assurance, Namakwala ensures timely delivery and consistent quality in every shipment.",
+        "note": "Namakwala exports premium pool salt and water softening salt from India to Asia, Middle East, Africa, Europe & America. High-purity, consistent quality & timely delivery for bulk and retail buyers.",
         "metadata": {
           "title": "Water Softening & Pool Salt - Namakwala",
           "description": "Premium water softening, pool, and tablet salts for crystal-clear water and eco-friendly maintenance.",
@@ -251,9 +251,9 @@
       "garnet-abrasive": {
         "title": "Garnet Abrasive",
         "banner": {
-          "title": "Delivering high-quality, sustainable minerals for diverse industrial applications worldwide",
-          "heading": "High-Performance Eco-Friendly Industrial Abrasive",
-          "image": "/assets/products/namakwala-garnet-abrasive.png"
+          "title": "Delivering high-quality, Sustainable Minerals",
+          "heading": "Industrial Minerals exporter India",
+          "image": "/assets/global-reach.jpg"
         },
         "productImage": "/assets/products/namakwala-garnet-abrasive.png",
         "description": "Garnet Abrasive is a natural mineral abrasive derived from almandine garnet, known for its hardness, durability, and high specific gravity. With a Mohs hardness of 7.5–8, Garnet is one of the most effective and eco-friendly abrasives used in waterjet cutting, sandblasting, surface preparation, filtration, and abrasive powders.\n\nUnlike silica sand, Garnet is free from hazardous crystalline silica, making it safer, cleaner, and more efficient for industrial applications. We supply high-quality Garnet Abrasive grains and powders in multiple mesh sizes to meet diverse industry requirements.",
@@ -650,7 +650,7 @@
     "banner": {
       "title": "Contact Namakwala",
       "heading": "Experience the purity and excellence of Namakwala.",
-      "image": "/assets/pagebanner/namakwala-contactus.jpeg"
+      "image": "/assets/pagebanner/namakwala-contactus-1.jpg"
     },
     "addresses": [
       {
@@ -705,8 +705,7 @@
         "images": ["/assets/heroBanner/2.3-Food-Grade-Salt.jpg"]
       }
     }
-  }
-,
+  },
   "privacy-policy": {
     "title": "Privacy Policy - Namakwala",
     "content": "At Namakwala Group, we respect your privacy and are committed to protecting your personal information. This policy explains how we collect, use, and protect information provided by visitors to our website and applications.",
@@ -1302,45 +1301,50 @@
     "subtitle": "Celebrating India’s heritage and innovation, our brands deliver authentic quality, global recognition, and trusted excellence across diverse industries.",
     "achievements": [
       { "label": "Years of Excellence", "value": "80+" },
-      { "label": "Trusted Brands", "value": "50+" },
-      { "label": "Quality Certifications", "value": "25+" },
+      { "label": "Trusted Brands", "value": "110+" },
+      { "label": "Quality Certifications", "value": "10+" },
       { "label": "Countries", "value": "50+" }
     ],
     "certifications": [
         {
-          "image": "/assets/certifications/namakwala-ISO9001-stamp.png",
+          "image": "/assets/certifications/namakwala-iso-9001.png",
           "name": "ISO 9001:2015",
-          "description": "Quality Management System"
+          "description": "Quality & Compliance Standards"
         },
         {
-          "image": "/assets/certifications/namakwala-FSSAI-Certified.png",
-          "name": "FSSAI Certified",
+          "image": "/assets/certifications/namakwala-iso-22000.png",
+          "name": "ISO 22000",
+          "description": "Food Safety Assurance"
+        },
+        {
+          "image": "/assets/certifications/namakwala-haccp.png",
+          "name": "Haccp",
+          "description": "Preventive Safety Control"
+        },
+        {
+          "image": "/assets/certifications/namakwala-halal.png",
+          "name": "Halal",
+          "description": "Lawful & Permissible Standards"
+        },
+        {
+          "image": "/assets/certifications/namakwala-FSSAI.png",
+          "name": "FSSAI",
           "description": "Food Safety Standards"
         },
         {
           "image": "/assets/certifications/namakwala-export-excellence.png",
           "name": "Export Excellence",
-          "description": "Government of India Recognition"
+          "description": "Recognized for Global Trade Performance"
         },
         {
-          "image": "/assets/certifications/namakwala-agricultural-and-processed-food-products-export-development-authority-apeda-vector-logo.png",
-          "name": "APEDA Registered",
-          "description": "Agricultural & Processed Food Products Export"
+          "image": "/assets/certifications/namakwala-apeda.png",
+          "name": "APEDA",
+          "description": "Agricultural & Processed Food Export Development Authority"
         },
         {
-          "image": "/assets/certifications/namakwala-hala.jpg",
-          "name": "Hala Certified",
-          "description": "Certified Halal: Trust, Purity, Faith."
-        },
-        {
-          "image": "/assets/certifications/namakwala-haccp.jpg",
-          "name": "Haccp Certified",
-          "description": "Ensuring Your Food is Safe, Certified."
-        },
-        {
-          "image": "/assets/certifications/namakwala-iso-22000.jpg",
-          "name": "22000 ISO Certified",
-          "description": "Ensuring Your Food is Safe, Certified."
+          "image": "/assets/certifications/namakwala-fieo.png",
+          "name": "FIEO",
+          "description": "Federation of Indian Export Organisations"
         }
       ]
 
