@@ -47,18 +47,19 @@ function AboutContent() {
 
   return (
     <section className="relative bg-[#d2ab67] poppins">
-      {/* Top Banner */}
+      {/* ✅ Top Banner */}
       <PageBanner
         title={topBanner.title}
         image={topBanner.image}
         category={topBanner.heading}
       />
 
-      {/* Enable #id scrolling */}
+      {/* ✅ Enable #id scrolling */}
       <Suspense fallback={<div className="text-center py-20">Loading...</div>}>
         <HashScroll />
       </Suspense>
 
+      {/* ✅ Sections */}
       <div className="container mx-auto py-12 space-y-16">
         {Object.entries(aboutData).map(([sectionKey, section]) => (
           <AboutSection key={sectionKey} section={section} />
@@ -68,9 +69,12 @@ function AboutContent() {
   );
 }
 
+// ----------------------
+// Main Export
+// ----------------------
 export default function AboutPage() {
   return (
-    <Suspense fallback={<div>Loading about page...</div>}>
+    <Suspense fallback={<div className="text-center py-20">Loading...</div>}>
       <AboutContent />
     </Suspense>
   );

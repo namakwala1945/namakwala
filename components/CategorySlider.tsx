@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import categories from "../locales/en/categoryProduct.json";
+import Image from "next/image";
 
 export default function CategorySlider() {
   const [startIndex, setStartIndex] = useState(0);
@@ -86,10 +87,12 @@ export default function CategorySlider() {
                 >
                   <div className="export-card h-full overflow-hidden group-hover:scale-105 transition-transform duration-300">
                     <div className="relative overflow-hidden mb-4">
-                      <img
+                      <Image
                         src={category.image}
                         alt={category.name}
                         className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                        priority
+                        fill
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>

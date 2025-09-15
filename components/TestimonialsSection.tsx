@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -131,10 +132,12 @@ export default function TestimonialsSection() {
             <div className="relative z-10">
               <div className="flex flex-col md:flex-row items-center gap-8">
                 <div className="flex-shrink-0">
-                  <img
+                  <Image
                     src={testimonials[currentTestimonial].image}
                     alt={testimonials[currentTestimonial].name}
                     className="w-24 h-24 rounded-full object-cover shadow-lg"
+                    priority
+                    fill
                   />
                 </div>
                 
@@ -202,10 +205,12 @@ export default function TestimonialsSection() {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-center gap-4 mb-4">
-                <img
+                <Image
                   src={testimonial.image}
                   alt={testimonial.name}
                   className="w-16 h-16 rounded-full object-cover"
+                  priority
+                  fill
                 />
                 <div>
                   <div className="flex items-center gap-2 mb-1">

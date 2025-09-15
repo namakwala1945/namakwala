@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 
 interface NestedSection {
@@ -43,14 +44,17 @@ export default function AboutSection({ section }: SectionProps) {
           {/* Image */}
           {section.banner?.image && (
             <div
-              className="w-full md:w-1/2 mt-6 md:mt-0 relative md:-top-8 md:-ml-8 lg:-ml-16 overflow-hidden shadow-2xl flex-shrink-0 hover:scale-105 transition-transform duration-500"
+              className="w-full md:w-1/2 mt-6 md:mt-0 relative md:-top-8 md:-ml-8 lg:-ml-16 overflow-hidden shadow-2xl flex-shrink-0 hover:scale-105 transition-transform duration-500 h-64 sm:h-80 md:h-[350px] lg:h-[380px]"
             >
-              <img
+              <Image
                 src={section.banner.image}
                 alt={section.title}
-                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                className="object-cover"
+                priority
+                fill
               />
             </div>
+
           )}
         </div>
       ) : (
@@ -103,10 +107,12 @@ export default function AboutSection({ section }: SectionProps) {
                 >
                   {sub.image && (
                     <div className="w-full relative h-48 sm:h-56 md:h-64 overflow-hidden flex-shrink-0">
-                      <img
+                      <Image
                         src={sub.image}
                         alt={sub.title}
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                        priority
+                    fill
                       />
                     </div>
                   )}

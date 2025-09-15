@@ -1,6 +1,7 @@
 import { Calendar, Clock, ArrowRight, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 const blogPosts = [
   {
@@ -94,10 +95,12 @@ export default function BlogSection() {
           <div className="mb-12">
             <div className="grid lg:grid-cols-2 gap-8 export-card overflow-hidden">
               <div className="relative">
-                <img
+                <Image
                   src={featuredPost.image}
                   alt={featuredPost.title}
                   className="w-full h-64 lg:h-full object-cover hover:scale-105 transition-transform duration-500"
+                  priority
+                  fill
                 />
                 <Badge className="absolute top-4 left-4 bg-accent text-accent-foreground">
                   Featured
@@ -163,10 +166,12 @@ export default function BlogSection() {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative overflow-hidden">
-                <img
+                <Image
                   src={post.image}
                   alt={post.title}
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  priority
+                  fill
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>

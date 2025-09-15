@@ -47,11 +47,19 @@ type CategoryPageItem = {
 
 type CategoryData = Record<string, CategoryPageItem>;
 type Props = { params: { category: string } };
+// Static Params
+// ----------------------
+export async function generateStaticParams() {
+  const businesses = (content as any).businesses || {};
+  return Object.keys(businesses).map((category) => ({
+    category,
+  }));
+}
 
 // ----------------------
 // Metadata
 // ----------------------
-export async function generateMetadata({ params }: { params: Props["params"] }) {
+export async function generateMetadata({ params }: { params: { category: string } }) {
   // Await params object fully for dynamic route
   const resolvedParams = await Promise.resolve(params);
   const categoryKey = resolvedParams.category;
@@ -84,11 +92,12 @@ export async function generateMetadata({ params }: { params: Props["params"] }) 
     },
   };
 }
+// ----------------------
 
 // ----------------------
 // Category Page Component
 // ----------------------
-export default async function CategoryPage({ params }: Props) {
+export default async function CategoryPage({ params }: { params: { category: string } }) {
   // Resolve params in async page
   const resolvedParams = await Promise.resolve(params);
   const category = resolvedParams.category;

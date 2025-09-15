@@ -1,6 +1,7 @@
 // pages/resources/gallery.tsx
 import React from "react";
 import Head from "next/head";
+import Image from "next/image";
 
 const images = [
   "/images/gallery1.jpg",
@@ -18,7 +19,8 @@ const GalleryPage: React.FC = () => {
         <h1 className="text-3xl font-bold mb-4">Gallery</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {images.map((src, idx) => (
-            <img key={idx} src={src} alt={`Gallery ${idx + 1}`} className="w-full h-48 object-cover shadow-md" />
+            <Image key={idx} src={src} alt={`Gallery ${idx + 1}`} className="w-full h-48 object-cover shadow-md" priority
+                    fill/>
           ))}
         </div>
       </div>

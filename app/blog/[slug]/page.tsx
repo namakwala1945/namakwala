@@ -10,7 +10,6 @@ interface BlogPageProps {
 export const generateMetadata = async ({ params }: BlogPageProps) => {
   const post = blogData.posts.find((p) => p.slug === params.slug);
   if (!post) return {};
-
   const meta = post.metadata;
   return {
     title: meta.title,
@@ -34,6 +33,15 @@ export const generateMetadata = async ({ params }: BlogPageProps) => {
   };
 };
 
+// ----------------------
+// Static Params
+// ----------------------
+export async function generateStaticParams() {
+  return blogData.posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 export default function BlogDetailPage({ params }: BlogPageProps) {
   const post = blogData.posts.find((p) => p.slug === params.slug);
   if (!post) return notFound();
@@ -54,7 +62,6 @@ export default function BlogDetailPage({ params }: BlogPageProps) {
         <div className="mb-6 text-gray-600 text-sm">
           By <span className="font-semibold">{post.author}</span> • {post.date}
         </div>
-
         {post.content.map((para: string, i: number) => (
           <p key={i}>{para}</p>
         ))}

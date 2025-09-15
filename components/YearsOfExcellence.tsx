@@ -14,7 +14,7 @@ export default function YearsOfExcellence() {
 
   return (
     <>
-      {years}+
+      {years}+ Years of Excellence
     </>
   );
 }
