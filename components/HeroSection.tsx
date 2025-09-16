@@ -52,8 +52,7 @@ export default function HeroSection() {
               src={slide.image}
               alt={slide.title}
               className="object-cover"
-              width={1920}           // actual display size
-              height={1080}
+              fill
               priority                // load fast
               quality={70}           // compress
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1920px"
