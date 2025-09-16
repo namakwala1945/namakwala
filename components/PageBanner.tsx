@@ -17,9 +17,7 @@ export default function PageBanner({ title, image, category }: PageBannerProps) 
         src={image}
         alt={title}
         fill
-        className="object-cover object-top"
-        width={1920}           // actual display size
-        height={1080}
+        className="object-cover object-center"
         priority                // load fast
         quality={70}           // compress
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1920px"

@@ -33,7 +33,7 @@ export default function BlogPage() {
   const { page, posts } = blogData;
 
   return (
-    <section className="relative">
+    <section className="relative poppins">
       {/* ✅ Top Banner */}
       <div className="inset-0 top-0">
         <PageBanner
@@ -44,8 +44,8 @@ export default function BlogPage() {
       </div>
 
       {/* ✅ Blog List */}
-      <div className="container mx-auto px-6 py-16 space-y-16">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900">
+      <div className="container mx-auto px-6 py-16 space-y-16 text-center">
+        <h1 className="text-4xl md:text-5xl playfair font-extrabold animate-slideUp">
           {page.title}
         </h1>
         <p className="text-center text-lg text-gray-700 max-w-2xl mx-auto">

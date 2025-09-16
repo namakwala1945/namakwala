@@ -2,14 +2,26 @@ import blogData from "../../../locales/en/blog.json";
 import PageBanner from "@/components/PageBanner";
 import { notFound } from "next/navigation";
 
-interface BlogPageProps {
-  params: { slug: string };
+// ----------------------
+// Types
+// ----------------------
+interface BlogPageParams {
+  slug: string;
 }
 
+// ----------------------
 // ✅ Generate metadata from JSON
-export const generateMetadata = async ({ params }: BlogPageProps) => {
-  const post = blogData.posts.find((p) => p.slug === params.slug);
+// ----------------------
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<BlogPageParams>;
+}) {
+  const { slug } = await params; // 👈 FIX: await params
+
+  const post = blogData.posts.find((p) => p.slug === slug);
   if (!post) return {};
+
   const meta = post.metadata;
   return {
     title: meta.title,
@@ -31,10 +43,10 @@ export const generateMetadata = async ({ params }: BlogPageProps) => {
       images: meta.twitter.images,
     },
   };
-};
+}
 
 // ----------------------
-// Static Params
+// ✅ Static Params
 // ----------------------
 export async function generateStaticParams() {
   return blogData.posts.map((post) => ({
@@ -42,12 +54,21 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function BlogDetailPage({ params }: BlogPageProps) {
-  const post = blogData.posts.find((p) => p.slug === params.slug);
+// ----------------------
+// ✅ Blog Detail Page
+// ----------------------
+export default async function BlogDetailPage({
+  params,
+}: {
+  params: Promise<BlogPageParams>;
+}) {
+  const { slug } = await params; // 👈 FIX: await params
+
+  const post = blogData.posts.find((p) => p.slug === slug);
   if (!post) return notFound();
 
   return (
-    <section className="relative">
+    <section className="relative poppins">
       {/* ✅ Top Banner */}
       <div className="inset-0 top-0">
         <PageBanner
