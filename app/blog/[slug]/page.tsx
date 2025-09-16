@@ -3,21 +3,17 @@ import PageBanner from "@/components/PageBanner";
 import { notFound } from "next/navigation";
 
 // ----------------------
-// Types
+// Helpers to normalize params (sync or async)
 // ----------------------
-interface BlogPageParams {
-  slug: string;
+async function getParams(params: any) {
+  return params instanceof Promise ? await params : params;
 }
 
 // ----------------------
-// ✅ Generate metadata from JSON
+// ✅ Generate metadata
 // ----------------------
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<BlogPageParams>;
-}) {
-  const { slug } = await params; // 👈 FIX: await params
+export async function generateMetadata({ params }: { params: any }) {
+  const { slug } = await getParams(params);
 
   const post = blogData.posts.find((p) => p.slug === slug);
   if (!post) return {};
@@ -57,12 +53,8 @@ export async function generateStaticParams() {
 // ----------------------
 // ✅ Blog Detail Page
 // ----------------------
-export default async function BlogDetailPage({
-  params,
-}: {
-  params: Promise<BlogPageParams>;
-}) {
-  const { slug } = await params; // 👈 FIX: await params
+export default async function BlogDetailPage({ params }: { params: any }) {
+  const { slug } = await getParams(params);
 
   const post = blogData.posts.find((p) => p.slug === slug);
   if (!post) return notFound();
