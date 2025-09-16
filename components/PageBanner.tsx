@@ -13,19 +13,20 @@ export default function PageBanner({ title, image, category }: PageBannerProps) 
   return (
     <div className="relative w-full h-64 md:h-80 bg-gray-100 flex items-center justify-center overflow-hidden shadow-md">
       {/* Background Image */}
-      <div className="relative w-full h-screen"> 
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className="object-cover object-center" 
-          priority
-          quality={70}
-          sizes="100vw"
-          placeholder="blur"
-          blurDataURL="/assets/placeholder.png"
-        />
-      </div>
+      <div className="relative w-full h-[100dvh]"> 
+      <Image
+        src={image}
+        alt={title}
+        fill
+        priority
+        quality={70}
+        sizes="100vw"
+        placeholder="blur"
+        blurDataURL="/assets/placeholder.png"
+        className="object-cover object-center"
+      />
+    </div>
+
       {/* Overlay Content */}
       <div className="relative w-11/12 md:w-4/5 mx-auto z-10 text-center text-white animate-fade-in">
         <h2 className="text-2xl md:text-4xl font-bold playfair">{title}</h2>
