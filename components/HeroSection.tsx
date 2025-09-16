@@ -51,9 +51,12 @@ export default function HeroSection() {
             <Image
               src={slide.image}
               alt={slide.title}
-              fill
               className="object-cover"
-              priority
+              width={1920}           // actual display size
+              height={1080}
+              priority                // load fast
+              quality={70}           // compress
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1920px"
             />
             <div className="absolute inset-0 hero-gradient opacity-80"></div>
           </div>
@@ -103,17 +106,27 @@ export default function HeroSection() {
 
             {/* Features */}
             <div className="flex flex-wrap gap-8">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-2 py-1 text-white"
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
-                  <feature.icon className="w-6 h-6 text-accent" />
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-2 py-1 text-white"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <feature.icon className="w-6 h-6 text-accent" />
+
+                {/* Check if it's a component */}
+                {typeof feature.text === "object" ? (
+                  <span className="font-light flex items-center gap-1">
+                    {feature.text} {/* Your <YearsOfExcellence /> component */}
+                    <span>Years of Excellence</span> {/* Extra text */}
+                  </span>
+                ) : (
                   <span className="font-light">{feature.text}</span>
-                </div>
-              ))}
-            </div>
+                )}
+              </div>
+            ))}
+          </div>
+
           </div>
         </div>
       </div>

@@ -141,7 +141,9 @@ export default async function CategoryPage({ params }: { params: { category: str
                     alt={page.title}
                     width={600}
                     height={400}
-                    className="w-full bg-white object-cover shadow-lg overflow-hidden"
+                    priority                // load fast
+                    quality={70}           // compress
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1920px"
                   />
                 </div>
               )}
