@@ -52,10 +52,11 @@ export default function HeroSection() {
               src={slide.image}
               alt={slide.title}
               className="object-cover"
-              fill
-              priority                // load fast
-              quality={70}           // compress
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1920px"
+              priority
+              quality={70}
+              sizes="100vw"
+              placeholder="blur"
+              blurDataURL="/assets/placeholder.png"
             />
             <div className="absolute inset-0 hero-gradient opacity-80"></div>
           </div>
