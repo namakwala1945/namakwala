@@ -52,6 +52,7 @@ export default function HeroSection() {
               src={slide.image}
               alt={slide.title}
               className="object-cover"
+              fill
               priority
               quality={70}
               sizes="100vw"
