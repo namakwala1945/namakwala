@@ -17,8 +17,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        serif: ["var(--font-playfair)", "Georgia", "Times New Roman", "serif"], // headings
-        sans: ["var(--font-poppins)", "var(--font-roboto)", "Helvetica Neue", "Arial", "sans-serif"], // body
+        serif: ["Playfair Display", "Georgia", "Times New Roman", "serif"], // headings
+        sans: ["Poppins", "Roboto", "Helvetica Neue", "Arial", "sans-serif"], // body
       },
       colors: {
         border: "hsl(var(--border))",
