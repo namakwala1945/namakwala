@@ -33,10 +33,10 @@ export default function LifeAtNamakwala() {
   return (
     <section className="relative">
       <div className="bg-[#d2ab67] px-4 sm:px-6 lg:px-16 py-12 sm:py-16 poppins">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="max-w-7xl bg-white p-1 sm:p-6 md:p-6 lg:p-6 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           
          {/* Left Content */}
-          <div className="text-white space-y-6 text-center lg:text-left">
+          <div className="text-gray-700 space-y-6 text-center lg:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl playfair font-bold">
               {page.title}
             </h1>
