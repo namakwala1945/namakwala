@@ -88,9 +88,12 @@ export default function HeroSection() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mb-12">
                   <Button
+                   aria-label="About Us"
                     variant="export"
                     size="lg"
-                    className="hover-lift bg-transparent text-white border-white"
+                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap 
+             text-base px-6 py-3 rounded-lg bg-transparent text-white border border-white 
+             hover:bg-white/10 transition"
                   >
                     <Link href="/about">about us</Link>
                   </Button>

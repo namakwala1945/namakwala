@@ -60,6 +60,7 @@ export default function NewsMediaTabs({ videos = [], images = [] }: NewsMediaTab
       <div className="flex space-x-4 mb-8 justify-center">
         {["videos", "images"].map((tab) => (
           <button
+           aria-label="Videos and Images"
             key={tab}
             onClick={() => setActiveTab(tab as "videos" | "images")}
             className={`px-6 py-2 rounded-full font-semibold transition-all duration-300
@@ -107,6 +108,7 @@ export default function NewsMediaTabs({ videos = [], images = [] }: NewsMediaTab
       {isOpen && (
         <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
           <button
+           aria-label="Is Open"
             className="absolute top-4 right-4 text-white text-3xl font-bold"
             onClick={() => setIsOpen(false)}
           >
@@ -114,6 +116,7 @@ export default function NewsMediaTabs({ videos = [], images = [] }: NewsMediaTab
           </button>
 
           <button
+           aria-label="Prev Media"
             className="absolute left-4 text-white text-3xl font-bold"
             onClick={prevMedia}
           >
@@ -121,6 +124,7 @@ export default function NewsMediaTabs({ videos = [], images = [] }: NewsMediaTab
           </button>
 
           <button
+             aria-label="Next Media"
             className="absolute right-4 text-white text-3xl font-bold"
             onClick={nextMedia}
           >

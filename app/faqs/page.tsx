@@ -24,6 +24,7 @@ const FaqsPage: React.FC = () => {
           {faqs.map((faq, idx) => (
             <div key={idx} className="border ">
               <button
+                aria-label="Toggle Arrow"
                 className="w-full text-left p-4 flex justify-between items-center"
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
               >

@@ -145,7 +145,7 @@ export default function CountryExports() {
               <p className="text-lg md:text-xl mb-6">
                 Reliable export partnerships across continents
               </p>
-              <Button variant="hero" size="lg">
+              <Button  aria-label="View Export Map" variant="hero" size="lg">
                 View Export Map
               </Button>
             </div>

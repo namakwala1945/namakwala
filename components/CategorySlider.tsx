@@ -51,6 +51,7 @@ export default function CategorySlider() {
           {categories.length > itemsPerView && (
             <>
               <button
+                 aria-label="Pre Arrow"
                 onClick={prevSlide}
                 disabled={startIndex === 0}
                 className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-3 disabled:opacity-50 disabled:cursor-not-allowed hover-lift"
@@ -59,6 +60,7 @@ export default function CategorySlider() {
               </button>
 
               <button
+                 aria-label="Next Arrow"
                 onClick={nextSlide}
                 disabled={startIndex >= categories.length - itemsPerView}
                 className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-3 disabled:opacity-50 disabled:cursor-not-allowed hover-lift"
@@ -108,6 +110,7 @@ export default function CategorySlider() {
                         {category.products}
                       </p>
                       <Button
+                       aria-label="View Products"
                         variant="outline"
                         className="w-full mt-4 group-hover:border-primary"
                       >
@@ -128,6 +131,7 @@ export default function CategorySlider() {
               length: Math.ceil(categories.length - itemsPerView + 1),
             }).map((_, index) => (
               <button
+               aria-label="Round"
                 key={index}
                 onClick={() => setStartIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${

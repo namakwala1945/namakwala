@@ -43,6 +43,7 @@ export default function BusinessSection() {
         <div className="flex flex-wrap md:flex-col order-1 md:order-2 w-full md:w-1/3 p-4 md:p-12 text-white md:justify-center">
           {businesses.map((b, index) => (
             <button
+             aria-label={b.title}
               key={index}
               onClick={() => setActive(index)}
               className={`w-1/2 md:w-full text-center md:text-left py-4 px-2 md:px-4 border-b-4 transition-all duration-300 uppercase text-sm md:text-xl ${
@@ -77,7 +78,7 @@ export default function BusinessSection() {
           </p>
           <div className="mt-6 md:mt-12 flex flex-col sm:flex-row gap-4">
             <Link href={`/${businesses[active].slug}`}>
-              <button className="px-6 py-2 border-2 border-[#be9244] text-[#be9244] rounded hover:bg-[#9c7936] hover:text-white transition-colors w-full sm:w-auto">
+              <button aria-label="View More" className="px-6 py-2 border-2 border-[#be9244] text-[#be9244] rounded hover:bg-[#9c7936] hover:text-white transition-colors w-full sm:w-auto">
                 View More
               </button>
             </Link>

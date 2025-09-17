@@ -132,7 +132,7 @@ export default function BlogSection() {
                   <div className="text-sm text-muted-foreground">
                     By <span className="font-semibold text-foreground">{featuredPost.author}</span>
                   </div>
-                  <Button variant="hero" className="group">
+                  <Button aria-label="Read More" variant="hero" className="group">
                     Read More
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
@@ -146,6 +146,7 @@ export default function BlogSection() {
         <div className="flex flex-wrap justify-center gap-3 mb-8">
           {categories.map((category) => (
             <Button
+              aria-label={category}
               key={category}
               variant="outline"
               size="sm"
@@ -205,6 +206,7 @@ export default function BlogSection() {
                 
                 <Button
                   variant="ghost"
+                   aria-label="Read Article"
                   className="w-full mt-4 group-hover:bg-primary group-hover:text-primary-foreground"
                 >
                   Read Article
@@ -228,7 +230,7 @@ export default function BlogSection() {
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-3 border border-border focus:outline-none focus:ring-2 focus:ring-primary"
               />
-              <Button variant="hero" className="px-8">
+              <Button aria-label="Subscribe" variant="hero" className="px-8">
                 Subscribe
               </Button>
             </div>
@@ -237,7 +239,7 @@ export default function BlogSection() {
 
         {/* Call to Action */}
         <div className="text-center mt-8">
-          <Button variant="export" size="lg">
+          <Button aria-label="View All Articles" variant="export" size="lg">
             View All Articles
           </Button>
         </div>

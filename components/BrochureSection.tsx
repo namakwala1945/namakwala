@@ -178,7 +178,7 @@ export default function BrochureSection() {
                   </div>
                 </div>
                 
-                <Button variant="hero" size="lg" className="group">
+                <Button  aria-label="Download Now" variant="hero" size="lg" className="group">
                   <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
                   Download Now
                 </Button>
@@ -193,6 +193,7 @@ export default function BrochureSection() {
           <div className="flex flex-wrap justify-center gap-3">
             {languages.map((language) => (
               <Button
+                aria-label={language}
                 key={language}
                 variant="outline"
                 size="sm"
@@ -245,7 +246,7 @@ export default function BrochureSection() {
                   <span>{brochure.updated}</span>
                 </div>
                 
-                <Button className="w-full group-hover:bg-primary group-hover:text-primary-foreground" variant="outline">
+                <Button aria-label="Download" className="w-full group-hover:bg-primary group-hover:text-primary-foreground" variant="outline">
                   <Download className="w-4 h-4 mr-2" />
                   Download
                 </Button>
@@ -266,7 +267,7 @@ export default function BrochureSection() {
               placeholder="Enter your email"
               className="flex-1 px-4 py-3 border border-border focus:outline-none focus:ring-2 focus:ring-primary"
             />
-            <Button variant="hero" className="px-8">
+            <Button aria-label="Subscribe" variant="hero" className="px-8">
               Subscribe
             </Button>
           </div>
@@ -288,7 +289,7 @@ export default function BrochureSection() {
           <p className="text-muted-foreground mb-4">
             Need a custom brochure for your specific requirements?
           </p>
-          <Button variant="export" size="lg">
+          <Button aria-label="Request Custom Brochure" variant="export" size="lg">
             Request Custom Brochure
           </Button>
         </div>

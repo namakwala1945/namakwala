@@ -116,7 +116,7 @@ export default function ContactPage() {
                 required
               />
 
-              <button type="submit" disabled={sending} className="px-6 py-3 gy-bg text-white font-medium shadow hover:gy-bg transition">
+              <button  aria-label={sending ? "Sending..." : "Send Message"} type="submit" disabled={sending} className="px-6 py-3 gy-bg text-white font-medium shadow hover:gy-bg transition">
                 {sending ? "Sending..." : "Send Message"}
               </button>
             </form>

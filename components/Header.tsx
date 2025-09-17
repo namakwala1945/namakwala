@@ -163,7 +163,7 @@ export default function Header() {
 
           {/* Close button on right */}
           <div>
-            <button onClick={() => setMobileOpen(false)} className="p-2">
+            <button  aria-label="Open menu" onClick={() => setMobileOpen(false)} className="p-2">
               <FiX size={28} />
             </button>
           </div>
@@ -181,7 +181,7 @@ export default function Header() {
                   {item.name}
                 </Link>
                 {item.megamenu && (
-                  <button className="p-1" onClick={() => toggleMobileSub(i)}>
+                  <button  aria-label="Open menu" className="p-1" onClick={() => toggleMobileSub(i)}>
                     {mobileSubOpen[i] ? <FiChevronUp size={20} /> : <FiChevronDown size={20} />}
                   </button>
                 )}
@@ -200,7 +200,7 @@ export default function Header() {
                           {section.title}
                         </Link>
                         {section.categories && section.categories.length > 0 && (
-                          <button className="p-1" onClick={() => toggleMobileInner(i, secIdx)}>
+                          <button  aria-label="Open menu" className="p-1" onClick={() => toggleMobileInner(i, secIdx)}>
                             {mobileInnerOpen[`${i}-${secIdx}`] ? (
                               <FiChevronUp size={18} />
                             ) : (

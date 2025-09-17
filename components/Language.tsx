@@ -40,6 +40,7 @@ export default function LanguageSelector({ currentLocale, changeLang }: Language
     <div ref={ref} className="relative inline-block text-left">
       {/* Button */}
       <button
+       aria-label="Language"
         onClick={() => setOpen(!open)}
         className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 focus:outline-none shadow-md"
       >
@@ -59,6 +60,7 @@ export default function LanguageSelector({ currentLocale, changeLang }: Language
         <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg ring-1 ring-black ring-opacity-5 z-50">
           {languages.map((lang) => (
             <button
+             aria-label="Language"
               key={lang.code}
               onClick={() => {
                 changeLang(lang.code.toLowerCase());
