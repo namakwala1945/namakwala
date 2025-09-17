@@ -65,7 +65,7 @@ export default function Footer() {
             .filter((menu: any) => menu.name === "About")
             .map((menu: any) => (
               <div key={menu.name}>
-                <h4 className="text-lg font-semibold mb-4">{menu.name}</h4>
+                <span className="text-lg font-semibold mb-4">{menu.name}</span>
                 <ul className="space-y-3">
                   {menu.content?.map((section: any) =>
                     section.categories.map((cat: any) => (
@@ -90,7 +90,7 @@ export default function Footer() {
             .filter((menu: any) => menu.name === "Businesses")
             .map((menu: any) => (
               <div key={menu.name}>
-                <h4 className="text-lg font-semibold mb-4">{menu.name}</h4>
+                <span className="text-lg font-semibold mb-4">{menu.name}</span>
                 <ul className="space-y-3">
                   {menu.content.map((section: any) => (
                     <li key={section.slug}>
@@ -113,7 +113,7 @@ export default function Footer() {
             .filter((s) => s.title === "Important")
             .map((section) => (
               <div key={section.title}>
-                <h4 className="text-lg font-semibold mb-4">{section.title}</h4>
+                <span className="text-lg font-semibold mb-4">{section.title}</span>
                 <ul className="space-y-3">
                   {section.links.map((link) => (
                     <li key={link.name}>
@@ -135,7 +135,7 @@ export default function Footer() {
             .filter((s) => s.title === "Resources")
             .map((section) => (
               <div key={section.title}>
-                <h4 className="text-lg font-semibold mb-4">{section.title}</h4>
+                <span className="text-lg font-semibold mb-4">{section.title}</span>
                 <ul className="space-y-3">
                   {section.links.map((link) => (
                     <li key={link.name}>
@@ -155,7 +155,7 @@ export default function Footer() {
 
         {/* Social Links */}
         <div className="mt-12 text-center">
-          <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
+          <span className="text-lg font-semibold mb-4">Follow Us</span>
           <div className="flex justify-center space-x-6">
             {socialLinks.map((link, idx) => {
               const Icon = link.icon;
