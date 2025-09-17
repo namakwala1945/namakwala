@@ -89,7 +89,7 @@ export default function NewsMediaTabs({ videos = [], images = [] }: NewsMediaTab
               />
             ) : (
               <Image
-                src={`https://img.youtube.com/vi/${getYouTubeID(item.url)}/hqdefault.jpg`}
+                src={`https://img.youtube.com/vi/${getYouTubeID(item.url)}/hqdefault-large.webp`}
                 alt={item.title}
                 width={600}
                 height={400}

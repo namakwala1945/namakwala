@@ -45,7 +45,7 @@ export default function LanguageSelector({ currentLocale, changeLang }: Language
         className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 focus:outline-none shadow-md"
       >
         <Image
-          src={`https://flagcdn.com/w20/${current.countryCode}.png`}
+          src={`https://flagcdn.com/w20/${current.countryCode}-large.webp`}
           alt={current.name}
           className="w-5 h-5 rounded-sm object-cover"
           priority
@@ -69,7 +69,7 @@ export default function LanguageSelector({ currentLocale, changeLang }: Language
               className="flex items-center w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors"
             >
               <Image
-                src={`https://flagcdn.com/w20/${lang.countryCode}.png`}
+                src={`https://flagcdn.com/w20/${lang.countryCode}-large.webp`}
                 alt={lang.name}
                 className="w-5 h-5 rounded-sm mr-2 object-cover"
                 priority

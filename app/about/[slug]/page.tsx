@@ -58,7 +58,7 @@ export default function AboutPage({ params }: AboutPageProps) {
       {/* Top Banner */}
       <PageBanner
         title={page.title}
-        image={page.banner?.image || "/assets/banners/about-main.jpg"}
+        image={page.banner?.image || "/optimized/banners/about-main-large.webp"}
         category={page.banner?.heading || "Learn about our journey, milestones, and leadership"}
       />
 

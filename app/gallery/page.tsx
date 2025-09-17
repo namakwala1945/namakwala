@@ -4,9 +4,9 @@ import Head from "next/head";
 import Image from "next/image";
 
 const images = [
-  "/images/gallery1.jpg",
-  "/images/gallery2.jpg",
-  "/images/gallery3.jpg",
+  "/images/gallery1-large.webp",
+  "/images/gallery2-large.webp",
+  "/images/gallery3-large.webp",
 ];
 
 const GalleryPage: React.FC = () => {

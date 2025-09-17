@@ -42,7 +42,7 @@ export default function FloatingButtons() {
         className="flex items-center justify-center rounded-full transition transform hover:-translate-y-0.5"
       >
         <Image
-            src="/assets/business-whatsapp-icon.png"
+            src="/optimized/business-whatsapp-icon-large.webp"
             alt="WhatsApp Business"
             width={50}
             height={50}

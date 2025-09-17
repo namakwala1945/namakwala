@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Globe, TrendingUp, MapPin, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import globalReach from "../public/assets/global-reach.jpg";
+import globalReach from "../public/optimized/global-reach-large.webp";
 import Image from "next/image";
 
 const regions = [

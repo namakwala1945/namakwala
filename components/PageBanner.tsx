@@ -21,7 +21,7 @@ export default function PageBanner({ title, image, category }: PageBannerProps) 
           quality={70}
           sizes="100vw"
           placeholder="blur"
-          blurDataURL="/assets/placeholder.png"
+          blurDataURL="/optimized/placeholder-large.webp"
           className="object-cover object-top"
         />
       {/* Overlay Content */}

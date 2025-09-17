@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Play, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import businessMeeting from "../public/assets/business-meeting.jpg";
+import businessMeeting from "../public/optimized/business-meeting-large.webp";
 import Image from "next/image";
 
 const videos = [

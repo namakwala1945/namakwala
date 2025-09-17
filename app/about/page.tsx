@@ -42,7 +42,7 @@ function AboutContent() {
   const topBanner = aboutData[firstKey]?.banner ?? {
     title: "About Us",
     heading: "Learn about our journey, milestones, and leadership",
-    image: "/assets/placeholder.jpg",
+    image: "/optimized/placeholder-large.webp",
   };
 
   return (

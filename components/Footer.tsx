@@ -48,11 +48,13 @@ export default function Footer() {
         {/* Background Image */}
         <div className="absolute inset-0 -z-10">
           <Image
-            src="/assets/namakwala-footer.jpg"
-            alt="Footer background"
-            fill
-            className="object-cover opacity-40 mix-blend-multiply"
-            priority
+            src="/optimized/namakwala-footer-large.webp"
+            alt="Namakwala Footer"
+            width={1517}   // actual render size
+            height={948}
+            quality={70}
+            sizes="100vw"
+            className="object-cover"
           />
         </div>
 

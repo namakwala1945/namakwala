@@ -109,7 +109,7 @@ export default async function CategoryPage({ params }: { params: { category: str
   const banner = categoryData[firstKey]?.banner ?? {
     title: category,
     heading: "",
-    image: "/assets/placeholder.jpg",
+    image: "/optimized/placeholder-large.webp",
   };
 
   return (
@@ -232,7 +232,7 @@ export default async function CategoryPage({ params }: { params: { category: str
               <div className="relative mt-12 overflow-hidden shadow-lg">
                 <div
                   className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${page.productImage ?? "/assets/placeholder.jpg"})` }}
+                  style={{ backgroundImage: `url(${page.productImage ?? "/optimized/placeholder-large.webp"})` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/70" />
                 <div className="relative z-10 p-10 text-center">

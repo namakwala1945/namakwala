@@ -1,5 +1,5 @@
 import Image from "next/image";
-import weCare from "@/public/assets/namakwala.png"
+import weCare from "../public/optimized/namakwala-large.webp"
 export default function WeCare(){
     return(
         <section className="pt-2 pb-2 bg-[#fdf2df]">

@@ -143,7 +143,7 @@
             {
               "title": "Garnet Sand 80 Mesh",
               "slug": "garnet-sand-80-mesh",
-              "image": "/images/products/garnet-sand-80.jpg",
+              "image": "/images/products/garnet-sand-80-large.webp",
               "shortDescription": "High-performance garnet abrasive for waterjet cutting.",
               "description": "Durable and sharp garnet sand, widely used for waterjet cutting, sandblasting, and surface preparation across industries."
             }
@@ -156,7 +156,7 @@
             {
               "title": "Talc Powder",
               "slug": "talc-powder",
-              "image": "/images/products/talc-powder.jpg",
+              "image": "/images/products/talc-powder-large.webp",
               "shortDescription": "Soft mineral powder used in cosmetics and industry.",
               "description": "Talc powder is valued for its smoothness, chemical inertness, and softness, making it ideal for cosmetics, paints, plastics, and ceramics."
             }
@@ -169,7 +169,7 @@
             {
               "title": "Quartz Lumps",
               "slug": "quartz-lumps",
-              "image": "/images/products/quartz-lumps.jpg",
+              "image": "/images/products/quartz-lumps-large.webp",
               "shortDescription": "High-purity quartz for glass and ceramics.",
               "description": "Quartz is one of the most abundant minerals, used in glassmaking, ceramics, foundry molds, and electronics due to its high silica content."
             }
@@ -182,7 +182,7 @@
             {
               "title": "Bentonite Powder",
               "slug": "bentonite-powder",
-              "image": "/images/products/bentonite-powder.jpg",
+              "image": "/images/products/bentonite-powder-large.webp",
               "shortDescription": "Absorbent clay used in drilling, binding, and purification.",
               "description": "Bentonite is a naturally occurring clay with high swelling and absorption capacity, widely used in drilling mud, foundry sand, iron ore pelletization, and water purification."
             }
@@ -195,7 +195,7 @@
             {
               "title": "Dolomite Powder",
               "slug": "dolomite-powder",
-              "image": "/images/products/dolomite-powder.jpg",
+              "image": "/images/products/dolomite-powder-large.webp",
               "shortDescription": "Calcium magnesium carbonate for industry.",
               "description": "Dolomite powder is used in steelmaking, glass, ceramics, and agriculture as a source of calcium and magnesium. It improves soil quality and neutralizes acidity."
             }
@@ -208,7 +208,7 @@
             {
               "title": "Potash Feldspar",
               "slug": "potash-feldspar",
-              "image": "/images/products/potash-feldspar.jpg",
+              "image": "/images/products/potash-feldspar-large.webp",
               "shortDescription": "Essential mineral for ceramics and glass.",
               "description": "Potash feldspar is widely used in ceramics, glass, and enamel industries due to its fluxing properties, which enhance strength and durability."
             }
@@ -221,7 +221,7 @@
             {
               "title": "Calcined Kaolin Powder",
               "slug": "calcined-kaolin-powder",
-              "image": "/images/products/calcined-kaolin.jpg",
+              "image": "/images/products/calcined-kaolin-large.webp",
               "shortDescription": "Refined clay mineral for industrial applications.",
               "description": "Calcined kaolin is produced by heating natural kaolin, enhancing brightness and chemical resistance. It is used in paper, paints, plastics, and rubber industries."
             }

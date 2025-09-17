@@ -62,7 +62,7 @@ export default function BusinessSection() {
         <div className="order-2 md:order-1 w-full md:w-2/3 p-4 md:p-12 flex flex-col justify-center text-white">
           <span className="flex items-center gap-3 text-lg md:text-2xl font-semibold mb-4 md:mb-6 uppercase">
             <Image
-              src="/assets/logo-ring.png"
+              src="/optimized/logo-ring-large.webp"
               alt="Namakwala Ring"
               width={80}
               height={80}

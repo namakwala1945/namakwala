@@ -57,7 +57,7 @@ export default function HeroSection() {
               quality={70}
               sizes="100vw"
               placeholder="blur"
-              blurDataURL="/assets/placeholder.png"
+              blurDataURL="/optimized/placeholder-large.webp"
             />
             <div className="absolute inset-0 hero-gradient opacity-80"></div>
           </div>
