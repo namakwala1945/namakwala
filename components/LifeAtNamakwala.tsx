@@ -35,7 +35,7 @@ export default function LifeAtNamakwala() {
       <div className="bg-[#d2ab67] px-4 sm:px-6 lg:px-16 py-12 sm:py-16 poppins">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           
-          {/* Left Content */}
+         {/* Left Content */}
           <div className="text-white space-y-6 text-center lg:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl playfair font-bold">
               {page.title}
@@ -44,6 +44,7 @@ export default function LifeAtNamakwala() {
               {page.content}
             </p>
           </div>
+
 
           {/* Right Images */}
           <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">

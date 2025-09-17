@@ -59,7 +59,7 @@ export default function BusinessSection() {
 
         {/* Left Content */}
         <div className="order-2 md:order-1 w-full md:w-2/3 p-4 md:p-12 flex flex-col justify-center text-white">
-          <h3 className="flex items-center gap-3 text-lg md:text-2xl font-semibold mb-4 md:mb-6 uppercase">
+          <span className="flex items-center gap-3 text-lg md:text-2xl font-semibold mb-4 md:mb-6 uppercase">
             <Image
               src="/assets/logo-ring.png"
               alt="Namakwala Ring"
@@ -68,7 +68,7 @@ export default function BusinessSection() {
               className="object-contain"
             />
             <span>Our Businesses</span>
-          </h3>
+          </span>
           <h1 className="text-3xl md:text-6xl playfair mb-4">
             {businesses[active].title}
           </h1>

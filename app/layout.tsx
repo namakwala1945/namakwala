@@ -13,6 +13,7 @@ export const metadata = {
   verification: {
     google: "your-google-verification-code",
   },
+  viewport: "width=device-width, initial-scale=1, viewport-fit=cover",
   robots: {
     index: true,
     follow: true,
@@ -31,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Mobile viewport optimization */}
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
       </head>
       <body className="font-sans">
