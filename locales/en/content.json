@@ -55,7 +55,7 @@
           "heading": "Healthy, Tasty & Consistent – Food Grade Salt for Every Need",
           "image": "/optimized/pagebanner/namakwala-salt-banner-large.webp"
         },
-        "productImage": "/optimized/products/namakwala-Food-grade-salt-large.webp",
+        "productImage": "/optimized/products/namakwala-food-grade-salt-large.webp",
         "keyFeatures": [
           { "feature": "100% Natural & Pure", "detail": "Free from harmful additives and contaminants." },
           { "feature": "Rich in Essential Minerals", "detail": "Contains sodium, calcium, magnesium, and potassium." },
@@ -1126,7 +1126,7 @@
       "banner": {
         "title": "Salt",
         "heading": "Sustainable energy solutions with cutting-edge technology",
-        "image": "/optimized/products/namakwala-bentonite-powder-large.webp"
+        "image": "/assets/salt-animation.gif"
       },
       "sections": [
         {
