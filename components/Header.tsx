@@ -63,7 +63,15 @@ export default function Header() {
         {/* Logo */}
         <div className="flex-shrink-0">
           <Link href="/" onClick={handleLinkClick}>
-            <Image src="/namakwala-logo.png" alt="Namakwala" width={90} height={90} className="object-contain" />
+            <Image 
+            src="/namakwala-logo.png" 
+            alt="Namakwala" 
+            width={90}
+            height={90}
+            sizes="90px"
+            quality={80}
+            priority
+            className="object-contain" />
           </Link>
         </div>
 

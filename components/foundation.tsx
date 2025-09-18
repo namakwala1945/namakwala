@@ -72,8 +72,11 @@ export default function FoundationSection() {
                 key={current}
                 src={section.slider[current]}
                 alt={`Slide ${current + 1}`}
-                fill
-                className="object-cover transition-all duration-700"
+                fill 
+                sizes="100vw"
+                priority 
+                quality={70}
+                className="object-cover"
               />
             )}
 

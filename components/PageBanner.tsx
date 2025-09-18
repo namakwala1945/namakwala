@@ -18,12 +18,10 @@ export default function PageBanner({ title, image, category }: PageBannerProps) 
           src={image}
           alt={title}
           fill
+          className="object-cover"
           priority
-          quality={70}
+          quality={65}
           sizes="100vw"
-          placeholder="blur"
-          blurDataURL="/optimized/placeholder-large.webp"
-          className="object-cover object-top"
         />
       {/* Overlay Content */}
       <div className="relative w-11/12 md:w-4/5 mx-auto z-10 text-center text-white animate-fade-in">
