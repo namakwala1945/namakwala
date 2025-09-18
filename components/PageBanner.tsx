@@ -19,6 +19,7 @@ export default function PageBanner({ title, image, category }: PageBannerProps) 
           fill
           priority
           quality={70}
+          fetchPriority="high"
           sizes="100vw"
           placeholder="blur"
           blurDataURL="/optimized/placeholder-large.webp"

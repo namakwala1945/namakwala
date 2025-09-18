@@ -110,6 +110,8 @@ export default function FraudAlertPage() {
                     alt={section.heading}
                     fill
                     className="object-cover animate-fadeIn"
+                    priority 
+                    fetchPriority="high"
                   />
                 </div>
               )}

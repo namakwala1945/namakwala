@@ -48,7 +48,8 @@ export default function LanguageSelector({ currentLocale, changeLang }: Language
           src={`https://flagcdn.com/w20/${current.countryCode}-large.webp`}
           alt={current.name}
           className="w-5 h-5 rounded-sm object-cover"
-          priority
+          priority 
+          fetchPriority="high"
           fill
         />
         <span className="ml-1 text-xs font-bold">{current.code}</span>
@@ -72,7 +73,8 @@ export default function LanguageSelector({ currentLocale, changeLang }: Language
                 src={`https://flagcdn.com/w20/${lang.countryCode}-large.webp`}
                 alt={lang.name}
                 className="w-5 h-5 rounded-sm mr-2 object-cover"
-                priority
+                priority 
+                fetchPriority="high"
                 fill
               />
               <span className="text-sm">{lang.name}</span>

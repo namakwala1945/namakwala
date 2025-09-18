@@ -62,6 +62,8 @@ export default function BlogPage() {
                   width={800}
                   height={500}
                   className="object-cover w-full h-64"
+                  priority 
+                  fetchPriority="high"
                 />
               </div>
               <div className="mt-4">

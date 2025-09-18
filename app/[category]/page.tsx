@@ -142,7 +142,8 @@ export default async function CategoryPage({ params }: { params: { category: str
                     width={600}
                     height={400}
                     priority                // load fast
-                    quality={70}           // compress
+                    fetchPriority="high"          // compress
+                    quality={70} 
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1920px"
                   />
                 </div>

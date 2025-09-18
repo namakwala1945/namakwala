@@ -47,6 +47,8 @@ export default function FloatingButtons() {
             width={50}
             height={50}
             className=""
+            priority 
+            fetchPriority="high"
         /> 
       </Link>
 

@@ -136,6 +136,8 @@ export default function CountryExports() {
             src={globalReach}
             alt="Global Export Network"
             className="w-full h-64 md:h-96 object-cover"
+            priority 
+            fetchPriority="high"
           />
           <div className="absolute inset-0 hero-gradient opacity-80 flex items-center justify-center">
             <div className="text-center text-white">

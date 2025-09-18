@@ -108,6 +108,8 @@ export default function PrivacyPolicyPage() {
                   alt={section.title}
                   fill
                   className="object-cover"
+                  priority 
+                  fetchPriority="high"
                 />
               </div>
             </div>

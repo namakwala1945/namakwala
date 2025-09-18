@@ -93,7 +93,8 @@ export default function CategorySlider() {
                         src={category.image}
                         alt={category.name}
                         className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                        priority
+                        priority 
+                        fetchPriority="high"
                         fill
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

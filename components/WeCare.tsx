@@ -8,7 +8,8 @@ export default function WeCare(){
                     src={weCare} 
                     alt=""
                     className="object-cover w-full max-w-[680px] mx-auto pb-5"
-                    priority
+                    priority 
+                    fetchPriority="high"
                 />
                 <p className="text-xl nunitoFont font-light pt-4 sm:text-lg md:text-2xl lg:text-4xl pb-0">One of the Top 10 Largest Salt & Minerals Producers in India.</p>
             </div>

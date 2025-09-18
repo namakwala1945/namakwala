@@ -82,6 +82,8 @@ export default function ExportTermsPage() {
                     alt={section.heading}
                     fill
                     className="object-cover rounded-3xl"
+                    priority 
+                    fetchPriority="high"
                   />
                 </div>
               )}

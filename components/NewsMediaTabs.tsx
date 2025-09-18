@@ -86,6 +86,8 @@ export default function NewsMediaTabs({ videos = [], images = [] }: NewsMediaTab
                 width={600}
                 height={400}
                 className="w-full h-64 object-cover"
+                priority 
+                fetchPriority="high"
               />
             ) : (
               <Image
@@ -94,6 +96,8 @@ export default function NewsMediaTabs({ videos = [], images = [] }: NewsMediaTab
                 width={600}
                 height={400}
                 className="w-full h-64 object-cover"
+                priority 
+                fetchPriority="high"
               />
             )}
 
@@ -139,6 +143,8 @@ export default function NewsMediaTabs({ videos = [], images = [] }: NewsMediaTab
                 width={1200}
                 height={800}
                 className="object-contain"
+                priority 
+                fetchPriority="high"
               />
             ) : (
               <iframe

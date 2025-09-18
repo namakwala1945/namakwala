@@ -58,6 +58,8 @@ export default function FoundationSection() {
                 width={300}
                 height={113}
                 className="object-contain mb-2 mx-auto"
+                priority 
+                fetchPriority="high"
               />
             )}
             <p className="text-gray-700 text-sm md:text-base leading-relaxed text-center md:text-left">
@@ -74,6 +76,8 @@ export default function FoundationSection() {
                 alt={`Slide ${current + 1}`}
                 fill
                 className="object-cover transition-all duration-700"
+                priority 
+                fetchPriority="high"
               />
             )}
 
