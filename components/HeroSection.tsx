@@ -51,15 +51,17 @@ export default function HeroSection() {
             <Image
               src={slide.image}
               alt={slide.title}
-              className="object-cover"
               fill
-              priority 
-              fetchPriority="high"
-              quality={70}
+              className="object-cover"
+              priority={slide.id === 1}
+              fetchPriority={slide.id === 1 ? "high" : "auto"}
+              loading={slide.id === 1 ? "eager" : "lazy"}
               sizes="100vw"
+              quality={70}
               placeholder="blur"
               blurDataURL="/optimized/placeholder-large.webp"
             />
+
             <div className="absolute inset-0 hero-gradient opacity-80"></div>
           </div>
         ))}
@@ -72,7 +74,7 @@ export default function HeroSection() {
             {slides.map((slide) => (
               <div
                 key={slide.id}
-                className={`transition-all duration-700 ${
+                className={`transition-opacity duration-700 ease-in-out transform ${
                   slide.id - 1 === currentSlide
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 translate-x-8 absolute"

@@ -78,8 +78,8 @@ export default function BrandSection() {
                     alt={cert.name}
                     fill
                     className="object-contain"
-                    priority 
-                    fetchPriority="high"
+                    loading="lazy"
+                    fetchPriority="auto"
                   />
                 </div>
                 <h4 className="font-bold mb-1 sm:mb-2 text-sm sm:text-base uppercase">
