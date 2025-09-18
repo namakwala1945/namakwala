@@ -1215,8 +1215,8 @@
         "logo": "/optimized/brands/namakwala-foundation-large.webp",
         "text": "Founded in 1945, the Foundation continues to improve lives through health, education, sustainability, and rural empowerment programs across India.",
         "slider": [
-          "/optimized/namakwala-rural-empowerment2-large.webp",
-          "/optimized/namakwala-rural-empowerment-large.webp"
+          "/optimized/namakwala-rural-empowerment2-medium.webp",
+          "/optimized/namakwala-rural-empowerment-medium.webp"
         ]
       }
     ],
@@ -1259,42 +1259,42 @@
     ],
     "certifications": [
         {
-          "image": "/optimized/certifications/namakwala-iso-9001-large.webp",
+          "image": "/optimized/certifications/namakwala-iso-9001-medium.webp",
           "name": "ISO 9001:2015",
           "description": "Quality & Compliance Standards"
         },
         {
-          "image": "/optimized/certifications/namakwala-iso-22000-large.webp",
+          "image": "/optimized/certifications/namakwala-iso-22000-medium.webp",
           "name": "ISO 22000",
           "description": "Food Safety Assurance"
         },
         {
-          "image": "/optimized/certifications/namakwala-haccp-large.webp",
+          "image": "/optimized/certifications/namakwala-haccp-medium.webp",
           "name": "Haccp",
           "description": "Preventive Safety Control"
         },
         {
-          "image": "/optimized/certifications/namakwala-halal-large.webp",
+          "image": "/optimized/certifications/namakwala-halal-medium.webp",
           "name": "Halal",
           "description": "Lawful & Permissible Standards"
         },
         {
-          "image": "/optimized/certifications/namakwala-FSSAI-large.webp",
+          "image": "/optimized/certifications/namakwala-FSSAI-medium.webp",
           "name": "FSSAI",
           "description": "Food Safety Standards"
         },
         {
-          "image": "/optimized/certifications/namakwala-export-excellence-large.webp",
+          "image": "/optimized/certifications/namakwala-export-excellence-medium.webp",
           "name": "Export Excellence",
           "description": "Recognized for Global Trade Performance"
         },
         {
-          "image": "/optimized/certifications/namakwala-apeda-large.webp",
+          "image": "/optimized/certifications/namakwala-apeda-medium.webp",
           "name": "APEDA",
           "description": "Agricultural & Processed Food Export Development Authority"
         },
         {
-          "image": "/optimized/certifications/namakwala-fieo-large.webp",
+          "image": "/optimized/certifications/namakwala-fieo-medium.webp",
           "name": "FIEO",
           "description": "Federation of Indian Export Organisations"
         }
