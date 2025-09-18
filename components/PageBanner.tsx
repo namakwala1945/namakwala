@@ -5,6 +5,7 @@ interface PageBannerProps {
   title: string;
   image: string;
   category: string;
+  priority?: boolean; 
 }
 
 export default function PageBanner({ title, image, category }: PageBannerProps) {

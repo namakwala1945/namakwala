@@ -38,7 +38,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative h-[89vh] overflow-hidden">
+    <section className="relative h-[90vh] overflow-hidden">
       {/* Background Slider */}
       <div className="absolute inset-0 top-0">
         {slides.map((slide) => (
@@ -52,13 +52,13 @@ export default function HeroSection() {
               src={slide.image}
               alt={slide.title}
               fill
+              className="object-cover"
               priority
               quality={70}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
               placeholder="blur"
               blurDataURL="/optimized/placeholder-large.webp"
             />
-
             <div className="absolute inset-0 hero-gradient opacity-80"></div>
           </div>
         ))}
@@ -80,10 +80,10 @@ export default function HeroSection() {
                 <h2 className="text-accent text-lg md:text-lg font-semibold mb-2 animate-fade-in">
                   {slide.subtitle}
                 </h2>
-                <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight playfair">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight playfair">
                   {slide.title}
                 </h1>
-                <p className="text-xl md:text-1xl text-white/90 mb-8 max-w-2xl leading-relaxed">
+                <p className="text-md md:text-1xl text-white/90 mb-8 max-w-2xl leading-relaxed">
                   {slide.description}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -109,27 +109,25 @@ export default function HeroSection() {
             ))}
 
             {/* Features */}
-            <div className="flex flex-wrap gap-8">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-2 py-1 text-white"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <feature.icon className="w-6 h-6 text-accent" />
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-2 text-white rounded-md min-w-[140px] sm:min-w-[auto]"
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-accent flex-shrink-0" />
 
-                {/* Check if it's a component */}
-                {typeof feature.text === "object" ? (
-                  <span className="font-light flex items-center gap-1">
-                    {feature.text} {/* Your <YearsOfExcellence /> component */}
-                    <span>Years of Excellence</span> {/* Extra text */}
-                  </span>
-                ) : (
-                  <span className="font-light">{feature.text}</span>
-                )}
-              </div>
-            ))}
-          </div>
+                  {typeof feature.text === "object" ? (
+                    <span className="font-light flex flex-col sm:flex-row items-center gap-1 text-sm sm:text-base">
+                      {feature.text} <span>Years of Excellence</span>
+                    </span>
+                  ) : (
+                    <span className="font-light text-sm sm:text-base">{feature.text}</span>
+                  )}
+                </div>
+              ))}
+            </div>
 
           </div>
         </div>

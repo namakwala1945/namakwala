@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import blogData from "../../locales/en/blog.json"; // <-- adjust path if different
-import PageBanner from "@/components/PageBanner"; // <-- your PageBanner component
+import blogData from "../../locales/en/blog.json";
+import PageBanner from "@/components/PageBanner";
 
 // ✅ Generate SSR metadata from JSON
 export const generateMetadata = async () => {
@@ -35,13 +35,11 @@ export default function BlogPage() {
   return (
     <section className="relative poppins">
       {/* ✅ Top Banner */}
-      <div className="inset-0 top-0">
-        <PageBanner
-          title={page.title}
-          image={page.banner}
-          category="Blog"
-        />
-      </div>
+      <PageBanner
+        title={page.title}
+        image={page.banner}
+        category="Blog"
+      />
 
       {/* ✅ Blog List */}
       <div className="container mx-auto px-6 py-16 space-y-16 text-center">
@@ -54,7 +52,11 @@ export default function BlogPage() {
 
         <div className="grid md:grid-cols-2 gap-12 mt-12">
           {posts.map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="group"
+            >
               <div className="relative overflow-hidden shadow-2xl transition-transform transform hover:scale-105">
                 <Image
                   src={post.banner}

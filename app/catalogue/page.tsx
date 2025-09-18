@@ -2,17 +2,44 @@
 import content from "../../locales/en/content.json";
 import PageBanner from "@/components/PageBanner";
 
-const page = content.catalogue;
-const catalogues = page.items || [];
+// Types
+interface CatalogueItem {
+  title: string;
+  file: string;
+}
 
-// Generate SSR metadata from JSON
-export const generateMetadata = async () => {
+interface CataloguePageType {
+  title: string;
+  content: string;
+  banner: {
+    title: string;
+    heading: string;
+    image: string;
+  };
+  items: CatalogueItem[];
+  metadata: any;
+}
+
+// Load page data
+const page: CataloguePageType = content.catalogue;
+const catalogues: CatalogueItem[] = page.items || [];
+
+// ✅ Generate SEO metadata dynamically
+export async function generateMetadata() {
   const meta = page.metadata;
+
   return {
     title: meta.title,
     description: meta.description,
     keywords: meta.keywords,
     authors: meta.authors.map((a: any) => ({ name: a.name })),
+    robots: {
+      index: true,
+      follow: true,
+    },
+    alternates: {
+      canonical: meta.openGraph.url,
+    },
     openGraph: {
       title: meta.openGraph.title,
       description: meta.openGraph.description,
@@ -20,6 +47,7 @@ export const generateMetadata = async () => {
       url: meta.openGraph.url,
       siteName: meta.openGraph.siteName,
       images: meta.openGraph.images.map((img: any) => img.url),
+      locale: meta.openGraph.locale,
     },
     twitter: {
       card: meta.twitter.card,
@@ -28,28 +56,31 @@ export const generateMetadata = async () => {
       images: meta.twitter.images,
     },
   };
-};
+}
 
 export default function CataloguePage() {
   return (
     <section className="relative poppins">
-      {/* Top Banner */}
+      {/* ✅ Top Banner */}
       <div className="inset-0 top-0">
         <PageBanner
           title={page.banner.title}
           image={page.banner.image}
           category={page.banner.heading}
+          priority // ✅ LCP optimization
         />
       </div>
 
-      {/* Main Content */}
+      {/* ✅ Main Content */}
       <div className="container mx-auto px-6 py-12 text-center">
-        <h1 className="text-4xl md:text-5xl playfair font-extrabold text-gradient text-gradient">{page.title}</h1>
+        <h1 className="text-4xl md:text-5xl playfair font-extrabold text-gradient">
+          {page.title}
+        </h1>
         <p className="text-lg leading-relaxed mb-8">{page.content}</p>
 
-        {/* Catalogue Display */}
+        {/* ✅ Catalogue Display */}
         {catalogues.length === 1 ? (
-          // ✅ Single catalogue -> iframe
+          // Single catalogue -> iframe
           <div className="flex justify-center">
             <div className="w-full max-w-4xl h-[800px] border shadow-lg overflow-hidden">
               <iframe
@@ -60,7 +91,7 @@ export default function CataloguePage() {
             </div>
           </div>
         ) : (
-          // ✅ Multiple catalogues -> Grid of iframes
+          // Multiple catalogues -> Grid
           <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
             {catalogues.map((cat, idx) => (
               <div

@@ -1,4 +1,5 @@
 "use client";
+
 import content from "../../locales/en/content.json";
 import PageBanner from "@/components/PageBanner";
 import Image from "next/image";
@@ -65,7 +66,9 @@ export default function ExportTermsPage() {
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-gray-700 whitespace-pre-line">{section.text}</p>
+                  <p className="text-gray-700 whitespace-pre-line">
+                    {section.text}
+                  </p>
                 )}
               </div>
 

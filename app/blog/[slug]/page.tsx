@@ -1,16 +1,17 @@
+// app/blog/[slug]/page.tsx
 import blogData from "../../../locales/en/blog.json";
 import PageBanner from "@/components/PageBanner";
 import { notFound } from "next/navigation";
 
 // ----------------------
-// Helpers to normalize params (sync or async)
+// ✅ Normalize Params Helper
 // ----------------------
 async function getParams(params: any) {
   return params instanceof Promise ? await params : params;
 }
 
 // ----------------------
-// ✅ Generate metadata
+// ✅ Generate Metadata from JSON
 // ----------------------
 export async function generateMetadata({ params }: { params: any }) {
   const { slug } = await getParams(params);
@@ -42,7 +43,7 @@ export async function generateMetadata({ params }: { params: any }) {
 }
 
 // ----------------------
-// ✅ Static Params
+// ✅ Static Params for SSG
 // ----------------------
 export async function generateStaticParams() {
   return blogData.posts.map((post) => ({
@@ -75,6 +76,7 @@ export default async function BlogDetailPage({ params }: { params: any }) {
         <div className="mb-6 text-gray-600 text-sm">
           By <span className="font-semibold">{post.author}</span> • {post.date}
         </div>
+
         {post.content.map((para: string, i: number) => (
           <p key={i}>{para}</p>
         ))}

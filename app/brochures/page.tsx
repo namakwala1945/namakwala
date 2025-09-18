@@ -2,17 +2,44 @@
 import content from "../../locales/en/content.json";
 import PageBanner from "@/components/PageBanner";
 
-const page = content.brochures;
-const brochuress = page.items || [];
+// Types
+interface BrochureItem {
+  title: string;
+  file: string;
+}
 
-// Generate SSR metadata from JSON
-export const generateMetadata = async () => {
+interface BrochuresPageType {
+  title: string;
+  content: string;
+  banner: {
+    title: string;
+    heading: string;
+    image: string;
+  };
+  items: BrochureItem[];
+  metadata: any;
+}
+
+// Load page data
+const page: BrochuresPageType = content.brochures;
+const brochures: BrochureItem[] = page.items || [];
+
+// ✅ Generate SEO metadata dynamically
+export async function generateMetadata() {
   const meta = page.metadata;
+
   return {
     title: meta.title,
     description: meta.description,
     keywords: meta.keywords,
     authors: meta.authors.map((a: any) => ({ name: a.name })),
+    robots: {
+      index: true,
+      follow: true,
+    },
+    alternates: {
+      canonical: meta.openGraph.url,
+    },
     openGraph: {
       title: meta.openGraph.title,
       description: meta.openGraph.description,
@@ -20,6 +47,7 @@ export const generateMetadata = async () => {
       url: meta.openGraph.url,
       siteName: meta.openGraph.siteName,
       images: meta.openGraph.images.map((img: any) => img.url),
+      locale: meta.openGraph.locale,
     },
     twitter: {
       card: meta.twitter.card,
@@ -28,41 +56,44 @@ export const generateMetadata = async () => {
       images: meta.twitter.images,
     },
   };
-};
+}
 
-export default function Brochures() {
+export default function BrochuresPage() {
   return (
-    <section className="relative">
-      {/* Top Banner */}
+    <section className="relative poppins">
+      {/* ✅ Top Banner */}
       <div className="inset-0 top-0">
         <PageBanner
           title={page.banner.title}
           image={page.banner.image}
           category={page.banner.heading}
+          priority // ✅ Optimize LCP
         />
       </div>
 
-      {/* Main Content */}
+      {/* ✅ Main Content */}
       <div className="container mx-auto px-6 py-12 text-center">
-        <h1 className="text-5xl font-bold mb-5 leading-[1.5] text-gradient">{page.title}</h1>
+        <h1 className="text-5xl font-bold mb-5 leading-[1.5] text-gradient">
+          {page.title}
+        </h1>
         <p className="text-lg leading-relaxed mb-8">{page.content}</p>
 
-        {/* brochures Display */}
-        {brochuress.length === 1 ? (
-          // ✅ Single brochures -> iframe
+        {/* ✅ Brochure Display */}
+        {brochures.length === 1 ? (
+          // Single brochure -> iframe
           <div className="flex justify-center">
             <div className="w-full max-w-4xl h-[800px] border shadow-lg overflow-hidden">
               <iframe
-                src={brochuress[0].file}
+                src={brochures[0].file}
                 className="w-full h-full"
-                title={brochuress[0].title}
+                title={brochures[0].title}
               />
             </div>
           </div>
         ) : (
-          // ✅ Multiple brochuress -> Grid of iframes
+          // Multiple brochures -> Grid
           <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-            {brochuress.map((cat, idx) => (
+            {brochures.map((cat, idx) => (
               <div
                 key={idx}
                 className="bg-white shadow-lg overflow-hidden"

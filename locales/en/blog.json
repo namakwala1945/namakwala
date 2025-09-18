@@ -1,76 +1,95 @@
 {
   "page": {
     "title": "Our Blog",
-    "description": "Stay updated with the latest insights, trends, and knowledge from Namakwala Group. Explore expert advice, industry practices, and stories that matter.",
-    "banner": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80",
-    "category":"Namakwala",
+    "description": "Stay updated with the latest news, articles, and insights from our team.",
+    "banner": "/assets/images/blog-banner.jpg",
     "metadata": {
-      "title": "Blog - Namakwala Group",
-      "description": "Read insights, trends, and updates from Namakwala Group across minerals, exports, and sustainable practices.",
-      "keywords": "Namakwala Group blog, minerals, exports, salt industry, sustainability",
-      "authors": [{ "name": "Namakwala Group" }],
+      "title": "Blog | Namakwala Group",
+      "description": "Explore articles, industry updates, and insights from Namakwala Group.",
+      "keywords": ["salt", "industry news", "export", "minerals"],
+      "authors": [{ "name": "Namakwala Team" }],
       "openGraph": {
-        "title": "Blog - Namakwala Group",
-        "description": "Read the latest articles and industry insights from Namakwala Group.",
-        "url": "https://www.namakwala.com/blog",
+        "title": "Blog | Namakwala Group",
+        "description": "Explore articles, industry updates, and insights from Namakwala Group.",
+        "type": "website",
+        "url": "https://www.namakwala.in/blog",
         "siteName": "Namakwala Group",
-        "images": [
-          {
-            "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80",
-            "width": 1200,
-            "height": 630
-          }
-        ],
-        "locale": "en_US",
-        "type": "website"
+        "images": [{ "url": "/assets/images/og-blog.jpg" }]
       },
       "twitter": {
         "card": "summary_large_image",
-        "title": "Blog - Namakwala Group",
-        "description": "Explore articles, insights, and news from Namakwala Group.",
-        "images": ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80"]
+        "title": "Blog | Namakwala Group",
+        "description": "Explore articles, industry updates, and insights from Namakwala Group.",
+        "images": ["/assets/images/og-blog.jpg"]
       }
     }
   },
   "posts": [
     {
-      "slug": "how-to-use-minerals-effectively",
-      "title": "How to Use Minerals Effectively",
-      "category":"Namakwala",
-      "author": "Namakwala Group",
-      "date": "2025-08-29",
-      "banner": "https://images.unsplash.com/photo-1590608897129-79a4cb222e6f?auto=format&fit=crop&w=1470&q=80",
-      "excerpt": "Learn the best practices for using minerals in your industry.",
+      "slug": "sustainable-salt-production",
+      "title": "Sustainable Salt Production: The Future of the Industry",
+      "excerpt": "Learn how sustainable practices are shaping the future of salt production worldwide.",
+      "banner": "/assets/images/blog/sustainable-salt.jpg",
+      "author": "Ravi Kumar",
+      "date": "2025-09-01",
+      "category": "Sustainability",
       "content": [
-        "Minerals are an essential component in many industries...",
-        "Step 1: Understand your mineral requirements...",
-        "Step 2: Ensure proper storage and handling..."
+        "Salt production has long been a cornerstone of many economies, but environmental concerns are reshaping the industry.",
+        "Modern companies are adopting eco-friendly harvesting techniques to ensure long-term sustainability.",
+        "This article explores innovations and challenges facing salt producers worldwide."
       ],
       "metadata": {
-        "title": "How to Use Minerals Effectively - Namakwala Group",
-        "description": "Discover best practices for using minerals in industries with Namakwala Group’s expert insights.",
-        "keywords": "minerals, Namakwala Group, industry practices, salt",
-        "authors": [{ "name": "Namakwala Group" }],
+        "title": "Sustainable Salt Production | Namakwala Group",
+        "description": "Explore how eco-friendly practices are transforming the salt industry.",
+        "keywords": ["sustainable salt", "eco-friendly production", "green industry"],
+        "authors": [{ "name": "Ravi Kumar" }],
         "openGraph": {
-          "title": "How to Use Minerals Effectively - Namakwala Group",
-          "description": "Learn the best practices for using minerals in your industry.",
-          "url": "https://www.namakwala.com/blog/how-to-use-minerals-effectively",
+          "title": "Sustainable Salt Production | Namakwala Group",
+          "description": "Explore how eco-friendly practices are transforming the salt industry.",
+          "type": "article",
+          "url": "https://www.namakwala.in/blog/sustainable-salt-production",
           "siteName": "Namakwala Group",
-          "images": [
-            {
-              "url": "https://images.unsplash.com/photo-1590608897129-79a4cb222e6f?auto=format&fit=crop&w=1470&q=80",
-              "width": 1200,
-              "height": 630
-            }
-          ],
-          "locale": "en_US",
-          "type": "article"
+          "images": [{ "url": "/assets/images/blog/sustainable-salt-og.jpg" }]
         },
         "twitter": {
           "card": "summary_large_image",
-          "title": "How to Use Minerals Effectively - Namakwala Group",
-          "description": "Discover best practices for using minerals in industries.",
-          "images": ["https://images.unsplash.com/photo-1590608897129-79a4cb222e6f?auto=format&fit=crop&w=1470&q=80"]
+          "title": "Sustainable Salt Production",
+          "description": "Eco-friendly practices are reshaping the salt industry.",
+          "images": ["/assets/images/blog/sustainable-salt-og.jpg"]
+        }
+      }
+    },
+    {
+      "slug": "export-growth-trends",
+      "title": "Global Salt Export Trends in 2025",
+      "excerpt": "An analysis of the latest global export data and growth opportunities.",
+      "banner": "/assets/images/blog/export-trends.jpg",
+      "author": "Priya Sharma",
+      "date": "2025-08-20",
+      "category": "Exports",
+      "content": [
+        "The salt export industry has seen steady growth, driven by demand in emerging markets.",
+        "Data from 2025 suggests strong opportunities in Asia and Africa.",
+        "Companies must adapt to shifting trade regulations to remain competitive."
+      ],
+      "metadata": {
+        "title": "Global Salt Export Trends in 2025 | Namakwala Group",
+        "description": "Latest insights into global salt export growth and opportunities.",
+        "keywords": ["salt exports", "global trade", "2025 trends"],
+        "authors": [{ "name": "Priya Sharma" }],
+        "openGraph": {
+          "title": "Global Salt Export Trends in 2025",
+          "description": "Latest insights into global salt export growth and opportunities.",
+          "type": "article",
+          "url": "https://www.namakwala.in/blog/export-growth-trends",
+          "siteName": "Namakwala Group",
+          "images": [{ "url": "/assets/images/blog/export-trends-og.jpg" }]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Global Salt Export Trends in 2025",
+          "description": "Latest insights into global salt export growth and opportunities.",
+          "images": ["/assets/images/blog/export-trends-og.jpg"]
         }
       }
     }

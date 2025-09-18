@@ -503,48 +503,48 @@
 
   },
   "newsMedia": {
-    "title": "News & Media",
-    "content": "Latest updates, videos, and images from our company.",
+    "title": "Latest News & Media - Namakwala",
+    "content": "Stay updated with the latest news, press releases, and media coverage of Namakwala Group.",
     "banner": {
       "title": "News & Media",
-      "heading": "Explore our media coverage",
+      "heading": "Insights, Stories & Updates",
       "image": "/optimized/pagebanner/namakwala-news-media-large.webp"
     },
     "videos": [
       {
-        "title": "Corporate Film",
-        "url": "https://www.youtube.com/embed/FvD3mKKp1NQ?si=LboRMaXV20Ee1eup"
+        "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "title": "Namakwala Corporate Story"
       },
       {
-        "title": "Product Launch",
-        "url": "https://www.youtube.com/embed/Lr5QiOSaX70?si=znR_bVvWlDV6cgtX"
+        "url": "https://www.youtube.com/watch?v=abcd1234",
+        "title": "Sustainability Efforts"
       }
     ],
     "images": [
       {
-        "title": "Exhibition 2023",
-        "src": "/optimized/namakwala-foundation/namakwala-rural-empowerment6-medium.webp"
+        "src": "/optimized/namakwala-foundation/namakwala-rural-empowerment3-large.webp",
+        "title": "Annual Trade Fair"
       },
       {
-        "title": "Factory Visit",
-        "src": "/optimized/namakwala-foundation/namakwala-rural-empowerment5-large.webp"
+        "src": "/optimized/namakwala-foundation/namakwala-rural-empowerment6-medium.webp",
+        "title": "CSR Activities"
       }
     ],
     "metadata": {
-      "title": "Food Grade Salts - Namakwala",
-      "description": "Premium quality edible salts and minerals exported worldwide.",
-      "keywords": "salt, edible salt, food grade salt, Namakwala, minerals",
+      "title": "Latest News & Media - Namakwala",
+      "description": "Discover the latest updates, events, and media coverage of Namakwala Group.",
+      "keywords": "Namakwala, news, media, press releases, updates",
       "authors": [{ "name": "Namakwala Group" }],
       "openGraph": {
-        "title": "Food Grade Salts - Namakwala",
-        "description": "Premium quality edible salts and minerals exported worldwide.",
-        "url": "https://www.namakwala.com/food-grade-salts",
+        "title": "Latest News & Media - Namakwala",
+        "description": "Stay updated with the latest events and media coverage of Namakwala Group.",
+        "url": "https://www.namakwala.com/news-media",
         "siteName": "Namakwala Group",
         "images": [
           {
-            "url": "/optimized/heroBanner/2.3-Food-Grade-Salt-large.webp",
-            "width": 800,
-            "height": 600
+            "url": "/optimized/pagebanner/namakwala-news-media-banner-large.webp",
+            "width": 1200,
+            "height": 630
           }
         ],
         "locale": "en_US",
@@ -552,9 +552,11 @@
       },
       "twitter": {
         "card": "summary_large_image",
-        "title": "Food Grade Salts - Namakwala",
-        "description": "Premium quality edible salts and minerals exported worldwide.",
-        "images": ["/optimized/heroBanner/2.3-Food-Grade-Salt-large.webp"]
+        "title": "Latest News & Media - Namakwala",
+        "description": "Stay updated with Namakwala Group's latest news, stories, and media coverage.",
+        "images": [
+          "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1470&q=80"
+        ]
       }
     }
   },
@@ -797,313 +799,266 @@
     }
   },
   "legal-notice": {
-  "title": "Legal Notice",
-  "slug": "legal-notice",
-  "description": "Official legal notice for Namakwala Group covering business activities, compliance, liability, intellectual property, governing law, and contact information.",
-  "banner": {
-    "title": "Legal Notice",
-    "heading": "Important information regarding Namakwala Group's business and policies",
-    "image": "/optimized/pagebanner/namakwala-legal-notice-banner-large.webp"
-  },
-  "sections": [
-    {
-      "heading": "Namakwala Group – India’s Legacy in Salt & Minerals",
-      "text": "Namakwala serves a diverse international clientele with premium-quality minerals and salts, manufactured through world-class processes, supported by prompt and efficient customer service. Delivering quality, value, and trust worldwide.",
-      "image": "/optimized/pagebanner/namakwala-legacy-salt-minerals-large.webp"
-    },
-    {
-      "heading": "Business Activities",
-      "text": "Namakwala is engaged in the manufacturing, trading, and export of a wide range of high-quality salts and minerals, including but not limited to edible salt, industrial salt, crystal salt, garnet abrasive, feldspar, quartz, mica, talc, bentonite, dolomite, and other industrial minerals. Our products are processed under strict quality standards and shipped to over 50 countries worldwide.",
-      "image": "/optimized/pagebanner/namakwala-business-activities-large.webp"
-    },
-    {
-      "heading": "Disclaimer",
-      "text": "All information provided on this website, including product descriptions, specifications, images, and related content, is intended for general informational purposes only. While Namakwala takes all reasonable care to ensure the accuracy of the information, we make no warranties or representations, express or implied, regarding the completeness, reliability, or suitability of the content for any purpose.",
-      "image": "/optimized/pagebanner/namakwala-disclaimer-large.webp"
-    },
-    {
-      "heading": "Limitation of Liability",
-      "text": "Namakwala shall not be held liable for any direct, indirect, incidental, special, or consequential damages arising from the use of our products or reliance on the information provided. Users of our products and website assume full responsibility for compliance with local laws, import/export regulations, and industry standards.",
-      "image": "/optimized/pagebanner/namakwala-limitation-liability-large.webp"
-    },
-    {
-      "heading": "Intellectual Property",
-      "text": "All content, logos, trademarks, and images on this website are the property of Namakwala and may not be copied, reproduced, or used without explicit written permission.",
-      "image": "/optimized/pagebanner/namakwala-intellectual-property-large.webp"
-    },
-    {
-      "heading": "Compliance",
-      "text": "All our products comply with relevant Indian and international quality, safety, and regulatory standards, including ISO 9001:2015, HACCP, and HALAL certifications where applicable. Customers are responsible for ensuring that products meet the specific regulations of the importing country.",
-      "image": "/optimized/pagebanner/namakwala-compliance-large.webp"
-    },
-    {
-      "heading": "Governing Law",
-      "text": "This legal notice and any disputes related to Namakwala products or services shall be governed by and construed in accordance with the laws of India. Any claims must be brought exclusively in the courts located in Bhilwara, India, unless otherwise agreed in writing.",
-      "image": "/optimized/pagebanner/namakwala-governing-law-large.webp"
-    },
-    {
-      "heading": "Contact",
-      "text": "For inquiries regarding legal, regulatory, or product information, please contact:\nEmail: info@namakwala.com\nPhone: +91 9829 03 9590\nWebsite: www.namakwala.com",
-      "image": "/optimized/pagebanner/namakwala-contact -large.webp"
-    }
-  ],
-  "metadata": {
-    "title": "Legal Notice - Namakwala Group",
-    "description": "Official legal notice covering business activities, compliance, liability, intellectual property, governing law, and contact information for Namakwala Group.",
-    "keywords": "legal notice, Namakwala Group, salt, minerals, compliance, liability",
-    "authors": [{ "name": "Namakwala Group" }],
-    "openGraph": {
-      "title": "Legal Notice - Namakwala Group",
-      "description": "Official legal notice covering Namakwala Group's business policies and regulations.",
-      "url": "https://www.namakwala.com/legal-notice",
-      "siteName": "Namakwala Group",
-      "images": [
-        {
-          "url": "/optimized/pagebanner/namakwala-legal-notice-banner-large.webp",
-          "width": 1200,
-          "height": 600
-        }
-      ],
-      "locale": "en_US",
-      "type": "website"
-    },
-    "twitter": {
-      "card": "summary_large_image",
-      "title": "Legal Notice - Namakwala Group",
-      "description": "Official legal notice covering Namakwala Group's business policies and regulations.",
-      "images": ["https://images.unsplash.com/photo-1581091012184-4f0d1d5d9b60?auto=format&fit=crop&w=1200&q=80"]
-    }
-  }
-  },
-  "fraud-alert": {
-  "title": "Fraud Alert",
-  "slug": "fraud-alert",
-  "description": "Important advisory regarding fraudulent communications impersonating Namakwala Group across international markets.",
-  "banner": {
-    "title": "Fraud Alert",
-    "heading": "Important advisory regarding fraudulent communications impersonating Namakwala Group",
-    "image": "/optimized/pagebanner/namakwala-fraud-alert-large.webp"
-  },
-  "sections": [
-    {
-      "heading": "Overview",
-      "text": "Certain persons unconnected with us have been masquerading as officials of Namakwala Group and are making business proposals to companies and individuals in several countries using fake email IDs ending with '@namakwala.vc', '@namakwala.sg', '@namakwala.us.com', or '@namakwalaexports.us'. These business proposals are in respect of raising funds, proposed partnerships, supply agreements, and job offers at senior management level.",
-      "image": "/optimized/pagebanner/namakwala-fraud-alert-overview-large.webp"
-    },
-    {
-      "heading": "Misrepresentation",
-      "text": "While making some of these proposals, it is being wrongly portrayed that these communications are made by Namakwala Group companies allegedly registered in other countries. To our knowledge, the names of companies which have been used for illegal activities are: Namakwala Exports LLC, Russia; Namakwala Minerals and Trading LLC, Russia; Namakwala Exports Limited, Delaware, USA; and Namakwala Minerals and Trading Limited LLC, Delaware, USA. Namakwala Group does not have any office anywhere in Russia or the USA other than our registered offices in India.",
-      "image": "/optimized/pagebanner/namakwala-Misrepresentation-large.webp"
-    },
-    {
-      "heading": "Official Email IDs",
-      "text": "Namakwala Group and its companies only use email IDs ending with '@namakwala.com'. Email IDs ending with '@namakwala.vc', '@namakwala.sg', '@namakwala.us.com', or '@namakwalaexports.us' are never used by us or our group of companies.",
-      "image": "/optimized/pagebanner/namakwala-Official-Email-IDs-large.webp"
-    },
-    {
-      "heading": "Legal Action",
-      "text": "A criminal complaint was filed by Namakwala Group on 15th January, 2022 against an individual who was found using fake email IDs ending with '@namakwala.vc'. These criminal proceedings are ongoing. Complaints have also been lodged with Mumbai Police (Cyber Cell) on 12th February, 2022 and 20th March, 2022 after noticing further use of fake email IDs to address communications to companies and individuals purporting to represent Namakwala Group.",
-      "image": "/optimized/pagebanner/namakwala-legal-action-large.webp"
-    },
-    {
-      "heading": "Advisory",
-      "text": "You are advised not to enter into any correspondence or transactions of any nature whatsoever on the basis of a communication received from any email ID except '@namakwala.com'. Such correspondence or transactions will not bind Namakwala Group in any manner. If you receive any communication purporting to be from Namakwala Group from email IDs ending with '@namakwala.vc', '@namakwala.sg', '@namakwala.us.com', or '@namakwalaexports.us', kindly notify our Head – Fraud & Misconduct Investigations at fraud.alert@namakwala.com.",
-      "image": "/optimized/pagebanner/namakwala-advisory-large.webp"
-    },
-    {
-      "heading": "Contact",
-      "text": "Registered Office: Kalyani A-5, Kamla Vihar, Bhilwara – 311001, India\nPhone: +91 9829 03 9590\nWebsite: www.namakwala.com\n\nCorporate Communications: Kalyani A-5, Kamla Vihar, Bhilwara – 311001, India\nPhone: +91 9829 03 9590\nWebsite: www.namakwala.com",
-      "image": "/optimized/pagebanner/namakwala-contact -large.webp"
-    }
-  ],
-  "metadata": {
-    "title": "Fraud Alert - Namakwala Group",
-    "description": "Important advisory regarding fraudulent communications impersonating Namakwala Group across international markets.",
-    "keywords": "fraud alert, Namakwala Group, fake email, scam, minerals, salt",
-    "authors": [{ "name": "Namakwala Group" }],
-    "openGraph": {
-      "title": "Fraud Alert - Namakwala Group",
-      "description": "Official advisory warning about fraudulent communications impersonating Namakwala Group.",
-      "url": "https://www.namakwala.com/fraud-alert",
-      "siteName": "Namakwala Group",
-      "images": [
-        {
-          "url": "/optimized/pagebanner/namakwala-fraud-alert-large.webp",
-          "width": 800,
-          "height": 600
-        }
-      ],
-      "locale": "en_US",
-      "type": "website"
-    },
-    "twitter": {
-      "card": "summary_large_image",
-      "title": "Fraud Alert - Namakwala Group",
-      "description": "Official advisory warning about fraudulent communications impersonating Namakwala Group.",
-      "images": ["https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1470&q=80"]
-    }
-  }
-  },
-  "terms-of-service": {
-    "title": "Terms of Service",
-    "slug": "terms-of-service",
-    "description": "Terms and conditions governing the use of Namakwala Group's website, products, and services.",
+    "title": "Legal Notice - Namakwala",
+    "slug": "legal-notice",
+    "description": "Read Namakwala Group’s legal terms, disclaimers, and corporate information to understand the rules governing the use of our website and services.",
     "banner": {
-      "title": "Terms of Service",
-      "heading": "Important information regarding the use of Namakwala Group's website, products, and services",
-      "image": "/optimized/pagebanner/namakwala-terms-service-large.webp"
+      "title": "Legal Notice",
+      "heading": "Transparency & Compliance",
+      "image": "/optimized/pagebanner/namakwala-legal-notice-banner-large.webp"
     },
     "sections": [
       {
-        "heading": "Acceptance of Terms",
-        "text": "By accessing or using the Namakwala Group website, products, or services, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree to these terms, you must not use our website or services.",
-        "image": "/optimized/pagebanner/namakwala-acceptance-terms-large.webp"
-      },
-      {
-        "heading": "Use of Products and Services",
-        "text": "Namakwala Group provides high-quality salts and minerals for various industries. Users agree to use our products and services only for lawful purposes and in accordance with all applicable regulations. Any misuse, resale, or unauthorized distribution is strictly prohibited.",
-        "image": "/optimized/pagebanner/namakwala-products-services-large.webp"
-      },
-      {
-        "heading": "User Responsibilities",
-        "text": "Users are responsible for ensuring compliance with local laws, import/export regulations, and industry standards when purchasing or using Namakwala products. You must provide accurate and complete information when placing orders or registering on our site.",
-        "image": "/optimized/pagebanner/namakwala-user-responsibilities-large.webp"
+        "heading": "Company Information",
+        "text": "Namakwala Group is registered under applicable Indian company laws. All information on this site is owned, managed, and maintained by Namakwala Group.",
+        "image": "/optimized/pagebanner/namakwala-company-info.webp"
       },
       {
         "heading": "Intellectual Property",
-        "text": "All content, logos, trademarks, images, and proprietary information on the Namakwala Group website and product materials are owned by Namakwala Group. Users may not copy, reproduce, distribute, or use this content without prior written permission.",
+        "text": "All logos, trademarks, images, and content on this website are the intellectual property of Namakwala Group, unless otherwise stated. Unauthorized use is strictly prohibited.",
+        "image": "/optimized/pagebanner/namakwala-intellectual-property.webp"
+      },
+      {
+        "heading": "Disclaimer",
+        "text": "The content on this site is provided for informational purposes only. Namakwala Group makes no warranties regarding the completeness, accuracy, or reliability of this content.",
+        "image": "/optimized/pagebanner/namakwala-disclaimer.webp"
+      },
+      {
+        "heading": "Governing Law",
+        "text": "This legal notice shall be governed by and construed in accordance with the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in India.",
+        "image": "/optimized/pagebanner/namakwala-governing-law.webp"
+      },
+      {
+        "heading": "Contact Information",
+        "text": "For any inquiries regarding this legal notice, please contact us at legal@namakwala.com.",
+        "image": "/optimized/pagebanner/namakwala-contact.webp"
+      }
+    ],
+    "metadata": {
+      "title": "Legal Notice - Namakwala",
+      "description": "Read the official legal notice, disclaimers, and terms of Namakwala Group.",
+      "keywords": "Namakwala, legal notice, disclaimer, company information, intellectual property",
+      "authors": [{ "name": "Namakwala Group" }],
+      "openGraph": {
+        "title": "Legal Notice - Namakwala",
+        "description": "Learn about the legal disclaimers, terms, and company information of Namakwala Group.",
+        "url": "https://www.namakwala.com/legal-notice",
+        "siteName": "Namakwala Group",
+        "images": [
+          {
+            "url": "/optimized/pagebanner/namakwala-legal-notice-banner-large.webp",
+            "width": 1200,
+            "height": 630
+          }
+        ],
+        "locale": "en_US",
+        "type": "website"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Legal Notice - Namakwala",
+        "description": "Read Namakwala Group’s official legal terms, disclaimers, and policies.",
+        "images": [
+          "https://images.unsplash.com/photo-1581093458791-9cbf8f2dfb76?auto=format&fit=crop&w=1470&q=80"
+        ]
+      }
+    }
+  },
+  "fraud-alert": {
+    "title": "Fraud Alert - Namakwala",
+    "description": "Stay safe from fraudulent activities pretending to be Namakwala. Verify official communication and learn how to protect yourself.",
+    "banner": {
+      "title": "Fraud Alert",
+      "heading": "Stay Alert, Stay Safe",
+      "image": "/optimized/pagebanner/namakwala-fraud-alert-banner-large.webp"
+    },
+    "sections": [
+      {
+        "heading": "Why This Matters",
+        "text": "Fraudulent individuals may attempt to misuse Namakwala's name to deceive people. We urge you to remain cautious."
+      },
+      {
+        "heading": "Common Types of Frauds",
+        "text": [
+          "Fake job offers using Namakwala’s name",
+          "Fraudulent emails requesting payments",
+          "Impersonation of our employees on social media",
+          "Fake websites or WhatsApp groups claiming affiliation"
+        ],
+        "image": "/optimized/pagebanner/namakwala-fraud-types.webp"
+      },
+      {
+        "heading": "How to Verify Authentic Communication",
+        "text": [
+          "Official emails come only from *@namakwala.com",
+          "We never request payment for recruitment or job opportunities",
+          "Cross-check website links with our official domain: namakwala.com",
+          "Contact us directly through our official channels if in doubt"
+        ],
+        "image": "/optimized/pagebanner/namakwala-verify.webp"
+      },
+      {
+        "heading": "What To Do If You Suspect Fraud",
+        "text": [
+          "Do not share personal or financial details",
+          "Report suspicious activity immediately",
+          "Contact us via legal@namakwala.com",
+          "Inform local authorities if you’ve been targeted"
+        ],
+        "image": "/optimized/pagebanner/namakwala-report-fraud.webp"
+      }
+    ],
+    "metadata": {
+      "title": "Fraud Alert - Namakwala",
+      "description": "Beware of fraudulent activities. Learn how to identify, verify, and report fraud involving Namakwala.",
+      "keywords": "Namakwala, fraud alert, scams, fraud prevention, fake job offers, phishing",
+      "authors": [{ "name": "Namakwala Group" }],
+      "openGraph": {
+        "title": "Fraud Alert - Namakwala",
+        "description": "Stay alert against frauds misusing Namakwala’s name. Verify official sources and protect yourself.",
+        "url": "https://www.namakwala.com/fraud-alert",
+        "siteName": "Namakwala Group",
+        "images": [
+          {
+            "url": "/optimized/pagebanner/namakwala-fraud-alert-banner-large.webp",
+            "width": 1200,
+            "height": 630
+          }
+        ],
+        "locale": "en_US",
+        "type": "website"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Fraud Alert - Namakwala",
+        "description": "Learn how to stay safe from fraudulent activities claiming to represent Namakwala.",
+        "images": [
+          "https://images.unsplash.com/photo-1584438784894-089d6a62b8d4?auto=format&fit=crop&w=1470&q=80"
+        ]
+      }
+    }
+  },
+  "terms-of-service": {
+    "title": "Terms of Service - Namakwala",
+    "description": "Read Namakwala Group's Terms of Service outlining the rules and regulations for using our website and services.",
+    "banner": {
+      "title": "Namakwala Terms of Service",
+      "heading": "Trust, Transparency, Responsibility",
+      "image": "/optimized/pagebanner/namakwala-terms-banner-large.webp"
+    },
+    "sections": [
+      {
+        "heading": "Introduction",
+        "text": "These Terms of Service govern your use of Namakwala Group's website and services. By accessing our site, you agree to these terms.",
+        "image": "/optimized/pagebanner/namakwala-intro-terms-large.webp"
+      },
+      {
+        "heading": "Use of Website",
+        "text": [
+          "You must use the website in compliance with applicable laws and regulations.",
+          "Unauthorized access or misuse of the website is prohibited.",
+          "You agree not to upload harmful or illegal content."
+        ],
+        "image": "/optimized/pagebanner/namakwala-use-website-large.webp"
+      },
+      {
+        "heading": "Intellectual Property",
+        "text": "All content, logos, and trademarks on this site are the property of Namakwala Group and protected by copyright laws.",
         "image": "/optimized/pagebanner/namakwala-intellectual-property-large.webp"
       },
       {
         "heading": "Limitation of Liability",
-        "text": "Namakwala Group shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from the use of our website, products, or services. This includes, but is not limited to, damages related to product usage, errors, interruptions, or loss of data.",
-        "image": "/optimized/pagebanner/namakwala-limitation-liability-large.webp"
-      },
-      {
-        "heading": "Product Information",
-        "text": "While Namakwala Group makes reasonable efforts to provide accurate product descriptions, specifications, and images, we do not guarantee the completeness, reliability, or accuracy of the information. Users should verify product details before use or purchase.",
-        "image": "/optimized/pagebanner/namakwala-product-information-large.webp"
-      },
-      {
-        "heading": "Privacy Policy",
-        "text": "Your use of our website and services is also governed by our Privacy Policy, which explains how we collect, use, and protect your personal information.",
-        "image": "/optimized/pagebanner/namakwala-privacy-policy-large.webp"
+        "text": "Namakwala Group is not liable for any damages resulting from the use or inability to use our services.",
+        "image": "/optimized/pagebanner/namakwala-liability-large.webp"
       },
       {
         "heading": "Governing Law",
-        "text": "These Terms of Service shall be governed by and construed in accordance with the laws of India. Any disputes must be resolved exclusively in the courts located in Bhilwara, India.",
+        "text": "These terms are governed by the laws of India. Any disputes will be resolved in accordance with Indian law.",
         "image": "/optimized/pagebanner/namakwala-governing-law-large.webp"
-      },
-      {
-        "heading": "Modifications",
-        "text": "Namakwala Group reserves the right to modify, update, or change these Terms of Service at any time without prior notice. Continued use of our website or services constitutes acceptance of any changes.",
-        "image": "/optimized/pagebanner/namakwala-modifications-large.webp"
-      },
-      {
-        "heading": "Contact Information",
-        "text": "For questions regarding these Terms of Service, please contact:\nEmail: info@namakwala.com\nPhone: +91 9829 03 9590\nWebsite: www.namakwala.com",
-        "image": "/optimized/pagebanner/namakwala-contact-information1-large.webp"
       }
     ],
     "metadata": {
-      "title": "Terms of Service - Namakwala Group",
-      "description": "Terms and conditions governing the use of Namakwala Group's website, products, and services.",
-      "keywords": "terms of service, Namakwala Group, salt, minerals, regulations, policies",
+      "title": "Terms of Service - Namakwala",
+      "description": "Read Namakwala Group's Terms of Service outlining the rules and regulations for using our website and services.",
+      "keywords": "Namakwala, terms of service, rules, website usage, policies",
       "authors": [{ "name": "Namakwala Group" }],
       "openGraph": {
-        "title": "Terms of Service - Namakwala Group",
-        "description": "Official Terms of Service for Namakwala Group's products and website usage.",
+        "title": "Terms of Service - Namakwala",
+        "description": "Read Namakwala Group's Terms of Service outlining the rules and regulations for using our website and services.",
         "url": "https://www.namakwala.com/terms-of-service",
         "siteName": "Namakwala Group",
         "images": [
-          {
-            "url": "/optimized/pagebanner/namakwala-terms-service-large.webp",
-            "width": 800,
-            "height": 600
-          }
+          { "url": "/optimized/pagebanner/namakwala-terms-banner-large.webp", "width": 1200, "height": 630 }
         ],
         "locale": "en_US",
         "type": "website"
       },
       "twitter": {
         "card": "summary_large_image",
-        "title": "Terms of Service - Namakwala Group",
-        "description": "Official Terms of Service for Namakwala Group's products and website usage.",
-        "images": ["/optimized/pagebanner/namakwala-terms-service-large.webp"]
+        "title": "Terms of Service - Namakwala",
+        "description": "Read Namakwala Group's Terms of Service outlining the rules and regulations for using our website and services.",
+        "images": ["https://images.unsplash.com/photo-1596496059963-79e88e2f8f9c?auto=format&fit=crop&w=1470&q=80"]
       }
     }
   },
   "export-terms": {
-    "title": "Export Terms",
-    "slug": "export-terms",
-    "description": "Terms and conditions governing the export of Namakwala Group's products to international clients.",
+    "title": "Export Terms & Conditions",
+    "description": "Review our export terms and compliance guidelines. Learn how Namakwala ensures transparency, quality, and adherence to international trade standards.",
     "banner": {
       "title": "Export Terms",
-      "heading": "Important guidelines for international trade and export of Namakwala Group products",
-      "image": "https://images.unsplash.com/photo-1602524202623-4f5f29e7d16b?auto=format&fit=crop&w=1470&q=80"
+      "heading": "Commitment to Transparency",
+      "image": "/optimized/pagebanner/namakwala-export-terms-banner.webp"
     },
     "sections": [
       {
-        "heading": "Order Placement",
-        "text": "All export orders must be placed through official Namakwala Group channels. Orders should include complete product details, quantities, shipping destination, and preferred payment terms.",
-        "image": "https://images.unsplash.com/photo-1602524202624-8f5f29e7d18b?auto=format&fit=crop&w=1470&q=80"
+        "heading": "International Compliance",
+        "text": "We adhere to all applicable international trade laws, ensuring that our export processes meet the highest standards of legality and ethics.",
+        "image": "/optimized/pagebanner/namakwala-export-compliance.webp"
+      },
+      {
+        "heading": "Product Documentation",
+        "text": [
+          "Certificates of Origin provided with every shipment",
+          "Health and Safety certificates available upon request",
+          "Detailed product specifications included for all exports"
+        ],
+        "image": "/optimized/pagebanner/namakwala-product-docs.webp"
       },
       {
         "heading": "Payment Terms",
-        "text": "Payments must be made in the currency agreed upon at the time of order confirmation. We accept bank transfers, letters of credit, or other agreed methods. Payment terms will be specified in the proforma invoice.",
-        "image": "https://images.unsplash.com/photo-1602524202625-1f5f29e7d19c?auto=format&fit=crop&w=1470&q=80"
+        "text": [
+          "Standard terms: Advance payment or confirmed Letter of Credit (LC)",
+          "Custom terms available for long-term partners",
+          "Invoices issued in USD unless otherwise agreed"
+        ],
+        "image": "/optimized/pagebanner/namakwala-payment-terms.webp"
       },
       {
-        "heading": "Shipping and Delivery",
-        "text": "All products will be shipped as per the agreed Incoterms. Shipping schedules are indicative and may be subject to change due to customs, logistics, or other external factors. Namakwala Group is not responsible for delays beyond our control.",
-        "image": "https://images.unsplash.com/photo-1602524202626-5f5f29e7d20d?auto=format&fit=crop&w=1470&q=80"
+        "heading": "Logistics & Shipping",
+        "text": "We coordinate with leading logistics partners to ensure timely and safe delivery. Options include FOB, CIF, and custom arrangements based on client needs.",
+        "image": "/optimized/pagebanner/namakwala-logistics.webp"
       },
       {
-        "heading": "Customs and Import Regulations",
-        "text": "The buyer is responsible for ensuring compliance with local import regulations, customs duties, and taxes. Namakwala Group will provide necessary shipping and commercial documentation but cannot be held liable for customs delays or penalties.",
-        "image": "https://images.unsplash.com/photo-1602524202627-3f5f29e7d21e?auto=format&fit=crop&w=1470&q=80"
-      },
-      {
-        "heading": "Risk and Title",
-        "text": "Risk of loss or damage transfers to the buyer upon shipment from our warehouse as per the agreed Incoterms. Ownership of products passes to the buyer only after full payment has been received.",
-        "image": "https://images.unsplash.com/photo-1602524202628-6f5f29e7d22f?auto=format&fit=crop&w=1470&q=80"
-      },
-      {
-        "heading": "Quality Assurance",
-        "text": "All products are manufactured under strict quality control standards. Any claims regarding product quality must be reported within 7 days of receipt, with supporting evidence. Namakwala Group reserves the right to inspect returned goods before any replacement or refund.",
-        "image": "https://images.unsplash.com/photo-1602524202629-4f5f29e7d23a?auto=format&fit=crop&w=1470&q=80"
-      },
-      {
-        "heading": "Limitation of Liability",
-        "text": "Namakwala Group shall not be liable for any indirect, incidental, or consequential damages arising from export transactions. Our liability is limited to the value of the goods supplied.",
-        "image": "https://images.unsplash.com/photo-1602524202630-7f5f29e7d24b?auto=format&fit=crop&w=1470&q=80"
-      },
-      {
-        "heading": "Governing Law",
-        "text": "These Export Terms are governed by the laws of India. Any disputes arising from export orders will be subject to the exclusive jurisdiction of courts in Bhilwara, India.",
-        "image": "https://images.unsplash.com/photo-1602524202631-2f5f29e7d25c?auto=format&fit=crop&w=1470&q=80"
-      },
-      {
-        "heading": "Contact Information",
-        "text": "For queries regarding export orders, please contact:\nEmail: export@namakwala.com\nPhone: +91 9829 03 9590\nWebsite: www.namakwala.com",
-        "image": "https://images.unsplash.com/photo-1602524202632-9f5f29e7d26d?auto=format&fit=crop&w=1470&q=80"
+        "heading": "Dispute Resolution",
+        "text": "All disputes arising from export transactions are subject to the jurisdiction of the courts at our registered office location, unless otherwise mutually agreed.",
+        "image": "/optimized/pagebanner/namakwala-dispute-resolution.webp"
       }
     ],
     "metadata": {
-      "title": "Export Terms - Namakwala Group",
-      "description": "Guidelines and terms for international clients regarding the export of Namakwala Group products.",
-      "keywords": "export terms, Namakwala Group, international trade, shipping, regulations",
+      "title": "Export Terms & Conditions - Namakwala",
+      "description": "Explore Namakwala’s export terms including compliance, payment policies, documentation, and logistics support.",
+      "keywords": "Namakwala, export terms, export compliance, trade policy, payment terms, logistics",
       "authors": [{ "name": "Namakwala Group" }],
       "openGraph": {
-        "title": "Export Terms - Namakwala Group",
-        "description": "Official export terms for international clients of Namakwala Group products.",
+        "title": "Export Terms & Conditions - Namakwala",
+        "description": "Namakwala ensures transparent export terms with compliance, proper documentation, and secure logistics.",
         "url": "https://www.namakwala.com/export-terms",
         "siteName": "Namakwala Group",
         "images": [
           {
-            "url": "https://images.unsplash.com/photo-1602524202623-4f5f29e7d16b?auto=format&fit=crop&w=1470&q=80",
-            "width": 800,
-            "height": 600
+            "url": "/optimized/pagebanner/namakwala-export-terms-banner.webp",
+            "width": 1200,
+            "height": 630
           }
         ],
         "locale": "en_US",
@@ -1111,9 +1066,11 @@
       },
       "twitter": {
         "card": "summary_large_image",
-        "title": "Export Terms - Namakwala Group",
-        "description": "Official export terms for international clients of Namakwala Group products.",
-        "images": ["https://images.unsplash.com/photo-1602524202623-4f5f29e7d16b?auto=format&fit=crop&w=1470&q=80"]
+        "title": "Export Terms & Conditions - Namakwala",
+        "description": "Review Namakwala export compliance, documentation, and payment policies.",
+        "images": [
+          "https://images.unsplash.com/photo-1593113598332-cd6c1e7b3c16?auto=format&fit=crop&w=1470&q=80"
+        ]
       }
     }
   },
@@ -1126,7 +1083,7 @@
       "banner": {
         "title": "Salt",
         "heading": "Sustainable energy solutions with cutting-edge technology",
-        "image": "/assets/salt-animation.gif"
+        "image": "/optimized/products/namakwala-Crystal-Raw-Salt1-large.webp"
       },
       "sections": [
         {
@@ -1258,13 +1215,8 @@
         "logo": "/optimized/brands/namakwala-foundation-large.webp",
         "text": "Founded in 1945, the Foundation continues to improve lives through health, education, sustainability, and rural empowerment programs across India.",
         "slider": [
-          "/optimized/namakwala-foundation/namakwala-rural-empowerment-large.webp",
-          "/optimized/namakwala-foundation/namakwala-rural-empowerment1-large.webp",
-          "/optimized/namakwala-foundation/namakwala-rural-empowerment2-large.webp",
-          "/optimized/namakwala-foundation/namakwala-rural-empowerment3-large.webp",
-          "/optimized/namakwala-foundation/namakwala-rural-empowerment4-large.webp",
-          "/optimized/namakwala-foundation/namakwala-rural-empowerment5-large.webp",
-          "/optimized/namakwala-foundation/namakwala-rural-empowerment6-large.webp"
+          "/optimized/namakwala-rural-empowerment2-large.webp",
+          "/optimized/namakwala-rural-empowerment-large.webp"
         ]
       }
     ],

@@ -1,6 +1,8 @@
-import content from "../../locales/en/content.json";
+// app/legal-notice/page.tsx
+import content from "@/locales/en/content.json";
 import PageBanner from "@/components/PageBanner";
 import Image from "next/image";
+import Script from "next/script";
 
 // TypeScript types
 interface Section {
@@ -22,6 +24,7 @@ interface LegalNotice {
   metadata: any;
 }
 
+// ✅ Generate SEO metadata dynamically
 export async function generateMetadata() {
   const page: LegalNotice = content["legal-notice"];
 
@@ -30,6 +33,13 @@ export async function generateMetadata() {
     description: page.metadata.description,
     keywords: page.metadata.keywords,
     authors: page.metadata.authors.map((a: any) => ({ name: a.name })),
+    robots: {
+      index: true,
+      follow: true,
+    },
+    alternates: {
+      canonical: page.metadata.openGraph.url,
+    },
     openGraph: {
       title: page.metadata.openGraph.title,
       description: page.metadata.openGraph.description,
@@ -37,6 +47,7 @@ export async function generateMetadata() {
       url: page.metadata.openGraph.url,
       siteName: page.metadata.openGraph.siteName,
       images: page.metadata.openGraph.images.map((img: any) => img.url),
+      locale: page.metadata.openGraph.locale,
     },
     twitter: {
       card: page.metadata.twitter.card,
@@ -52,16 +63,49 @@ export default function LegalNoticePage() {
 
   return (
     <section className="relative bg-gray-50 poppins">
-      {/* Banner */}
+      {/* ✅ Structured Data */}
+      <Script type="application/ld+json" id="legalnotice-schema">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: page.title,
+          description: page.description,
+          url: page.metadata.openGraph.url,
+        })}
+      </Script>
+
+      {/* ✅ Breadcrumb JSON-LD */}
+      <Script type="application/ld+json" id="breadcrumb-schema">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://www.namakwala.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Legal Notice",
+              item: "https://www.namakwala.com/legal-notice",
+            },
+          ],
+        })}
+      </Script>
+
+      {/* ✅ Banner with priority for LCP */}
       <PageBanner
         title={page.banner.title}
         image={page.banner.image}
         category={page.banner.heading}
       />
 
-      {/* Main Content */}
+      {/* ✅ Main Content */}
       <div className="w-full mx-auto px-6 py-16 space-y-28">
-        {/* Page Title & Description */}
+        {/* Title & Description */}
         <div className="text-center max-w-4xl mx-auto space-y-6">
           <h1 className="text-4xl md:text-5xl playfair text-gradient font-extrabold animate-slideUp">
             {page.title}
@@ -83,10 +127,12 @@ export default function LegalNoticePage() {
                 isEven ? "md:flex-row" : "md:flex-row-reverse"
               }`}
             >
-              {/* Text Content */}
-              <div className="md:w-1/2 bg-white p-8 md:p-12 shadow-2xl z-10 relative hover:scale-105 transition-transform duration-300"
-              style={{ minHeight: "320px" }}>
-                <h2 className="text-4xl md:text-5xl leading-{4} font-bold mb-4 text-gray-800 animate-slideUp playfair text-gradient">
+              {/* Text */}
+              <div
+                className="md:w-1/2 bg-white p-8 md:p-12 shadow-2xl z-10 relative hover:scale-105 transition-transform duration-300"
+                style={{ minHeight: "320px" }}
+              >
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 animate-slideUp playfair text-gradient">
                   {section.heading}
                 </h2>
                 <p className="text-gray-700 leading-relaxed whitespace-pre-line">
@@ -94,7 +140,7 @@ export default function LegalNoticePage() {
                 </p>
               </div>
 
-              {/* Image Content */}
+              {/* Image */}
               <div
                 className={`md:w-1/2 mt-8 md:mt-0 relative md:-top-8 ${
                   isEven ? "md:-ml-16" : "md:-mr-16"

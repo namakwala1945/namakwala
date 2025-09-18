@@ -1,6 +1,8 @@
-import content from "../../locales/en/content.json";
+// app/news-media/page.tsx
+import content from "@/locales/en/content.json";
 import PageBanner from "@/components/PageBanner";
 import NewsMediaTabs from "@/components/NewsMediaTabs";
+import Script from "next/script";
 
 interface Video {
   url: string;
@@ -25,6 +27,7 @@ interface NewsMediaPageData {
   metadata: any;
 }
 
+// ✅ Generate SEO metadata dynamically
 export async function generateMetadata() {
   const page: NewsMediaPageData = content.newsMedia;
 
@@ -33,6 +36,13 @@ export async function generateMetadata() {
     description: page.metadata.description,
     keywords: page.metadata.keywords,
     authors: page.metadata.authors.map((a: any) => ({ name: a.name })),
+    robots: {
+      index: true,
+      follow: true,
+    },
+    alternates: {
+      canonical: page.metadata.openGraph.url,
+    },
     openGraph: {
       title: page.metadata.openGraph.title,
       description: page.metadata.openGraph.description,
@@ -40,6 +50,7 @@ export async function generateMetadata() {
       url: page.metadata.openGraph.url,
       siteName: page.metadata.openGraph.siteName,
       images: page.metadata.openGraph.images.map((img: any) => img.url),
+      locale: page.metadata.openGraph.locale,
     },
     twitter: {
       card: page.metadata.twitter.card,
@@ -55,7 +66,40 @@ export default function NewsMediaPage() {
 
   return (
     <section className="relative bg-[#fdf2df] poppins">
-      {/* Top Banner */}
+      {/* ✅ Structured Data */}
+      <Script type="application/ld+json" id="newsmedia-schema">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: page.title,
+          description: page.content,
+          url: page.metadata.openGraph.url,
+        })}
+      </Script>
+
+      {/* ✅ Breadcrumb JSON-LD */}
+      <Script type="application/ld+json" id="breadcrumb-schema">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://www.namakwala.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "News & Media",
+              item: "https://www.namakwala.com/news-media",
+            },
+          ],
+        })}
+      </Script>
+
+      {/* ✅ Top Banner with priority */}
       <div className="relative h-96 w-full overflow-hidden">
         <PageBanner
           title={page.banner.title}
@@ -65,17 +109,16 @@ export default function NewsMediaPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
       </div>
 
-      {/* Main Content */}
+      {/* ✅ Main Content */}
       <div className="container mx-auto px-6 pb-16 space-y-12">
-        <div className="bg-[#fff] shadow-lg p-6 md:p-10">
+        <div className="bg-white shadow-lg p-6 md:p-10">
           <h2 className="text-4xl md:text-5xl playfair font-extrabold text-gradient mb-6 text-center">
-            Latest News & Media
+            {page.title}
           </h2>
-          {/* Provide default empty arrays to avoid undefined errors */}
-          <NewsMediaTabs
-            videos={page.videos || []}
-            images={page.images || []}
-          />
+          <p className="text-center text-gray-700 mb-8">{page.content}</p>
+
+          {/* Avoid undefined errors */}
+          <NewsMediaTabs videos={page.videos || []} images={page.images || []} />
         </div>
       </div>
     </section>
