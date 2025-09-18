@@ -52,12 +52,9 @@ export default function HeroSection() {
               src={slide.image}
               alt={slide.title}
               fill
-              className="object-cover"
-              priority={slide.id === 1}
-              fetchPriority={slide.id === 1 ? "high" : "auto"}
-              loading={slide.id === 1 ? "eager" : "lazy"}
-              sizes="100vw"
+              priority
               quality={70}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
               placeholder="blur"
               blurDataURL="/optimized/placeholder-large.webp"
             />

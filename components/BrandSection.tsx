@@ -76,10 +76,10 @@ export default function BrandSection() {
                   <Image
                     src={cert.image}
                     alt={cert.name}
-                    fill
-                    className="object-contain"
-                    loading="lazy"
-                    fetchPriority="auto"
+                    width={80}
+                    height={80}
+                    quality={60}
+                    sizes="80px"
                   />
                 </div>
                 <h4 className="font-bold mb-1 sm:mb-2 text-sm sm:text-base uppercase">
