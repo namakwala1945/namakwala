@@ -82,8 +82,6 @@ export default function TermsOfServicePage() {
                     alt={section.heading}
                     fill
                     className="object-cover hover:scale-105 transition-transform duration-500"
-                    priority 
-                    fetchPriority="high"
                   />
                 </div>
               )}

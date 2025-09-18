@@ -48,27 +48,24 @@ export default function LifeAtNamakwala() {
 
           {/* Right Images */}
           <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
-              {page.images.map((img, idx) => (
-                <div
-                  key={idx}
-                  className={`overflow-hidden shadow-lg ${idx === 0 ? "col-span-2" : ""}`}
-                >
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    width={600}
-                    height={400}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                    // 👇 LCP image (first one) = preload + high priority
-                    priority={idx === 0}
-                    fetchPriority={idx === 0 ? "high" : "auto"}
-                    // 👇 All other images lazy-load
-                    loading={idx === 0 ? "eager" : "lazy"}
-                  />
-                </div>
-              ))}
-            </div>
-
+            {page.images.map((img, idx) => (
+              <div
+                key={idx}
+                className={`overflow-hidden shadow-lg ${
+                  idx === 0 ? "col-span-2" : ""
+                }`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  width={600}
+                  height={400}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  priority={idx === 0} // first image loads fast
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

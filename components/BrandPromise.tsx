@@ -26,8 +26,6 @@ export default function BrandPromise() {
                 width={180}
                 height={200}
                 className="object-contain bg-white "
-                priority 
-                fetchPriority="high"
               />
             </div>
           ))}

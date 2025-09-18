@@ -98,8 +98,6 @@ export default function VideoSection() {
                 width={800}
                 height={500}
                 className="w-full h-64 md:h-80 object-cover"
-                priority 
-                fetchPriority="high"
               />
 
               {/* Video Overlay */}
@@ -171,8 +169,6 @@ export default function VideoSection() {
                     width={70}
                     height={30}
                     className="w-full h-[100%] object-cover"
-                    priority 
-                    fetchPriority="high"
                   />
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                     <Play className="w-4 h-4 text-white" />

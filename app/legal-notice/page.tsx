@@ -106,8 +106,6 @@ export default function LegalNoticePage() {
                   alt={section.heading}
                   fill
                   className="object-cover"
-                  priority 
-                  fetchPriority="high"
                 />
               </div>
             </div>

@@ -136,8 +136,7 @@ export default function TestimonialsSection() {
                     src={testimonials[currentTestimonial].image}
                     alt={testimonials[currentTestimonial].name}
                     className="w-24 h-24 rounded-full object-cover shadow-lg"
-                    priority 
-                    fetchPriority="high"
+                    priority
                     fill
                   />
                 </div>
@@ -210,8 +209,7 @@ export default function TestimonialsSection() {
                   src={testimonial.image}
                   alt={testimonial.name}
                   className="w-16 h-16 rounded-full object-cover"
-                  priority 
-                  fetchPriority="high"
+                  priority
                   fill
                 />
                 <div>

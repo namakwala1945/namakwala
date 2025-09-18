@@ -67,8 +67,6 @@ export default function BusinessSection() {
               width={80}
               height={80}
               className="object-contain"
-              priority 
-              fetchPriority="high"
             />
             <span>Our Businesses</span>
           </span>

@@ -47,8 +47,7 @@ export default function ProductShowcase() {
               alt="NAMAKWALA Exporter"
               fill
               className="object-cover"
-              priority 
-              fetchPriority="high"
+              priority
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/70 flex items-center justify-center px-4 text-center">
               <div className="text-white">
@@ -95,8 +94,6 @@ export default function ProductShowcase() {
                   alt={product.name}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  priority 
-                  fetchPriority="high"
                 />
 
                 <Badge className="absolute top-3 left-3 bg-accent text-accent-foreground text-xs sm:text-sm">

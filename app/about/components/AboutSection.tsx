@@ -51,7 +51,6 @@ export default function AboutSection({ section }: SectionProps) {
             alt={section.title}
             className="object-cover"
             priority
-            fetchPriority="high"          // compress
             fill
           />
         </div>
@@ -112,7 +111,6 @@ export default function AboutSection({ section }: SectionProps) {
                     alt={sub.title}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                     priority
-                    fetchPriority="high"          // compress
                     fill
                   />
                 </div>
