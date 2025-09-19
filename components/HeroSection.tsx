@@ -14,7 +14,7 @@ import slides from "../locales/en/heroBanner.json";
 import YearsOfExcellence from "./YearsOfExcellence";
 import Link from "next/link";
 const features = [
-  { icon: Globe, text: "50+ Countries" },
+  { icon: Globe, text: "21+ Countries" },
   { icon: TrendingUp, text: <YearsOfExcellence /> },
   { icon: Shield, text: "ISO Certified" },
 ];
