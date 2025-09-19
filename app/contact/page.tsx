@@ -2,27 +2,41 @@
 import { useState } from "react";
 import content from "../../locales/en/content.json";
 import PageBanner from "@/components/PageBanner";
-import { MapPin, Phone, Mail, Globe, Clock, ArrowRight } from "lucide-react";
+import { MapPin } from "lucide-react";
+import { isValidPhoneNumber } from "libphonenumber-js";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
+
 const page = content.contact;
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
-    countryCode: "+91",
     phone: "",
     email: "",
     message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const [error, setError] = useState<string>("");
+  const [sending, setSending] = useState(false);
+  const [showPopup, setShowPopup] = useState(false); // ✅ popup state
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const [sending, setSending] = useState(false);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!formData.phone || !isValidPhoneNumber(formData.phone)) {
+      setError("❌ Please enter a valid phone number");
+      return;
+    }
+    setError("");
     setSending(true);
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -30,8 +44,10 @@ export default function ContactPage() {
         body: JSON.stringify(formData),
       });
       if (!res.ok) throw new Error("Failed");
-      alert("✅ Message sent successfully!");
-      setFormData({ name: "", countryCode: "+91", phone: "", email: "", message: "" });
+
+      // ✅ Show popup on success
+      setShowPopup(true);
+      setFormData({ name: "", phone: "", email: "", message: "" });
     } catch {
       alert("❌ Failed to send message. Try again later.");
     } finally {
@@ -41,24 +57,22 @@ export default function ContactPage() {
 
   return (
     <section className="relative bg-[#fdf2df] poppins">
-      {/* Top Banner */}
-      <div className="inset-0 top-0">
-        <PageBanner
-          title={page.banner.title}
-          image={page.banner.image}
-          category={page.banner.heading}
-        />
-      </div>
+      <PageBanner
+        title={page.banner.title}
+        image={page.banner.image}
+        category={page.banner.heading}
+      />
 
-      {/* Main Content */}
       <div className="container mx-auto px-6 py-12">
-        <h1 className="text-4xl md:text-5xl playfair font-extrabold text-gradient text-center mb-8">{page.title}</h1>
+        <h1 className="text-4xl md:text-5xl playfair font-extrabold text-gradient text-center mb-8">
+          {page.title}
+        </h1>
         <p className="text-lg text-center max-w-3xl mx-auto text-gray-600 mb-12">
           {page.content}
         </p>
 
         <div className="grid md:grid-cols-2 gap-10">
-          {/* Left: Contact Form */}
+          {/* Form */}
           <div className="bg-white shadow-lg p-6">
             <h2 className="text-xl font-semibold mb-4">Send us a Message</h2>
             <form onSubmit={handleSubmit} className="grid gap-4">
@@ -72,29 +86,17 @@ export default function ContactPage() {
                 required
               />
 
-              <div className="flex gap-2">
-                <select
-                  name="countryCode"
-                  value={formData.countryCode}
-                  onChange={handleChange}
-                  className="border p-3 focus:ring-2 focus:ring-gray-500 outline-none w-28"
-                >
-                  <option value="+91">🇮🇳 +91</option>
-                  <option value="+1">🇺🇸 +1</option>
-                  <option value="+44">🇬🇧 +44</option>
-                  <option value="+971">🇦🇪 +971</option>
-                  {/* Add more codes as needed */}
-                </select>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Mobile Number"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="border p-3 focus:ring-2 focus:ring-gray-500 outline-none flex-1"
-                  required
-                />
-              </div>
+              <PhoneInput
+                international
+                defaultCountry="IN"
+                value={formData.phone}
+                onChange={(value) =>
+                  setFormData({ ...formData, phone: value || "" })
+                }
+                className="border p-3 focus:ring-2 focus:ring-gray-500 outline-none w-full"
+              />
+
+              {error && <p className="text-red-600 text-sm">{error}</p>}
 
               <input
                 type="email"
@@ -116,30 +118,17 @@ export default function ContactPage() {
                 required
               />
 
-              <button  aria-label={sending ? "Sending..." : "Send Message"} type="submit" disabled={sending} className="px-6 py-3 gy-bg text-white font-medium shadow hover:gy-bg transition">
+              <button
+                type="submit"
+                disabled={sending}
+                className="px-6 py-3 gy-bg text-white font-medium shadow hover:gy-bg transition"
+              >
                 {sending ? "Sending..." : "Send Message"}
               </button>
             </form>
-            <div className="flex flex-wrap justify-between items-center gap-6 mt-10">
-              <div className="flex items-center gap-2">
-                <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <p className="text-sm text-muted-foreground">+91-98290-39590</p>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                <p className="text-sm text-muted-foreground">info@namakwala.com</p>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5 text-primary flex-shrink-0" />
-                <p className="text-sm text-muted-foreground">Mon-Fri: 24HRS IST</p>
-              </div>
-            </div>
           </div>
 
-          {/* Right: Google Map */}
-          {/* Right: Address Section */}
+          {/* Addresses */}
           <div className="overflow-hidden px-6 py-3">
             <div className="flex flex-col justify-between gap-4">
               {page.addresses.map((addr, idx) => (
@@ -165,6 +154,26 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+
+      {/* ✅ Popup */}
+      {showPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 max-w-sm text-center shadow-lg">
+            <h2 className="text-xl font-semibold mb-2">
+              Thank you for connecting with us!
+            </h2>
+            <p className="text-gray-700 mb-4">
+              Our team will get back to you soon.
+            </p>
+            <button
+              onClick={() => setShowPopup(false)}
+              className="px-4 py-2 bg-primary text-white rounded hover:gy-bg"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

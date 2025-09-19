@@ -1,17 +1,17 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { parsePhoneNumberFromString } from "libphonenumber-js";
 
-export const runtime = "nodejs"; // ensure Node runtime (not Edge) for Nodemailer
+export const runtime = "nodejs"; // ensure Node runtime (not Edge)
 
 type Body = {
   name: string;
-  countryCode: string;
-  phone: string;
+  phone: string; // full international number from frontend
   email: string;
   message: string;
 };
 
-// very small HTML escape to avoid breaking your email templates
+// simple HTML escape
 const esc = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!));
 
@@ -20,7 +20,7 @@ function adminHtml(data: Body) {
   <div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6">
     <h2 style="margin:0 0 12px">New Contact Form Submission</h2>
     <p><b>Name:</b> ${esc(data.name)}</p>
-    <p><b>Phone:</b> ${esc(data.countryCode)} ${esc(data.phone)}</p>
+    <p><b>Phone:</b> ${esc(data.phone)}</p>
     <p><b>Email:</b> ${esc(data.email)}</p>
     <p><b>Message:</b><br>${esc(data.message).replace(/\n/g,"<br>")}</p>
     <hr>
@@ -46,54 +46,58 @@ export async function POST(req: Request) {
     const body = (await req.json()) as Partial<Body>;
 
     // Basic validation
-    if (
-      !body.name ||
-      !body.countryCode ||
-      !body.phone ||
-      !body.email ||
-      !body.message
-    ) {
+    if (!body.name || !body.phone || !body.email || !body.message) {
       return NextResponse.json({ ok: false, error: "Missing fields" }, { status: 400 });
+    }
+
+    // Validate phone number
+    const phoneNumber = parsePhoneNumberFromString(body.phone);
+    if (!phoneNumber || !phoneNumber.isValid()) {
+      return NextResponse.json({ ok: false, error: "Invalid phone number" }, { status: 400 });
     }
 
     const data: Body = {
       name: body.name.trim(),
-      countryCode: body.countryCode.trim(),
-      phone: String(body.phone).trim(),
+      phone: phoneNumber.formatInternational(), // store formatted number
       email: body.email.trim(),
       message: body.message.trim(),
     };
 
-    // Create transporter
+    // Prepare transporter
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT || 465),
-      secure: String(process.env.SMTP_SECURE || "true") === "true",
+      secure: process.env.SMTP_SECURE === "true",
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
+      logger: true,
+      debug: true,
     });
 
     const fromName = process.env.MAIL_FROM_NAME || "Website";
     const from = `"${fromName}" <${process.env.SMTP_USER}>`;
 
-    // 1) Send to admin(s)
+    // Split admin emails safely
+    const adminEmails = process.env.ADMIN_EMAILS?.split(",").map(e => e.trim()).filter(Boolean) || [];
+
+    // 1) Send to admin
     await transporter.sendMail({
       from,
-      to: process.env.ADMIN_EMAILS, // comma-separated list from .env
-      replyTo: data.email, // so you can reply directly to the user
+      to: adminEmails,
+      replyTo: data.email,
       subject: "New Contact Form Submission",
       html: adminHtml(data),
       text: `New contact submission
-          Name: ${data.name}
-          Phone: ${data.countryCode} ${data.phone}
-          Email: ${data.email}
-          Message:
-          ${data.message}`,
+Name: ${data.name}
+Phone: ${data.phone}
+Email: ${data.email}
+Message:
+${data.message}`,
     });
 
-    // 2) Auto-reply to user
+    // 2) Send auto-reply to user
     await transporter.sendMail({
       from,
       to: data.email,
@@ -101,19 +105,18 @@ export async function POST(req: Request) {
       html: userHtml(data),
       text: `Hi ${data.name},
 
-      Thank you for contacting ${fromName}. We’ve received your message and will get back to you shortly.
+Thank you for contacting ${fromName}. We’ve received your message.
 
-      Your message:
-      ${data.message}
+Your message:
+${data.message}
 
-      Regards,
-      ${fromName}
-      `,
+Regards,
+${fromName}`,
     });
 
-        return NextResponse.json({ ok: true });
-      } catch (err) {
-        console.error("Contact API error:", err);
-        return NextResponse.json({ ok: false, error: "Email failed" }, { status: 500 });
-      }
-    }
+    return NextResponse.json({ ok: true });
+  } catch (err: any) {
+    console.error("Contact API error:", err);
+    return NextResponse.json({ ok: false, error: err.message || "Email failed" }, { status: 500 });
+  }
+}

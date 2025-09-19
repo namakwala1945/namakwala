@@ -55,7 +55,7 @@
     "google-translate-api": "^2.3.0",
     "i18next": "^25.3.6",
     "input-otp": "^1.4.2",
-    "libphonenumber-js": "^1.12.15",
+    "libphonenumber-js": "^1.12.17",
     "lucide-react": "^0.539.0",
     "next": "^15.4.6",
     "next-i18next": "^15.4.2",
