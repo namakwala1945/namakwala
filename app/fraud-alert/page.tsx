@@ -1,6 +1,7 @@
 import content from "../../locales/en/content.json";
 import PageBanner from "@/components/PageBanner";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Section {
   heading: string;
@@ -121,6 +122,7 @@ export default function FraudAlertPage() {
           );
         })}
       </div>
+      <Link href="https://mail.google.com/mail">Login Namakwala</Link>
     </section>
   );
 }

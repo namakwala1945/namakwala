@@ -811,27 +811,27 @@
       {
         "heading": "Company Information",
         "text": "Namakwala Group is registered under applicable Indian company laws. All information on this site is owned, managed, and maintained by Namakwala Group.",
-        "image": "/optimized/pagebanner/namakwala-company-info.webp"
+        "image": "/optimized/pagebanner/namakwala-information-collected-medium.webp"
       },
       {
         "heading": "Intellectual Property",
         "text": "All logos, trademarks, images, and content on this website are the intellectual property of Namakwala Group, unless otherwise stated. Unauthorized use is strictly prohibited.",
-        "image": "/optimized/pagebanner/namakwala-intellectual-property.webp"
+        "image": "/optimized/pagebanner/namakwala-governing-law-medium.webp"
       },
       {
         "heading": "Disclaimer",
         "text": "The content on this site is provided for informational purposes only. Namakwala Group makes no warranties regarding the completeness, accuracy, or reliability of this content.",
-        "image": "/optimized/pagebanner/namakwala-disclaimer.webp"
+        "image": "/optimized/pagebanner/namakwala-disclaimer-medium.webp"
       },
       {
         "heading": "Governing Law",
         "text": "This legal notice shall be governed by and construed in accordance with the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in India.",
-        "image": "/optimized/pagebanner/namakwala-governing-law.webp"
+        "image": "/optimized/pagebanner/namakwala-governing-law-medium.webp"
       },
       {
         "heading": "Contact Information",
         "text": "For any inquiries regarding this legal notice, please contact us at legal@namakwala.com.",
-        "image": "/optimized/pagebanner/namakwala-contact.webp"
+        "image": "/optimized/pagebanner/namakwala-contact-medium.webp"
       }
     ],
     "metadata": {
@@ -870,12 +870,13 @@
     "banner": {
       "title": "Fraud Alert",
       "heading": "Stay Alert, Stay Safe",
-      "image": "/optimized/pagebanner/namakwala-fraud-alert-banner-large.webp"
+      "image": "/optimized/pagebanner/namakwala-fraud-alert-large.webp"
     },
     "sections": [
       {
         "heading": "Why This Matters",
-        "text": "Fraudulent individuals may attempt to misuse Namakwala's name to deceive people. We urge you to remain cautious."
+        "text": "Fraudulent individuals may attempt to misuse Namakwala's name to deceive people. We urge you to remain cautious.",
+        "image": "/assets/pagebanner/namakwala-fraud-alert-why.jpg"
       },
       {
         "heading": "Common Types of Frauds",
@@ -885,7 +886,7 @@
           "Impersonation of our employees on social media",
           "Fake websites or WhatsApp groups claiming affiliation"
         ],
-        "image": "/optimized/pagebanner/namakwala-fraud-types.webp"
+        "image": "/assets/pagebanner/namakwala-common-froud.jpg"
       },
       {
         "heading": "How to Verify Authentic Communication",
@@ -895,7 +896,7 @@
           "Cross-check website links with our official domain: namakwala.com",
           "Contact us directly through our official channels if in doubt"
         ],
-        "image": "/optimized/pagebanner/namakwala-verify.webp"
+        "image": "/assets/pagebanner/namakwala-verify-authentic.jpg"
       },
       {
         "heading": "What To Do If You Suspect Fraud",
@@ -905,7 +906,7 @@
           "Contact us via legal@namakwala.com",
           "Inform local authorities if you’ve been targeted"
         ],
-        "image": "/optimized/pagebanner/namakwala-report-fraud.webp"
+        "image": "/assets/pagebanner/namakwala-suspect-fraud.jpg"
       }
     ],
     "metadata": {
@@ -920,7 +921,7 @@
         "siteName": "Namakwala Group",
         "images": [
           {
-            "url": "/optimized/pagebanner/namakwala-fraud-alert-banner-large.webp",
+            "url": "/optimized/pagebanner/namakwala-fraud-alert-large.webp",
             "width": 1200,
             "height": 630
           }
