@@ -1,17 +1,17 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 
-export const runtime = "nodejs"; // ensure Node runtime (not Edge)
+export const runtime = "nodejs"; // stay on Node runtime
 
 type Body = {
   name: string;
-  phone: string; // full international number from frontend
+  phone: string; // full international number
   email: string;
   message: string;
 };
 
-// simple HTML escape
+// small HTML escape
 const esc = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!));
 
@@ -41,6 +41,8 @@ function userHtml(data: Body) {
   `;
 }
 
+const resend = new Resend(process.env.RESEND_API_KEY as string);
+
 export async function POST(req: Request) {
   try {
     const body = (await req.json()) as Partial<Body>;
@@ -58,33 +60,17 @@ export async function POST(req: Request) {
 
     const data: Body = {
       name: body.name.trim(),
-      phone: phoneNumber.formatInternational(), // store formatted number
+      phone: phoneNumber.formatInternational(),
       email: body.email.trim(),
       message: body.message.trim(),
     };
 
-    // Prepare transporter
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT || 465),
-      secure: process.env.SMTP_SECURE === "true",
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-      logger: true,
-      debug: true,
-    });
-
     const fromName = process.env.MAIL_FROM_NAME || "Website";
-    const from = `"${fromName}" <${process.env.SMTP_USER}>`;
-
-    // Split admin emails safely
     const adminEmails = process.env.ADMIN_EMAILS?.split(",").map(e => e.trim()).filter(Boolean) || [];
 
-    // 1) Send to admin
-    await transporter.sendMail({
-      from,
+    // 1) Send to admin(s)
+    await resend.emails.send({
+      from: `${fromName} <onboarding@resend.dev>`, // must be verified in Resend
       to: adminEmails,
       replyTo: data.email,
       subject: "New Contact Form Submission",
@@ -97,9 +83,9 @@ Message:
 ${data.message}`,
     });
 
-    // 2) Send auto-reply to user
-    await transporter.sendMail({
-      from,
+    // 2) Auto-reply to user
+    await resend.emails.send({
+      from: `${fromName} <onboarding@resend.dev>`,
       to: data.email,
       subject: "We received your message",
       html: userHtml(data),

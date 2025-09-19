@@ -3,7 +3,7 @@
     "our-journey": {
       "slug": "our-journey",
       "title": "Our Journey",
-      "content": "Founded in 2023 in Bhilwara, Rajasthan, Namakwala has grown from a salt shopkeeper into India’s leading manufacturer and exporter of Salt and Minerals. Today, we serve industries and households in 50+ countries, delivering products known for purity, quality, and trust.",
+      "content": "Founded in 2023 in Bhilwara, Rajasthan, Namakwala has grown from a salt shopkeeper into India’s leading manufacturer and exporter of Salt and Minerals. Today, we serve industries and households in 21+ countries, delivering products known for purity, quality, and trust.",
       "banner": {
         "title": "About",
         "heading": "Dedication | Growth | Passion",
@@ -19,7 +19,7 @@
             "1970 – Introduced consumer salt packs, a first in India.",
             "1980 –2000 – Expanded into bulk trade and industrial salts, strengthening domestic presence.",
             "2000 – 2020 – Entered global markets, building strong export relationships.",
-            "Today – Recognized as a trusted global supplier of salt and minerals, serving 50+ countries worldwide."
+            "Today – Recognized as a trusted global supplier of salt and minerals, serving 21+ countries worldwide."
           ],
           "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1470&q=80"
         },
@@ -664,15 +664,15 @@
         ]
       },
       {
-        "title": "U.A.E. OFFICE",
+        "title": "CORPORATE OFFICE",
         "lines": [
-          "Meydan Grandstand, 6th floor,",
-          "Meydan Road, Nad Al Sheba",
-          "DUBAI - UAE"
+          "Office #202/214,",
+          "AL Hilal Bank Building, Al Qusais,",
+          "DUBAI - U.A.E"
         ]
       },
       {
-        "title": "CORPORATE OFFICE",
+        "title": "PLANT",
         "lines": [
           "Salt City,",
           "Chopadva",

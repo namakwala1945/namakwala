@@ -2,7 +2,7 @@
 import { useState } from "react";
 import content from "../../locales/en/content.json";
 import PageBanner from "@/components/PageBanner";
-import { MapPin } from "lucide-react";
+import { MapPin, Phone, Mail, Globe, Clock, ArrowRight } from "lucide-react";
 import { isValidPhoneNumber } from "libphonenumber-js";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
@@ -64,68 +64,85 @@ export default function ContactPage() {
       />
 
       <div className="container mx-auto px-6 py-12">
-        <h1 className="text-4xl md:text-5xl playfair font-extrabold text-gradient text-center mb-8">
+        {/* <h1 className="text-4xl md:text-5xl playfair font-extrabold text-gradient text-center mb-8">
           {page.title}
-        </h1>
+        </h1> */}
         <p className="text-lg text-center max-w-3xl mx-auto text-gray-600 mb-12">
           {page.content}
         </p>
 
         <div className="grid md:grid-cols-2 gap-10">
           {/* Form */}
-          <div className="bg-white shadow-lg p-6">
-            <h2 className="text-xl font-semibold mb-4">Send us a Message</h2>
-            <form onSubmit={handleSubmit} className="grid gap-4">
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleChange}
-                className="border p-3 focus:ring-2 focus:ring-gray-500 outline-none"
-                required
-              />
+          <div className="bg-white shadow-lg p-2">
+            <div className="flex flex-wrap text-white justify-between px-6 py-4 items-center gap-6 bg-[#d2ab67]"> 
+              <div className="flex items-center gap-2"> 
+                <Phone className="w-5 h-5 flex-shrink-0" /> 
+                <p className="text-sm">+91-98290-39590</p> 
+              </div> 
+              <div className="flex items-center gap-2"> 
+                <Mail className="w-5 h-5 flex-shrink-0" /> 
+                <p className="text-sm">info@namakwala.com</p> 
+              </div> 
+              <div className="flex items-center gap-2"> 
+                <Clock className="w-5 h-5 flex-shrink-0" /> 
+                <p className="text-sm">Mon-Fri: 24HRS IST</p> 
+              </div> 
+            </div>
+            <div className="w-full m-auto  p-6 mt-5">
+              <h2 className="text-xl font-semibold mb-4">Send us a Message</h2>
+              <form onSubmit={handleSubmit} className="grid gap-4">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="border p-3 focus:ring-2 focus:ring-gray-500 outline-none"
+                  required
+                />
 
-              <PhoneInput
-                international
-                defaultCountry="IN"
-                value={formData.phone}
-                onChange={(value) =>
-                  setFormData({ ...formData, phone: value || "" })
-                }
-                className="border p-3 focus:ring-2 focus:ring-gray-500 outline-none w-full"
-              />
+                <PhoneInput
+                  international
+                  defaultCountry="IN"
+                  value={formData.phone}
+                  onChange={(value) =>
+                    setFormData({ ...formData, phone: value || "" })
+                  }
+                  className="border p-3 focus:ring-2 focus:ring-gray-500 outline-none w-full"
+                />
 
-              {error && <p className="text-red-600 text-sm">{error}</p>}
+                {error && <p className="text-red-600 text-sm">{error}</p>}
 
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleChange}
-                className="border p-3 focus:ring-2 focus:ring-gray-500 outline-none"
-                required
-              />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="border p-3 focus:ring-2 focus:ring-gray-500 outline-none"
+                  required
+                />
 
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                value={formData.message}
-                onChange={handleChange}
-                className="border p-3 focus:ring-2 focus:ring-gray-500 outline-none"
-                rows={5}
-                required
-              />
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="border p-3 focus:ring-2 focus:ring-gray-500 outline-none"
+                  rows={5}
+                  required
+                />
 
-              <button
-                type="submit"
-                disabled={sending}
-                className="px-6 py-3 gy-bg text-white font-medium shadow hover:gy-bg transition"
-              >
-                {sending ? "Sending..." : "Send Message"}
-              </button>
-            </form>
+                <button
+                  type="submit"
+                  disabled={sending}
+                  className="px-6 py-3 gy-bg text-white font-medium shadow hover:gy-bg transition"
+                >
+                  {sending ? "Sending..." : "Send Message"}
+                </button>
+              </form>
+            </div>
+            
           </div>
 
           {/* Addresses */}
