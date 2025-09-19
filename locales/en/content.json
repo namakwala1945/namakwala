@@ -53,9 +53,9 @@
         "banner": {
           "title": "Premium Salt manufacturer & exporter from India",
           "heading": "Healthy, Tasty & Consistent – Food Grade Salt for Every Need",
-          "image": "/optimized/pagebanner/namakwala-salt-banner-large.webp"
+          "image": "/optimized/pagebanner/namakwala-salt-banner-medium.webp"
         },
-        "productImage": "/optimized/products/namakwala-food-grade-salt-large.webp",
+        "productImage": "/optimized/products/namakwala-food-grade-salt-medium.webp",
         "keyFeatures": [
           { "feature": "100% Natural & Pure", "detail": "Free from harmful additives and contaminants." },
           { "feature": "Rich in Essential Minerals", "detail": "Contains sodium, calcium, magnesium, and potassium." },
@@ -95,7 +95,7 @@
             "siteName": "Namakwala Group",
             "images": [
               {
-                "url": "/optimized/products/namakwala-food-grade-salt-large.webp",
+                "url": "/optimized/products/namakwala-food-grade-salt-medium.webp",
                 "width": 800,
                 "height": 600
               }
@@ -107,7 +107,7 @@
             "card": "summary_large_image",
             "title": "Food Grade Salt - Namakwala",
             "description": "Premium Food Grade Salt fortified with iodine and trusted worldwide for everyday cooking, hospitality, and food processing.",
-            "images": ["/optimized/products/namakwala-food-grade-salt-large.webp"]
+            "images": ["/optimized/products/namakwala-food-grade-salt-medium.webp"]
           }
         }
       },
@@ -116,9 +116,9 @@
         "banner": {
           "title": "Industrial Salt",
           "heading": "Premium-Grade Raw Material for Global Industries",
-          "image": "/optimized/products/namakwala-industrial-salt-large.webp"
+          "image": "/optimized/products/namakwala-industrial-salt-medium.webp"
         },
-        "productImage": "/optimized/products/namakwala-industrial-salt-large.webp",
+        "productImage": "/optimized/products/namakwala-industrial-salt-medium.webp",
         "description": "Namakwala’s Industrial Salt is one of the most essential raw materials powering a wide range of industries worldwide. Known for its purity, freshness, and consistent quality, our salt is trusted across both domestic and international markets.\n\nWe specialize in supplying premium-grade Industrial Salt that meets stringent quality standards. Processed under strict quality control, our salts are carefully classified into different grades to serve diverse industrial needs: Pure Salt, Crystalline Salt, Medium Grade Salt, Super Fine Salt, 30 Mesh Salt, and Coarse (Oversize) Salt.\n\nWith accurate composition, consistent purity, and bulk availability, Namakwala Industrial Salt ensures efficiency, reliability, and cost-effectiveness for industries worldwide. Trusted by global manufacturers, we deliver salt that performs beyond expectations in every application.",
         "keyFeatures": [
           { "feature": "High Purity & Consistency", "detail": "Ensures reliability and effectiveness in industrial applications." },
@@ -152,9 +152,9 @@
         "banner": {
           "title": "Crystal Raw Salt",
           "heading": "Naturally Harvested, Mineral-Rich Raw Salt",
-          "image": "/optimized/products/namakwala-Crystal-Raw-Salt1-large.webp"
+          "image": "/optimized/products/namakwala-Crystal-Raw-Salt1-medium.webp"
         },
-        "productImage": "/optimized/products/namakwala-Crystal-Raw-Salt1-large.webp",
+        "productImage": "/optimized/products/namakwala-Crystal-Raw-Salt1-medium.webp",
         "description": "Namakwala’s Natural Crystal Salt, also known as Raw Salt, is the purest form of salt obtained through the natural evaporation of seawater—without the use of artificial methods. Packed with a wide range of naturally occurring minerals, it offers benefits and richness that no synthetic supplement can truly replicate.\n\nAt Namakwala Group, we take pride in supplying high-quality Crystal Raw Salt that is naturally harvested and carefully processed to retain its purity, texture, and mineral content. Our raw salt crystals are widely trusted for both industrial and commercial applications around the globe.\n\nWith its authentic mineral profile, natural freshness, and versatile usage, Namakwala Crystal Raw Salt is the go-to choice for industries and businesses seeking reliability and quality in bulk salt supply.",
         "keyFeatures": [
           { "feature": "Naturally Harvested & Sun-Dried", "detail": "Obtained through natural seawater evaporation without artificial processing." },
@@ -190,9 +190,9 @@
         "banner": {
           "title": "Premium Pool & Water Softening Salt Supplier",
           "heading": "Crystal-Clear Water, Gentle & Effective Salt Solutions",
-          "image": "/optimized/products/namakwala-pool-salt-large.webp"
+          "image": "/optimized/products/namakwala-pool-salt-medium.webp"
         },
-        "productImage": "/optimized/products/namakwala-tablet-salt-large.webp",
+        "productImage": "/optimized/products/namakwala-tablet-salt-medium.webp",
         "keyFeatures": [
           { "feature": "High Purity", "detail": "99%+ pure sodium chloride (NaCl) for safe and effective pool use." },
           { "feature": "Quick Dissolving", "detail": "Free-flowing salt that dissolves rapidly for immediate results." },
