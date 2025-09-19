@@ -253,7 +253,7 @@
         "banner": {
           "title": "Delivering high-quality, Sustainable Minerals",
           "heading": "Industrial Minerals exporter India",
-          "image": "/optimized/global-reach-large.webp"
+          "image": "/optimized/pagebanner/namakwala-minerals.webp"
         },
         "productImage": "/optimized/products/namakwala-garnet-abrasive-large.webp",
         "description": "Garnet Abrasive is a natural mineral abrasive derived from almandine garnet, known for its hardness, durability, and high specific gravity. With a Mohs hardness of 7.5–8, Garnet is one of the most effective and eco-friendly abrasives used in waterjet cutting, sandblasting, surface preparation, filtration, and abrasive powders.\n\nUnlike silica sand, Garnet is free from hazardous crystalline silica, making it safer, cleaner, and more efficient for industrial applications. We supply high-quality Garnet Abrasive grains and powders in multiple mesh sizes to meet diverse industry requirements.",
@@ -1173,7 +1173,6 @@
       "image": "/images/life/banner-large.webp"
     },
     "images": [
-      { "src": "/optimized/life-at-namakwala/namakwala-life-at-namakwala2-large.webp", "alt": "Employee at work" },
       { "src": "/optimized/life-at-namakwala/namakwala-life-at-namakwala-large.webp", "alt": "Employee at work" },
       { "src": "/optimized/life-at-namakwala/namakwala-life-at-namakwala1-large.webp", "alt": "Employee at work" },
       { "src": "/optimized/life-at-namakwala/namakwala-life-at-namakwala3-large.webp", "alt": "Employee at work" },
@@ -1256,7 +1255,7 @@
       { "label": "Years of Excellence", "value": "80+" },
       { "label": "Trusted Brands", "value": "110+" },
       { "label": "Quality Certifications", "value": "10+" },
-      { "label": "Countries", "value": "50+" }
+      { "label": "Countries", "value": "21+" }
     ],
     "certifications": [
         {
@@ -1321,7 +1320,12 @@
       {
         "name": "Unistar",
         "image": "/optimized/brands/brand-unistar-large.webp"
+      },
+      {
+        "name": "Maa",
+        "image": "/optimized/brands/brand-maa.webp"
       }
+      
     ]
   }
 }

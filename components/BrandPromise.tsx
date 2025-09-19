@@ -14,22 +14,24 @@ export default function BrandPromise() {
           {data.brandPromise.description}
         </p>
 
-        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-5 gap-2 sm:gap-4 md:gap-6 w-full">
           {data.brandPromise.partners.map((partner, index) => (
             <div
               key={index}
-              className="w-[100px] sm:w-[130px] md:w-[180px] flex items-center hover-lift justify-center shadow-lg"
+              className="flex items-center justify-center hover-lift shadow-lg"
             >
               <Image
                 src={partner.image}
                 alt={partner.name}
-                width={180}
-                height={200}
-                className="object-contain bg-white "
+                width={150}
+                height={150}
+                className="object-contain bg-white"
               />
             </div>
           ))}
         </div>
+
+
       </div>
     </div>
   );

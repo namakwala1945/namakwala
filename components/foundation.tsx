@@ -47,7 +47,7 @@ export default function FoundationSection() {
 
   return (
     <section className="h-screen w-full flex items-center bg-[#fdf2df] shadow-lg p-4 md:p-16 poppins">
-      <div className="w-full md:w-[95%] mx-auto bg-white overflow-hidden h-[80vh]">
+      <div className="w-full md:w-[97%] mx-auto bg-white overflow-hidden h-[80vh]">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 h-full">
           {/* Left Side (Content) */}
           <div className="md:col-span-4 flex flex-col space-y-4 p-4 md:p-6 h-full">
