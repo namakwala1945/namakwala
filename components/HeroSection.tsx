@@ -109,7 +109,7 @@ export default function HeroSection() {
             ))}
 
             {/* Features */}
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
+            <div className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-8">
               {features.map((feature, index) => (
                 <div
                   key={index}
@@ -128,6 +128,7 @@ export default function HeroSection() {
                 </div>
               ))}
             </div>
+
 
           </div>
         </div>
