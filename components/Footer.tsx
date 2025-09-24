@@ -3,6 +3,7 @@ import { Facebook, Twitter, Instagram, Linkedin, Youtube, Globe, ArrowRight } fr
 import headerMenu from "@/locales/en/headerMenu.json";
 import Image from "next/image";
 import Link from "next/link";
+import VisitorCounter from "./VisitorCount";
 
 function getFooterLinks() {
   return Object.values(headerMenu).filter(
@@ -46,11 +47,11 @@ export default function Footer() {
       {/* Main Footer Content */}
       <div className="w-auto relative mx-auto px-4 md:px-8 lg:px-12 py-16 overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 -z-10 opacity-40">
           <Image
             src="/optimized/namakwala-footer-large.webp"
             alt="Namakwala Footer"
-            width={1517}   // actual render size
+            width={1517}
             height={948}
             quality={70}
             sizes="100vw"
@@ -174,7 +175,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
+      <VisitorCounter/>
       {/* Bottom Bar */}
       <div className="border-t border-border bg-muted/50">
         <div className="container mx-auto px-4 md:px-8 lg:px-12 py-6">

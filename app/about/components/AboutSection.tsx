@@ -65,7 +65,7 @@ export default function AboutSection({ section }: SectionProps) {
 
       {/* Nested Sections */}
       {section.sections && (
-        <div className="mt-12 py-8 sm:py-12 space-y-12 sm:space-y-16 justify-start">
+        <div className="mt-12 py-8 sm:py-12 space-y-12 sm:space-y-16 justify-start  ">
           {/* Milestones */}
           {"milestones" in section.sections && (
             <div

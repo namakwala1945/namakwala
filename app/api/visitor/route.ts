@@ -4,12 +4,19 @@ type VisitorLog = {
   timestamp: number; // store visit time
 };
 
-let logs: VisitorLog[] = []; // resets when server restarts
+const initialOffset = 2500;
+let logs: VisitorLog[] = [];
 
-export async function GET() {
+// POST -> add a new visitor
+export async function POST() {
   const now = Date.now();
   logs.push({ timestamp: now });
 
+  return NextResponse.json({ message: "Visitor added" });
+}
+
+// GET -> return stats only
+export async function GET() {
   const today = new Date();
   const currentDay = today.getDate();
   const currentMonth = today.getMonth();
@@ -33,7 +40,7 @@ export async function GET() {
   });
 
   return NextResponse.json({
-    total: logs.length,
+    total: logs.length + initialOffset,
     today: dayCount,
     month: monthCount,
     year: yearCount,

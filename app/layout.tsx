@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
 import { Providers } from "./providers";
+import ContentProtector from "./ContentProtector";
 
 export const metadata = {
   title: {
@@ -46,7 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="font-poppins font-playfair">
-        {/* <ContentProtector /> */}
+        <ContentProtector />
         <Header />
         <Providers>{children}</Providers>
         <Footer />

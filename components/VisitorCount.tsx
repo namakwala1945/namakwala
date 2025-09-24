@@ -13,12 +13,16 @@ export default function VisitorCounter() {
   const [data, setData] = useState<VisitorData | null>(null);
 
   useEffect(() => {
-    async function fetchCount() {
+    async function addAndFetch() {
+      // First add visitor
+      await fetch("/api/visitor", { method: "POST" });
+
+      // Then get updated stats
       const res = await fetch("/api/visitor");
       const json = await res.json();
       setData(json);
     }
-    fetchCount();
+    addAndFetch();
   }, []);
 
   if (!data) {
