@@ -103,10 +103,10 @@ export default function TermsOfServicePage() {
       />
 
       {/* Main Content */}
-      <div className="container mx-auto px-6 py-16 space-y-20">
+      <div className="container cabin cabin-400 mx-auto px-6 py-16 space-y-20">
         {/* Intro */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <h1 className="text-4xl md:text-5xl playfair text-gradient font-extrabold animate-slideUp">
+          <h1 className="text-4xl md:text-5xl cabin cabin-700 text-gradient font-extrabold animate-slideUp">
             {page.title}
           </h1>
           <p className="text-lg md:text-xl text-gray-700">{page.description}</p>
@@ -127,7 +127,7 @@ export default function TermsOfServicePage() {
                 className="md:w-1/2 bg-white p-8 md:p-12 shadow-2xl z-10 relative hover:scale-105 transition-transform duration-300"
                 style={{ minHeight: "320px" }}
               >
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800 animate-slideUp playfair text-gradient">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800 animate-slideUp cabin cabin-700 text-gradient">
                   {section.heading}
                 </h2>
                 {Array.isArray(section.text) ? (

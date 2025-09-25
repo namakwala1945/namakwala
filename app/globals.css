@@ -1,10 +1,27 @@
 /* globals.css */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;600;700&Cabin:ital,wght@0,400..700;1,400..700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+.cabin{
+  font-family: "Nunito", sans-serif !important;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.cabib-400{
+    font-weight: 400;
+}
+.cabib-500{
+    font-weight: 500;
+}
+.cabib-600{
+    font-weight: 600;
+}
+.cabib-700{
+    font-weight: 700;
+}
 :root {
   --font-playfair: 'Playfair Display', serif;
   --font-poppins: 'Poppins', sans-serif;
