@@ -47,7 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="font-poppins font-playfair">
-        <ContentProtector />
+        {/* <ContentProtector /> */}
         <Header />
         <Providers>{children}</Providers>
         <Footer />
