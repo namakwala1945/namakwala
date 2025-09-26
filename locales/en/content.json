@@ -1307,23 +1307,33 @@
     "partners": [
       {
         "name": "Ocean",
-        "image": "/optimized/brands/brand-ocean-medium.webp"
+        "image": "/optimized/brands/brand-ocean-medium.webp",
+        "description": "Globally recognized for reliability, this premium serves culinary, industrial, and wellness needs with excellence."
       },
       {
         "name": "Atulya",
-        "image": "/optimized/brands/brands-atulya-medium.webp"
+        "image": "/optimized/brands/brands-atulya-medium.webp",
+        "description": "Premium enriched with natural minerals, designed to enhance flavor, promote wellness, and elevate every meal."
       },
       {
         "name": "Naturesa",
-        "image": "/optimized/brands/brands-naturesa-medium.webp"
+        "image": "/optimized/brands/brands-naturesa-medium.webp",
+        "description": "100% authentic, mineral-dense salt, sustainably sourced to support daily health and balanced nutrition."
       },
       {
         "name": "Unistar",
-        "image": "/optimized/brands/brand-unistar-medium.webp"
+        "image": "/optimized/brands/brand-unistar-medium.webp",
+        "description": "High-grade offering dependable performance, delivering unmatched value to households and commercial applications."
       },
       {
         "name": "Maa",
-        "image": "/optimized/brands/brand-maa.webp"
+        "image": "/optimized/brands/brand-maa.webp",
+        "description": "Superior quality, refined with care to ensure freshness, safety, and a trusted taste for every kitchen."
+      },
+      {
+        "name": "Andus",
+        "image": "/assets/brands/brand-Indus.png",
+        "description": "Naturally refined, mineral-packed, and carefully processed to elevate flavor, nutrition, and quality for diverse application"
       }
       
     ]
