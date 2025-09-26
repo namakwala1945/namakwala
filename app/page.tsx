@@ -15,7 +15,7 @@ import LifeAtNamakwala from "@/components/LifeAtNamakwala";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen cursor-none">
       <HeroSection />
       <WeCare />
       <BusinessSection/>

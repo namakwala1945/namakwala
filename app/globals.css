@@ -4,7 +4,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+.cursor-circle:hover {
+  cursor: none; /* hide default cursor */
+}
 .cabin{
   font-family: "Nunito", sans-serif !important;
   font-optical-sizing: auto;

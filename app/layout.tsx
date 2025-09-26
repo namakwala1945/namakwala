@@ -2,34 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
 import { Providers } from "./providers";
-import ContentProtector from "./ContentProtector";
-
-export const metadata = {
-  title: {
-    default: "Namakwala Group",
-    template: "%s | Namakwala Group",
-  },
-  description: "Leading manufacturer & exporter of salts and minerals.",
-  metadataBase: new URL("https://namakwala.in"), // ✅ Add this
-  verification: {
-    google: "your-google-verification-code",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon-large.webp",
-  },
-};
-
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-  viewportFit: "cover",
-};
+import CustomCursor from "../components/Cursor"; // ✅ Import cursor
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -40,14 +13,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
-        {/* Google Fonts CDN */}
         <link
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="font-poppins font-playfair">
-        {/* <ContentProtector /> */}
+      <body className="font-poppins font-playfair cursor-none">
+        <CustomCursor /> {/* ✅ Add custom cursor here */}
         <Header />
         <Providers>{children}</Providers>
         <Footer />

@@ -20,7 +20,7 @@ export default function BrandPromise() {
               className="group bg-white shadow-lg border hover:shadow-xl transition flex flex-col cursor-pointer"
             >
               {/* Top image with zoom effect */}
-              <div className="w-full h-40 relative overflow-hidden rounded-t-xl">
+              <div className="w-full h-40 relative overflow-hidden">
                 <Image
                   src={partner.image}
                   alt={partner.name}

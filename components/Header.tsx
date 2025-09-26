@@ -6,6 +6,7 @@ import Link from "next/link";
 import { FiMenu, FiX, FiChevronDown, FiChevronUp } from "react-icons/fi";
 import menuItems from "../locales/en/headerMenu.json";
 import LanguageSelector from "./Language";
+import CustomCursor from "./Cursor";
 
 interface MenuCategory {
   title: string;
@@ -59,6 +60,7 @@ export default function Header() {
         ? "md:fixed md:top-0 md:left-0 md:w-full md:bg-white md:shadow-lg"
         : "md:absolute md:w-full md:bg-gradient-to-r md:from-white/70 md:via-black/50 md:to-white/10 md:backdrop-blur-xs"
       } bg-white md:bg-transparent`}>
+        <CustomCursor/>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
         {/* Logo */}
         <div className="flex-shrink-0">
