@@ -32,37 +32,7 @@ export default function BrandPromise() {
         </div>
         
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full mt-8">
-          {data.brandPromise.partners.map((partner, index) => (
-            <div
-              key={index}
-              className="group bg-white shadow-lg border hover:shadow-xl transition flex flex-col cursor-pointer"
-            >
-              {/* Top image with zoom effect */}
-              <div className="w-full h-40 relative overflow-hidden rounded-t-xl">
-                <Image
-                  src={partner.image}
-                  alt={partner.name}
-                  width={300}
-                  height={160}
-                  className="object-contain w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110"
-                />
-              </div>
-
-              <div className="w-full bg-gray-100">
-                {/* Logo/Name */}
-                <h3 className="mt-4 text-lg font-semibold text-gray-800 text-center ">
-                  {partner.name}
-                </h3>
-
-                {/* Paragraph / description */}
-                <p className="mt-2 mb-4 text-sm text-gray-600 text-center px-3">
-                  {partner.description || "Trusted partner delivering value worldwide."}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+       
 
 
 
