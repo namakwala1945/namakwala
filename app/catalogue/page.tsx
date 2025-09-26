@@ -73,7 +73,7 @@ export default function CataloguePage() {
 
       {/* ✅ Main Content */}
       <div className="container mx-auto px-6 py-12 text-center">
-        <h1 className="text-4xl md:text-5xl playfair font-extrabold text-gradient">
+        <h1 className="text-5xl md:text-5xl playfair font-extrabold text-gradient">
           {page.title}
         </h1>
         <p className="text-lg leading-relaxed mb-8">{page.content}</p>

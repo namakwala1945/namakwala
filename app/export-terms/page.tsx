@@ -26,7 +26,7 @@ export default function ExportTermsPage() {
   const page: ExportTerms = content["export-terms"];
 
   return (
-    <section className="relative">
+    <section className="relative poppins">
       {/* Banner */}
       <PageBanner
         title={page.banner.title}
@@ -38,7 +38,7 @@ export default function ExportTermsPage() {
       <div className="container mx-auto px-6 py-20 space-y-32">
         {/* Intro */}
         <div className="text-center max-w-3xl mx-auto space-y-6">
-          <h1 className="text-5xl font-extrabold text-gray-900">
+          <h1 className="text-5xl playfair font-extrabold text-gradient mb-4">
             {page.title}
           </h1>
           <p className="text-lg md:text-xl text-gray-800">{page.description}</p>
@@ -50,13 +50,13 @@ export default function ExportTermsPage() {
           return (
             <div
               key={idx}
-              className={`relative flex flex-col md:flex-row items-center md:items-start md:gap-12 ${
+              className={`relative flex flex-col md:flex-row items-center md:items-start md:gap-12 poppins ${
                 isEven ? "md:flex-row" : "md:flex-row-reverse"
               }`}
             >
               {/* Text Card */}
               <div className="md:w-1/2 bg-white/70 backdrop-blur-md p-8 rounded-3xl shadow-2xl z-10 relative border border-white/30">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
+                <h2 className="text-4xl playfair font-extrabold text-gradient mb-4">
                   {section.heading}
                 </h2>
                 {Array.isArray(section.text) ? (

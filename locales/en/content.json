@@ -709,7 +709,7 @@
     }
   },
   "privacy-policy": {
-    "title": "Privacy Policy - Namakwala",
+    "title": "Privacy Policy",
     "content": "At Namakwala Group, we respect your privacy and are committed to protecting your personal information. This policy explains how we collect, use, and protect information provided by visitors to our website and applications.",
     "banner": {
       "title": "Data Privacy at Namakwala",
@@ -1008,7 +1008,7 @@
     "banner": {
       "title": "Export Terms",
       "heading": "Commitment to Transparency",
-      "image": "/optimized/pagebanner/namakwala-export-terms-banner.webp"
+      "image": "/assets/pagebanner/namakwala-export-terms.jpg"
     },
     "sections": [
       {
@@ -1023,7 +1023,7 @@
           "Health and Safety certificates available upon request",
           "Detailed product specifications included for all exports"
         ],
-        "image": "/optimized/pagebanner/namakwala-product-docs.webp"
+        "image": "/assets/pagebanner/namakwala-product-documentation.jpg"
       },
       {
         "heading": "Payment Terms",
@@ -1032,17 +1032,17 @@
           "Custom terms available for long-term partners",
           "Invoices issued in USD unless otherwise agreed"
         ],
-        "image": "/optimized/pagebanner/namakwala-payment-terms.webp"
+        "image": "/assets/pagebanner/namakwala-payment-terms.jpg"
       },
       {
         "heading": "Logistics & Shipping",
         "text": "We coordinate with leading logistics partners to ensure timely and safe delivery. Options include FOB, CIF, and custom arrangements based on client needs.",
-        "image": "/optimized/pagebanner/namakwala-logistics.webp"
+        "image": "/assets/pagebanner/namakwala-logistics-shipping.jpg"
       },
       {
         "heading": "Dispute Resolution",
         "text": "All disputes arising from export transactions are subject to the jurisdiction of the courts at our registered office location, unless otherwise mutually agreed.",
-        "image": "/optimized/pagebanner/namakwala-dispute-resolution.webp"
+        "image": "/assets/pagebanner/namakwala-dispute-resolution.jpg"
       }
     ],
     "metadata": {
@@ -1057,7 +1057,7 @@
         "siteName": "Namakwala Group",
         "images": [
           {
-            "url": "/optimized/pagebanner/namakwala-export-terms-banner.webp",
+            "url": "/assets/pagebanner/namakwala-export-terms.jpg",
             "width": 1200,
             "height": 630
           }

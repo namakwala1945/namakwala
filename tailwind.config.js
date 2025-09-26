@@ -20,6 +20,9 @@ module.exports = {
         serif: ["var(--font-playfair)", "Georgia", "Times New Roman", "serif"], // headings
         sans: ["var(--font-poppins)", "var(--font-roboto)", "Helvetica Neue", "Arial", "sans-serif"], // body
       },
+      fontSize: {
+        '5xl': ['3rem', { lineHeight: '1.3' }], // change line-height
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
