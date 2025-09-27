@@ -31,7 +31,7 @@ export default function FloatingButtons() {
   }`;
 
   return (
-    <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-[9999]">
+    <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-[91]">
       {/* WhatsApp Button */}
       <Link
         href={whatsappUrl}

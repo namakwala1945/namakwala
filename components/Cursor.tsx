@@ -44,7 +44,7 @@ export default function CustomCursor() {
         transition: "width 0.2s ease, height 0.2s ease, border-width 0.2s ease, transform 0.1s ease"
       }}
       className={`
-        fixed pointer-events-none z-50 rounded-full border border-yellow-500
+        fixed pointer-events-none z-[99] rounded-full border border-yellow-500
         ${hovered ? "w-10 h-10 border-4" : "w-6 h-6 border-2"}
       `}
     ></div>

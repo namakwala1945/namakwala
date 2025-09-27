@@ -152,9 +152,9 @@
         "banner": {
           "title": "Crystal Raw Salt",
           "heading": "Naturally Harvested, Mineral-Rich Raw Salt",
-          "image": "/optimized/products/namakwala-Crystal-Raw-Salt1-medium.webp"
+          "image": "/optimized/products/namakwala-Crystal-Raw-Salt1.webp"
         },
-        "productImage": "/optimized/products/namakwala-Crystal-Raw-Salt1-medium.webp",
+        "productImage": "/optimized/products/namakwala-Crystal-Raw-Salt1.webp",
         "description": "Namakwala’s Natural Crystal Salt, also known as Raw Salt, is the purest form of salt obtained through the natural evaporation of seawater—without the use of artificial methods. Packed with a wide range of naturally occurring minerals, it offers benefits and richness that no synthetic supplement can truly replicate.\n\nAt Namakwala Group, we take pride in supplying high-quality Crystal Raw Salt that is naturally harvested and carefully processed to retain its purity, texture, and mineral content. Our raw salt crystals are widely trusted for both industrial and commercial applications around the globe.\n\nWith its authentic mineral profile, natural freshness, and versatile usage, Namakwala Crystal Raw Salt is the go-to choice for industries and businesses seeking reliability and quality in bulk salt supply.",
         "keyFeatures": [
           { "feature": "Naturally Harvested & Sun-Dried", "detail": "Obtained through natural seawater evaporation without artificial processing." },
@@ -359,9 +359,9 @@
         "banner": {
           "title": "Bentonite",
           "heading": "Versatile Clay Mineral for Industrial & Environmental Applications",
-          "image": "/optimized/products/namakwala-bentonite-powder-medium.webp"
+          "image": "/optimized/products/namakwala-bentonite-powder.webp"
         },
-        "productImage": "/optimized/products/namakwala-bentonite-powder-medium.webp",
+        "productImage": "/optimized/products/namakwala-bentonite-powder.webp",
         "description": "Bentonite is a naturally occurring clay mineral composed mainly of montmorillonite. Known for its swelling, absorption, and binding properties, Bentonite is one of the most versatile industrial minerals. It is widely used in foundry, drilling, iron ore pelletizing, construction, cosmetics, agriculture, and wastewater treatment.\n\nWe supply Sodium Bentonite and Calcium Bentonite in lumps, granules, and powder form, customized to meet industry-specific requirements.",
         "keyFeatures": [
           { "feature": "Excellent Swelling & Absorption Capacity", "detail": "Can absorb several times its volume in water." },
@@ -394,9 +394,9 @@
         "banner": {
           "title": "Dolomite",
           "heading": "High-Purity Mineral for Industrial & Agricultural Applications",
-          "image": "/optimized/products/namaakwala-dolomite-powder-medium.webp"
+          "image": "/optimized/products/namaakwala-dolomite-powder.webp"
         },
-        "productImage": "/optimized/products/namaakwala-dolomite-powder-medium.webp",
+        "productImage": "/optimized/products/namaakwala-dolomite-powder.webp",
         "description": "Dolomite is a naturally occurring double carbonate mineral of calcium and magnesium. Known for its high purity, whiteness, and unique chemical properties, Dolomite is widely used in steel, glass, ceramics, paints, plastics, agriculture, and construction industries.\n\nWe supply premium-quality Dolomite in lumps, chips, and finely ground powder form, available in various mesh sizes to meet industry-specific requirements.",
         "keyFeatures": [
           { "feature": "High Purity & Whiteness", "detail": "Suitable for glass, ceramics, and paint applications." },
@@ -431,7 +431,7 @@
           "heading": "Essential Mineral for Ceramics, Glass & Industrial Applications",
           "image": "/optimized/products/feldspar-banner-medium.webp"
         },
-        "productImage": "/optimized/products/namakwala-feldspar-medium.webp",
+        "productImage": "/optimized/products/namakwala-feldspar-powder-medium.webp",
         "description": "FELDSPAR is one of the most important industrial minerals used across multiple industries. It is a group of alumino-silicate minerals containing potassium, sodium, and calcium in varying proportions. Feldspar is highly valued for its alkali content, alumina, chemical inertness, and fluxing properties, making it an essential raw material in ceramics, glassmaking, paints, plastics, and abrasives.\n\nWe supply premium-quality Potassium Feldspar (K-Feldspar) and Sodium Feldspar (Na-Feldspar) in different grades and particle sizes to meet diverse industrial requirements.",
         "keyFeatures": [
           { "feature": "High Alkali Content", "detail": "Provides fluxing action in ceramics and glass." },
@@ -468,9 +468,9 @@
         "banner": {
           "title": "Calcined Kaolin",
           "heading": "Refined Clay for Industrial Applications",
-          "image": "/optimized/products/namakwala-calcined-kaolin-powder-medium.webp"
+          "image": "/optimized/products/namakwala-calcined-kaolin-powder.webp"
         },
-        "productImage": "/optimized/products/namakwala-calcined-kaolin-powder-medium.webp",
+        "productImage": "/optimized/products/namakwala-calcined-kaolin-powder.webp",
         "description": "CALCINED KAOLIN, also known as aluminium silicate or metakaolin, is produced by heating high-quality natural kaolin at controlled high temperatures. This process removes bound water, improves brightness, enhances chemical stability, and increases the strength properties of the mineral.\n\nIt is widely used in industries such as paper, paints & coatings, plastics, rubber, ceramics, adhesives, and refractories due to its superior whiteness, opacity, and reinforcement characteristics.",
         "keyFeatures": [
           { "feature": "High Brightness & Whiteness", "detail": "Enhances color and gloss in paper, paints, and plastics." },
@@ -1084,7 +1084,7 @@
       "banner": {
         "title": "Salt",
         "heading": "Sustainable energy solutions with cutting-edge technology",
-        "image": "/optimized/products/namakwala-Crystal-Raw-Salt1-medium.webp"
+        "image": "/optimized/products/namakwala-Crystal-Raw-Salt1.webp"
       },
       "sections": [
         {

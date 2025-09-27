@@ -17,7 +17,7 @@ export default function BrandPromise() {
           {data.brandPromise.partners.map((partner, index) => (
             <div
               key={index}
-              className="group bg-white shadow-lg border hover:shadow-xl transition flex flex-col cursor-pointer"
+              className="group bg-white shadow-lg border hover:shadow-xl transition flex flex-col"
             >
               {/* Top image with zoom effect */}
               <div className="w-full h-40 relative overflow-hidden">
