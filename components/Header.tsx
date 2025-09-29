@@ -71,7 +71,7 @@ export default function Header() {
             width={90}
             height={90}
             sizes="90px"
-            quality={80}
+            quality={90}
             priority
             className="object-contain" />
           </Link>

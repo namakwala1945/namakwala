@@ -3,6 +3,9 @@ const { i18n } = require('./next-i18next.config');
 module.exports = {
   images: {
     unoptimized: true,
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 60,
+    deviceSizes: [320, 640, 768, 1024, 1200, 1600],
     domains: ["images.unsplash.com", "img.youtube.com"],
     remotePatterns: [
       { protocol: "https", hostname: "picsum.photos" },

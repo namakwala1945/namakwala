@@ -55,7 +55,7 @@ export default function HeroSection() {
               className="object-cover"
               priority
               quality={70}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               placeholder="blur"
               blurDataURL="/optimized/placeholder-large.webp"
             />
