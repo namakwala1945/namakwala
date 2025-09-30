@@ -12,6 +12,7 @@ import WeCare from "@/components/WeCare";
 import Foundation from "@/components/foundation";
 import BusinessSection from "@/components/business";
 import LifeAtNamakwala from "@/components/LifeAtNamakwala";
+import ScrollImageSection from "@/components/ScollZoomSection";
 
 export default function HomePage() {
   return (
@@ -19,6 +20,7 @@ export default function HomePage() {
       <HeroSection />
       <WeCare />
       <BusinessSection/>
+      <ScrollImageSection/>
       <Foundation/>
       <BrandSection />
       <LifeAtNamakwala/>
