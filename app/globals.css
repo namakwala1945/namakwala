@@ -4,8 +4,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.cursor-circle {
-  cursor: none; /* hide default cursor */
+@layer utilities {
+  .cursor-circle {
+    cursor: none !important;
+  }
 }
 .cabin{
   font-family: "Nunito", sans-serif !important;

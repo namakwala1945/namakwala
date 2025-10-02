@@ -13,7 +13,11 @@ export default function CustomCursor() {
 
     document.addEventListener("mousemove", moveCursor);
 
-    const interactiveElements = document.querySelectorAll("a, button, input, textarea, label");
+    // Select elements that usually have pointer cursor
+    const interactiveElements = document.querySelectorAll(
+      "a, button, input, textarea, label, .cursor-pointer"
+    );
+
     interactiveElements.forEach((el) => {
       const htmlEl = el as HTMLElement;
       htmlEl.style.cursor = "none"; // hide default hand
@@ -21,6 +25,7 @@ export default function CustomCursor() {
       htmlEl.addEventListener("mouseleave", removeHover);
     });
 
+    // Hide default cursor globally
     document.body.style.cursor = "none";
 
     return () => {
@@ -29,7 +34,7 @@ export default function CustomCursor() {
         const htmlEl = el as HTMLElement;
         htmlEl.removeEventListener("mouseenter", addHover);
         htmlEl.removeEventListener("mouseleave", removeHover);
-        htmlEl.style.cursor = "";
+        htmlEl.style.cursor = ""; // restore default
       });
       document.body.style.cursor = "default";
     };
@@ -41,12 +46,11 @@ export default function CustomCursor() {
         left: position.x,
         top: position.y,
         transform: "translate(-50%, -50%)",
-        transition: "width 0.2s ease, height 0.2s ease, border-width 0.2s ease, transform 0.1s ease"
+        transition:
+          "width 0.2s ease, height 0.2s ease, border-width 0.2s ease, transform 0.1s ease",
       }}
-      className={`
-        fixed pointer-events-none z-[99] rounded-full border border-yellow-500
-        ${hovered ? "w-10 h-10 border-4" : "w-6 h-6 border-2"}
-      `}
+      className={`fixed pointer-events-none z-[99] rounded-full border border-yellow-500
+        ${hovered ? "w-10 h-10 border-4" : "w-6 h-6 border-2"}`}
     ></div>
   );
 }
