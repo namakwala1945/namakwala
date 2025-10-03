@@ -9,7 +9,7 @@ if (fs.existsSync(blogDir)) {
 }
 
 module.exports = {
-  siteUrl: 'https://www.namakwala.com',
+  siteUrl: 'https://www.namakwala.in',
   generateRobotsTxt: true,
   changefreq: 'weekly',
   priority: 0.7,

@@ -83,13 +83,13 @@ export default function PrivacyPolicyPage() {
               "@type": "ListItem",
               position: 1,
               name: "Home",
-              item: "https://www.namakwala.com/",
+              item: "https://www.namakwala.in/",
             },
             {
               "@type": "ListItem",
               position: 2,
               name: "Privacy Policy",
-              item: "https://www.namakwala.com/privacy-policy",
+              item: "https://www.namakwala.in/privacy-policy",
             },
           ],
         })}
