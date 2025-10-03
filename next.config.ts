@@ -1,4 +1,4 @@
-const { i18n } = require('./next-i18next.config');
+const { i18n } = require("./next-i18next.config");
 
 module.exports = {
   images: {
@@ -10,7 +10,7 @@ module.exports = {
     remotePatterns: [
       { protocol: "https", hostname: "picsum.photos" },
       { protocol: "https", hostname: "upload.wikimedia.org" },
-      { protocol: "https", hostname: "apeda.gov.in" }
+      { protocol: "https", hostname: "apeda.gov.in" },
     ],
   },
   i18n: {
