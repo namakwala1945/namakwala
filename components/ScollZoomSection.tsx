@@ -11,6 +11,7 @@ export default function ScrollImageSection() {
   useEffect(() => {
     let gsap: any;
     let ScrollTrigger: any;
+    let triggerInstance: any; // store specific trigger
 
     async function loadGSAP() {
       gsap = (await import("gsap")).gsap;
@@ -19,26 +20,39 @@ export default function ScrollImageSection() {
 
       if (!containerRef.current || !imageRef.current) return;
 
-      gsap.timeline({
+      // store the timeline so we can kill its ScrollTrigger later
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
           end: "bottom top",
-          scrub: 1, // smooth scroll-linked animation
+          scrub: 1,
           pin: true,
         },
-      })
-      .fromTo(
+      });
+
+      tl.fromTo(
         imageRef.current,
         { width: "70%", height: "70%", scale: 1 },
-        { width: "100%", height: "100%", scale: 1.05, ease: "power1.out" } // slight scale for smooth zoom
+        { width: "100%", height: "100%", scale: 1.05, ease: "power1.out" }
       );
+
+      // save the trigger instance for cleanup
+      triggerInstance = tl.scrollTrigger;
     }
 
     loadGSAP();
 
     return () => {
-      if (ScrollTrigger) ScrollTrigger.kill();
+      // ✅ kill just this trigger
+      if (triggerInstance) {
+        triggerInstance.kill();
+      }
+
+      // Or if you want to wipe *everything* GSAP created:
+      // if (ScrollTrigger) {
+      //   ScrollTrigger.getAll().forEach(t => t.kill());
+      // }
     };
   }, []);
 
