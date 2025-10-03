@@ -22,4 +22,16 @@ module.exports = {
   },
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
+
+  // ✅ Modern JS target
+  future: {
+    legacyBrowsers: false, // disable legacy JS builds
+  },
+  // ✅ Optional: tell Next.js to target only modern browsers
+  browserslist: [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Edge versions",
+    "last 2 Safari versions"
+  ],
 };
