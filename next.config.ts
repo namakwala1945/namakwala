@@ -2,7 +2,7 @@ const { i18n } = require("./next-i18next.config");
 
 module.exports = {
   experimental: {
-    optimizeCss: true, // ✅ Inline critical CSS & load remaining asynchronously
+    optimizeCss: true, // ✅ inline critical CSS
   },
   images: {
     unoptimized: true,
@@ -20,10 +20,6 @@ module.exports = {
     locales: ["en", "fr", "de", "ar", "ur", "af"],
     defaultLocale: "en",
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  eslint: { ignoreDuringBuilds: true },
+  typescript: { ignoreBuildErrors: true },
 };

@@ -4,13 +4,15 @@ import { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
 import CustomCursor from "../components/Cursor";
+
+// ✅ Import Google Fonts using next/font
 import { Playfair_Display, Poppins } from "next/font/google";
 
 // Playfair Display (serif)
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "700"],
-  variable: "--font-playfair", // expose as CSS variable
+  variable: "--font-playfair",
   display: "swap",
 });
 
@@ -29,11 +31,7 @@ export const metadata: Metadata = {
     "NAMAKWALA – The Best Salt's Exporter in India & Best Mineral's Exporter in India, delivering pure, high-quality salts & minerals worldwide with trust.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -41,6 +39,7 @@ export default function RootLayout({
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
+        {/* ✅ No Google Fonts link needed, next/font handles it */}
       </head>
       <body
         className={`${poppins.variable} ${playfair.variable} font-poppins font-playfair cursor-none`}

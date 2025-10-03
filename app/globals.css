@@ -2,9 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 @layer utilities {
-  .cursor-circle {
-    cursor: none !important;
-  }
+  html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-poppins), sans-serif;
+  scroll-behavior: smooth;
+}
+.cursor-circle {
+  cursor: none !important;
+}
 }
 .cabin{
   font-family: "Nunito", sans-serif !important;
