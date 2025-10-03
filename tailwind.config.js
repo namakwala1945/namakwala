@@ -17,8 +17,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        serif: ["var(--font-playfair)", "Georgia", "Times New Roman", "serif"], // headings
-        sans: ["var(--font-poppins)", "var(--font-roboto)", "Helvetica Neue", "Arial", "sans-serif"], // body
+        poppins: ["var(--font-poppins)", "sans-serif"],
+        playfair: ["var(--font-playfair)", "serif"],
       },
       fontSize: {
         '5xl': ['3rem', { lineHeight: '1.3' }], // change line-height

@@ -4,8 +4,6 @@ import { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
 import CustomCursor from "../components/Cursor";
-
-// ✅ Import Google Fonts using next/font
 import { Playfair_Display, Poppins } from "next/font/google";
 
 // Playfair Display (serif)
@@ -39,7 +37,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Mobile viewport optimization */}
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"

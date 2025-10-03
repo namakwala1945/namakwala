@@ -1,6 +1,9 @@
 const { i18n } = require("./next-i18next.config");
 
 module.exports = {
+  experimental: {
+    optimizeCss: true, // ✅ Inline critical CSS & load remaining asynchronously
+  },
   images: {
     unoptimized: true,
     formats: ["image/avif", "image/webp"],
