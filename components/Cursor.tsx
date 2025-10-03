@@ -7,23 +7,43 @@ export default function CustomCursor() {
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
+    // Move cursor
     const moveCursor = (e: MouseEvent) => setPosition({ x: e.clientX, y: e.clientY });
-    const addHover = () => setHovered(true);
-    const removeHover = () => setHovered(false);
-
     document.addEventListener("mousemove", moveCursor);
 
-    // Select elements that usually have pointer cursor
-    const interactiveElements = document.querySelectorAll(
-      "a, button, input, textarea, label, .cursor-pointer"
-    );
+    // Handle hover on interactive elements
+    const handleMouseEnter = () => setHovered(true);
+    const handleMouseLeave = () => setHovered(false);
 
-    interactiveElements.forEach((el) => {
-      const htmlEl = el as HTMLElement;
-      htmlEl.style.cursor = "none"; // hide default hand
-      htmlEl.addEventListener("mouseenter", addHover);
-      htmlEl.addEventListener("mouseleave", removeHover);
+    const updateInteractiveElements = () => {
+      const elements = document.querySelectorAll(
+        "a, button, input, textarea, label, [data-cursor-pointer]"
+      );
+      elements.forEach((el) => {
+        const htmlEl = el as HTMLElement;
+        htmlEl.style.cursor = "none"; // hide default
+        htmlEl.addEventListener("mouseenter", handleMouseEnter);
+        htmlEl.addEventListener("mouseleave", handleMouseLeave);
+      });
+      return elements;
+    };
+
+    // Initially set interactive elements
+    let interactiveElements = updateInteractiveElements();
+
+    // Observer to handle dynamically added elements
+    const observer = new MutationObserver(() => {
+      // Remove old listeners
+      interactiveElements.forEach((el) => {
+        const htmlEl = el as HTMLElement;
+        htmlEl.removeEventListener("mouseenter", handleMouseEnter);
+        htmlEl.removeEventListener("mouseleave", handleMouseLeave);
+      });
+      // Update to new set
+      interactiveElements = updateInteractiveElements();
     });
+
+    observer.observe(document.body, { childList: true, subtree: true });
 
     // Hide default cursor globally
     document.body.style.cursor = "none";
@@ -32,10 +52,11 @@ export default function CustomCursor() {
       document.removeEventListener("mousemove", moveCursor);
       interactiveElements.forEach((el) => {
         const htmlEl = el as HTMLElement;
-        htmlEl.removeEventListener("mouseenter", addHover);
-        htmlEl.removeEventListener("mouseleave", removeHover);
-        htmlEl.style.cursor = ""; // restore default
+        htmlEl.removeEventListener("mouseenter", handleMouseEnter);
+        htmlEl.removeEventListener("mouseleave", handleMouseLeave);
+        htmlEl.style.cursor = "";
       });
+      observer.disconnect();
       document.body.style.cursor = "default";
     };
   }, []);
@@ -47,9 +68,9 @@ export default function CustomCursor() {
         top: position.y,
         transform: "translate(-50%, -50%)",
         transition:
-          "width 0.2s ease, height 0.2s ease, border-width 0.2s ease, transform 0.1s ease",
+          "width 0.15s ease, height 0.15s ease, border-width 0.15s ease, transform 0.1s ease",
       }}
-      className={`fixed pointer-events-none z-[99] rounded-full border border-yellow-500
+      className={`fixed pointer-events-none z-[999] rounded-full border border-yellow-500
         ${hovered ? "w-10 h-10 border-4" : "w-6 h-6 border-2"}`}
     ></div>
   );
