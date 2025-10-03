@@ -1,19 +1,23 @@
-// app/ClientComponents.tsx
-"use client"; // mark as client component
+"use client";
 
+import { useEffect } from "react";
 import dynamic from "next/dynamic";
 
-// Dynamic imports for client-only features
+// Client-only components
 const CustomCursor = dynamic(() => import("@/components/Cursor"));
-const HeavyCarousel = dynamic(() => import("@/components/HeavyCarousel"));
-const ThreeModel = dynamic(() => import("@/components/ThreeModel"));
 
+// Lazy-load Google Translate script
 export default function ClientComponents() {
-  return (
-    <>
-      <CustomCursor />
-      <HeavyCarousel />
-      <ThreeModel />
-    </>
-  );
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src =
+      "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return <CustomCursor />;
 }
