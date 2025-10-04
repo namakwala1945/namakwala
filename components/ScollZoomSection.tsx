@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import Image from "next/image";
-import meetingImage from "../public/assets/Ocean-Poster.jpg";
+import meetingImage from "../public/assets/Ocean-Poster.webp";
 
 export default function ScrollImageSection() {
   const containerRef = useRef<HTMLDivElement>(null);

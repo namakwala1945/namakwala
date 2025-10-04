@@ -72,30 +72,35 @@ export default function FoundationSection() {
                 key={current}
                 src={section.slider[current]}
                 alt={`Slide ${current + 1}`}
-                fill 
+                fill
                 sizes="100vw"
-                priority 
+                priority
                 quality={70}
                 className="object-cover"
               />
             )}
 
-            {/* Controls */}
-            <button
-             aria-label="Arrow Left"
-              onClick={prevSlide}
-              className="absolute top-1/2 left-2 md:left-4 -translate-y-1/2 bg-black/40 text-white p-1.5 md:p-2 rounded-full text-xs md:text-base"
-            >
-              ◀
-            </button>
-            <button
-             aria-label="Arrow Right"
-              onClick={nextSlide}
-              className="absolute top-1/2 right-2 md:right-4 -translate-y-1/2 bg-black/40 text-white p-1.5 md:p-2 rounded-full text-xs md:text-base"
-            >
-              ▶
-            </button>
+            {/* Controls: show only if more than one image */}
+            {section.slider && section.slider.length > 1 && (
+              <>
+                <button
+                  aria-label="Arrow Left"
+                  onClick={prevSlide}
+                  className="absolute top-1/2 left-2 md:left-4 -translate-y-1/2 bg-black/40 text-white p-1.5 md:p-2 rounded-full text-xs md:text-base"
+                >
+                  ◀
+                </button>
+                <button
+                  aria-label="Arrow Right"
+                  onClick={nextSlide}
+                  className="absolute top-1/2 right-2 md:right-4 -translate-y-1/2 bg-black/40 text-white p-1.5 md:p-2 rounded-full text-xs md:text-base"
+                >
+                  ▶
+                </button>
+              </>
+            )}
           </div>
+
         </div>
       </div>
     </section>
