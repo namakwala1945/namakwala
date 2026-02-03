@@ -1,156 +1,221 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Image from "next/image";
 
-interface Video {
+interface MediaFile {
   url: string;
-  title: string;
+  alternativeText?: string;
 }
 
-interface ImageItem {
-  src: string;
+interface MediaItem {
   title: string;
+  url?: string; // YouTube or video URL
+  media?: MediaFile[]; // Uploaded images/videos
+}
+
+interface MediaType {
+  id: number;
+  title: string;
+  Media: MediaItem[];
 }
 
 interface NewsMediaTabsProps {
-  videos?: Video[];
-  images?: ImageItem[];
+  mediaTypes: MediaType[];
 }
 
-type MediaItem = { type: "video" | "image"; url: string; title: string };
-
-export default function NewsMediaTabs({ videos = [], images = [] }: NewsMediaTabsProps) {
-  const [activeTab, setActiveTab] = useState<"videos" | "images">("videos");
+export default function NewsMediaTabs({ mediaTypes = [] }: NewsMediaTabsProps) {
+  const [activeTab, setActiveTab] = useState(mediaTypes[0]?.id ?? 0);
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Combine videos/images into a single array for lightbox
-  const allMedia: MediaItem[] =
-    activeTab === "videos"
-      ? videos.map((v) => ({ type: "video", url: v.url, title: v.title }))
-      : images.map((i) => ({ type: "image", url: i.src, title: i.title }));
+  const activeMedia = useMemo(() => {
+    const type = mediaTypes.find((t) => t.id === activeTab);
+    if (!type) return [];
 
-  // Open lightbox
-  const openLightbox = (index: number) => {
-    setCurrentIndex(index);
+    return (
+      type.Media?.flatMap((m) => {
+        const items: any[] = [];
+
+        // 🎥 1. If URL is provided → treat as video
+        if (m.url) {
+          items.push({
+            type: "video",
+            url: m.url,
+            title: m.title || "Untitled Video",
+          });
+        }
+
+        // 🖼️ 2. If media uploads exist → treat as image
+        if (m.media?.length) {
+          m.media.forEach((file) => {
+            const isVideo = file.url.match(/\.(mp4|mov|webm)$/i);
+            items.push({
+              type: isVideo ? "video" : "image",
+              url: file.url,
+              title: file.alternativeText || m.title || "Untitled",
+            });
+          });
+        }
+
+        return items;
+      }) || []
+    );
+  }, [mediaTypes, activeTab]);
+
+  const openLightbox = (idx: number) => {
+    setCurrentIndex(idx);
     setIsOpen(true);
   };
 
-  // Next/Prev navigation
-  const nextMedia = () => setCurrentIndex((prev) => (prev + 1) % allMedia.length);
+  const nextMedia = () =>
+    setCurrentIndex((prev) => (prev + 1) % activeMedia.length);
   const prevMedia = () =>
-    setCurrentIndex((prev) => (prev - 1 + allMedia.length) % allMedia.length);
+    setCurrentIndex((prev) => (prev - 1 + activeMedia.length) % activeMedia.length);
 
-  // Get YouTube thumbnail from URL
   const getYouTubeID = (url: string) => {
-  try {
-    const regex =
-      /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-    const match = url.match(regex);
+    const match = url.match(
+      /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
+    );
     return match ? match[1] : null;
-  } catch {
-    return null;
-  }
-};
+  };
 
   return (
-    <>
-      {/* Tabs */}
-      <div className="flex space-x-4 mb-8 justify-center">
-        {["videos", "images"].map((tab) => (
+    <div className="w-full">
+      {/* ✅ Tabs */}
+      <div className="flex space-x-4 mb-8 justify-center flex-wrap">
+        {mediaTypes.map((tab) => (
           <button
-           aria-label="Videos and Images"
-            key={tab}
-            onClick={() => setActiveTab(tab as "videos" | "images")}
-            className={`px-6 py-2 rounded-full font-semibold transition-all duration-300
-              ${activeTab === tab ? "bg-[#ab8c30] text-white shadow-lg" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
+            key={tab.id}
+            onClick={() => {
+              setActiveTab(tab.id);
+              setIsOpen(false);
+              setCurrentIndex(0);
+            }}
+            className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
+              activeTab === tab.id
+                ? "bg-[#ab8c30] text-white shadow-lg"
+                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+            }`}
           >
-            {tab.charAt(0).toUpperCase() + tab.slice(1)}
+            {tab.title}
           </button>
         ))}
       </div>
 
-      {/* Media Grid */}
-      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 place-items-center">
-        {allMedia.map((item, idx) => (
-          <div
-            key={idx}
-            className="relative w-full max-w-lg shadow-xl overflow-hidden cursor-pointer transform hover:scale-105 transition-transform duration-300"
-            onClick={() => openLightbox(idx)}
-          >
-            {item.type === "image" ? (
-              <Image
-                src={item.url}
-                alt={item.title}
-                width={600}
-                height={400}
-                className="w-full h-64 object-cover"
-              />
-            ) : (
-              <Image
-                src={`https://img.youtube.com/vi/${getYouTubeID(item.url)}/hqdefault-large.webp`}
-                alt={item.title}
-                width={600}
-                height={400}
-                className="w-full h-64 object-cover"
-              />
-            )}
+      {/* ✅ Media Grid */}
+      {activeMedia.length === 0 ? (
+        <div className="text-center text-gray-500 py-10">
+          No media available right now.
+        </div>
+      ) : (
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {activeMedia.map((item, idx) => {
+            const isVideo = item.type === "video";
+            const youtubeId = isVideo ? getYouTubeID(item.url) : null;
+            const thumb = isVideo
+              ? youtubeId
+                ? `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`
+                : item.url.match(/\.(mp4|mov|webm)$/i)
+                ? "/fallback-video-thumb.jpg"
+                : "/fallback-image.jpg"
+              : item.url || "/fallback-image.jpg";
 
-            <div className="absolute bottom-0 left-0 right-0 bg-black/40 text-white text-center py-1">
-              {item.title}
-            </div>
-          </div>
-        ))}
-      </div>
+            return (
+              <div
+                key={idx}
+                onClick={() => openLightbox(idx)}
+                className="relative w-full aspect-video cursor-pointer overflow-hidden rounded-xl shadow-md hover:scale-[1.02] transition-transform duration-300"
+              >
+                <Image
+                  src={thumb}
+                  alt={item.title}
+                  width={600}
+                  height={400}
+                  className="object-cover w-full h-full"
+                  priority
+                  unoptimized
+                />
+                {isVideo && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-black/50 rounded-full p-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="white"
+                        viewBox="0 0 24 24"
+                        width="36"
+                        height="36"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                )}
+                <div className="absolute bottom-0 w-full bg-black/50 text-white text-sm p-2 text-center">
+                  {item.title}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
 
-      {/* Lightbox */}
-      {isOpen && (
+      {/* ✅ Lightbox */}
+      {isOpen && activeMedia[currentIndex] && (
         <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
+          {/* Close */}
           <button
-           aria-label="Is Open"
-            className="absolute top-4 right-4 text-white text-3xl font-bold"
+            className="absolute top-4 right-6 text-white text-3xl font-bold hover:text-gray-400"
             onClick={() => setIsOpen(false)}
           >
             &times;
           </button>
 
+          {/* Prev / Next */}
           <button
-           aria-label="Prev Media"
-            className="absolute left-4 text-white text-3xl font-bold"
+            className="absolute left-4 text-white text-3xl font-bold hover:text-gray-400"
             onClick={prevMedia}
           >
             &#8592;
           </button>
-
           <button
-             aria-label="Next Media"
-            className="absolute right-4 text-white text-3xl font-bold"
+            className="absolute right-4 text-white text-3xl font-bold hover:text-gray-400"
             onClick={nextMedia}
           >
             &#8594;
           </button>
 
-          <div className="max-w-4xl w-full max-h-full flex items-center justify-center">
-            {allMedia[currentIndex].type === "image" ? (
+          {/* ✅ Lightbox content */}
+          <div className="max-w-5xl w-full max-h-[80vh] flex items-center justify-center">
+            {activeMedia[currentIndex].type === "image" ? (
               <Image
-                src={allMedia[currentIndex].url}
-                alt={allMedia[currentIndex].title}
+                src={activeMedia[currentIndex].url}
+                alt={activeMedia[currentIndex].title}
                 width={1200}
                 height={800}
                 className="object-contain"
+                priority
+                unoptimized
+              />
+            ) : getYouTubeID(activeMedia[currentIndex].url) ? (
+              <iframe
+                src={`https://www.youtube.com/embed/${getYouTubeID(
+                  activeMedia[currentIndex].url
+                )}`}
+                title={activeMedia[currentIndex].title}
+                className="w-full h-[70vh] rounded-lg"
+                allowFullScreen
               />
             ) : (
-              <iframe
-                src={allMedia[currentIndex].url}
-                title={allMedia[currentIndex].title}
-                className="w-full h-[70vh]"
-                allowFullScreen
-              ></iframe>
+              <video
+                src={activeMedia[currentIndex].url}
+                controls
+                className="w-full h-[70vh] rounded-lg object-contain"
+              />
             )}
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

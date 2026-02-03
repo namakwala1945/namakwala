@@ -5,6 +5,7 @@ import content from "../locales/en/content.json";
 import Image from "next/image";
 import BrandPromise from "./BrandPromise"; 
 import YearsOfExcellence from "./YearsOfExcellence";
+import Certifications from "./Certifications";
 
 interface Achievement {
   label: string;
@@ -61,35 +62,7 @@ export default function BrandSection() {
         </div>
 
         {/* Certifications */}
-        <div className="mb-8 md:mb-12">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8">
-            <span className="playfair text-gradient">{`Certifications`}</span>
-          </h3>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {page.certifications.map((cert, index) => (
-              <div
-                key={index}
-                className="bg-white p-4 sm:p-6 text-center hover-lift shadow-lg"
-              >
-                <div className="w-20 h-20 mx-auto mb-2 sm:mb-4 relative">
-                  <Image
-                    src={cert.image}
-                    alt={cert.name}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <h4 className="font-bold mb-1 sm:mb-2 text-sm sm:text-base uppercase">
-                  {cert.name}
-                </h4>
-                <p className="text-xs sm:text-sm text-muted-foreground">
-                  {cert.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <Certifications/>
 
         {/* Brand Promise */}
         <BrandPromise />

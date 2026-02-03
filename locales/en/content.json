@@ -500,7 +500,6 @@
       }
 
     }
-
   },
   "newsMedia": {
     "title": "Latest News & Media - Namakwala",
@@ -1315,7 +1314,7 @@
         "description": "Premium enriched with natural minerals, designed to enhance flavor, promote wellness, and elevate every meal."
       },
       {
-        "name": "Naturesa",
+        "name": "NatureSa",
         "image": "/optimized/brands/brands-naturesa-medium.webp",
         "description": "100% authentic, mineral-dense salt, sustainably sourced to support daily health and balanced nutrition."
       },
@@ -1330,7 +1329,7 @@
         "description": "Superior quality, refined with care to ensure freshness, safety, and a trusted taste for every kitchen."
       },
       {
-        "name": "Andus",
+        "name": "Indus",
         "image": "/assets/brands/brand-Indus.png",
         "description": "Naturally refined, mineral-packed, and carefully processed to elevate flavor, nutrition, and quality for diverse application"
       }

@@ -1,84 +1,119 @@
 // app/blog/[slug]/page.tsx
-import blogData from "../../../locales/en/blog.json";
 import PageBanner from "@/components/PageBanner";
 import { notFound } from "next/navigation";
+import { Metadata as NextMetadata } from "next";
 
 // ----------------------
-// ✅ Normalize Params Helper
+// ✅ Fetch Blog by Slug
 // ----------------------
-async function getParams(params: any) {
-  return params instanceof Promise ? await params : params;
-}
-
-// ----------------------
-// ✅ Generate Metadata from JSON
-// ----------------------
-export async function generateMetadata({ params }: { params: any }) {
-  const { slug } = await getParams(params);
-
-  const post = blogData.posts.find((p) => p.slug === slug);
-  if (!post) return {};
-
-  const meta = post.metadata;
-  return {
-    title: meta.title,
-    description: meta.description,
-    keywords: meta.keywords,
-    authors: meta.authors.map((a: any) => ({ name: a.name })),
-    openGraph: {
-      title: meta.openGraph.title,
-      description: meta.openGraph.description,
-      type: meta.openGraph.type,
-      url: meta.openGraph.url,
-      siteName: meta.openGraph.siteName,
-      images: meta.openGraph.images.map((img: any) => img.url),
-    },
-    twitter: {
-      card: meta.twitter.card,
-      title: meta.twitter.title,
-      description: meta.twitter.description,
-      images: meta.twitter.images,
-    },
-  };
+async function getBlogData(slug: string) {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?filters[slug][$eq]=${slug}&populate[Metadata][populate]=*&populate[pagebanner][populate]=*`,
+      { next: { revalidate: 60 } }
+    );
+    if (!res.ok) throw new Error("Failed to fetch single blog");
+    const { data } = await res.json();
+    return data?.[0];
+  } catch (error) {
+    console.error("Error fetching blog:", error);
+    return null;
+  }
 }
 
 // ----------------------
 // ✅ Static Params for SSG
 // ----------------------
 export async function generateStaticParams() {
-  return blogData.posts.map((post) => ({
-    slug: post.slug,
-  }));
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs`,
+      { next: { revalidate: 60 } }
+    );
+    const { data } = await res.json();
+    return data.map((post: any) => ({ slug: post.slug }));
+  } catch (error) {
+    console.error("Error generating params:", error);
+    return [];
+  }
 }
 
 // ----------------------
-// ✅ Blog Detail Page
+// ✅ Metadata
 // ----------------------
-export default async function BlogDetailPage({ params }: { params: any }) {
-  const { slug } = await getParams(params);
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<NextMetadata> {
+  const blog = await getBlogData(params.slug);
+  if (!blog) return {};
 
-  const post = blogData.posts.find((p) => p.slug === slug);
-  if (!post) return notFound();
+  const meta = blog.Metadata || {};
+  return {
+    title: meta.title || blog.title,
+    description:
+      (meta.description && meta.description[0]?.children?.[0]?.text) || "",
+    openGraph: {
+      title: meta.openGraph?.title || blog.title,
+      description:
+        (meta.openGraph?.description &&
+          meta.openGraph?.description[0]?.children?.[0]?.text) ||
+        "",
+      url: meta.openGraph?.url || `https://www.namakwala.in/blog/${blog.slug}`,
+      images: [
+        blog.pagebanner?.image?.url
+          ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${blog.pagebanner.image.url}`
+          : "/default-og-image.jpg",
+      ],
+    },
+    twitter: {
+      card: meta.twitter?.card || "summary_large_image",
+      title: meta.twitter?.title || blog.title,
+      description:
+        (meta.twitter?.description &&
+          meta.twitter?.description[0]?.children?.[0]?.text) ||
+        "",
+    },
+  };
+}
+
+// ----------------------
+// ✅ Single Blog Component
+// ----------------------
+export default async function BlogDetailPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const blog = await getBlogData(params.slug);
+  if (!blog) return notFound();
+
+  const banner = blog.pagebanner;
 
   return (
     <section className="relative poppins">
-      {/* ✅ Top Banner */}
-      <div className="inset-0 top-0">
-        <PageBanner
-          title={post.title}
-          image={post.banner}
-          category={post.category || "Blog"}
-        />
-      </div>
+      {/* ✅ Banner */}
+      <PageBanner
+        title={banner?.title || blog.title}
+        image={
+          banner?.image?.url
+            ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${banner.image.url}`
+            : "/optimized/fallback-image.jpg"
+        }
+        category="Blog"
+      />
 
       {/* ✅ Blog Content */}
       <div className="container mx-auto px-6 py-16 max-w-3xl prose prose-lg">
         <div className="mb-6 text-gray-600 text-sm">
-          By <span className="font-semibold">{post.author}</span> • {post.date}
+          By <span className="font-semibold">{blog.AuthorName}</span> •{" "}
+          {new Date(blog.PublishedDate).toLocaleDateString()}
         </div>
 
-        {post.content.map((para: string, i: number) => (
-          <p key={i}>{para}</p>
+        {/* Render rich text content */}
+        {blog.content?.map((block: any, i: number) => (
+          <p key={i}>{block.children?.[0]?.text}</p>
         ))}
       </div>
     </section>

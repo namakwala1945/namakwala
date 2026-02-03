@@ -1,81 +1,122 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
-import meetingImage from "../public/assets/Ocean-Poster.webp";
 
 export default function ScrollImageSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const imageWrapperRef = useRef<HTMLDivElement>(null);
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
+  const STRAPI_URL =
+    process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
+
+  // ✅ Fetch image from Strapi
   useEffect(() => {
-    let gsap: any;
-    let ScrollTrigger: any;
-    let triggerInstance: any; // store specific trigger
+    const fetchImage = async () => {
+      try {
+        const res = await fetch(
+          `${STRAPI_URL}/api/scoll-zoom-sections?populate=*`,
+          { cache: "no-store" }
+        );
+        const json = await res.json();
+        const item = json?.data?.[0];
+        const image =
+          item?.image?.[0] || item?.attributes?.image?.data?.[0] || null;
 
-    async function loadGSAP() {
-      gsap = (await import("gsap")).gsap;
-      ScrollTrigger = (await import("gsap/dist/ScrollTrigger")).ScrollTrigger;
-      gsap.registerPlugin(ScrollTrigger);
-
-      if (!containerRef.current || !imageRef.current) return;
-
-      // store the timeline so we can kill its ScrollTrigger later
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1,
-          pin: true,
-        },
-      });
-
-      tl.fromTo(
-        imageRef.current,
-        { width: "70%", height: "70%", scale: 1 },
-        { width: "100%", height: "100%", scale: 1.05, ease: "power1.out" }
-      );
-
-      // save the trigger instance for cleanup
-      triggerInstance = tl.scrollTrigger;
-    }
-
-    loadGSAP();
-
-    return () => {
-      // ✅ kill just this trigger
-      if (triggerInstance) {
-        triggerInstance.kill();
+        if (image?.url || image?.attributes?.url) {
+          const url = image.url || image.attributes.url;
+          const fullUrl = url.startsWith("http") ? url : `${STRAPI_URL}${url}`;
+          setImageUrl(fullUrl);
+        }
+      } catch (err) {
+        console.error("❌ Error fetching image:", err);
       }
-
-      // Or if you want to wipe *everything* GSAP created:
-      // if (ScrollTrigger) {
-      //   ScrollTrigger.getAll().forEach(t => t.kill());
-      // }
     };
+
+    fetchImage();
   }, []);
 
-  return (
-    <div className="w-full">
-      {/* Scroll Zoom Section */}
-      <div
-        ref={containerRef}
-        className="relative w-full h-screen overflow-hidden flex items-center justify-center"
-      >
-        <div
-          ref={imageRef}
-          className="relative w-[70%] h-[70%]"
-        >
-          <Image
-            src={meetingImage}
-            alt="Business Meeting"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+  // ✅ Super smooth GSAP zoom effect
+  useEffect(() => {
+    if (!imageUrl) return;
+
+    let gsap: any;
+    let ScrollTrigger: any;
+
+    async function init() {
+      const gsapModule = await import("gsap");
+      const mod = await import("gsap/dist/ScrollTrigger");
+      gsap = gsapModule.gsap;
+      ScrollTrigger = mod.ScrollTrigger;
+      gsap.registerPlugin(ScrollTrigger);
+
+      if (!sectionRef.current || !imageWrapperRef.current) return;
+
+      ScrollTrigger.getAll().forEach((t: any) => t.kill());
+
+      // ✅ Smooth scrolling + zoom effect
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: "+=200%",
+            scrub: 0.5, // smaller = smoother
+            pin: true,
+            anticipatePin: 1,
+            ease: "power3.inOut",
+          },
+        })
+        .fromTo(
+          imageWrapperRef.current,
+          { width: "70%", height: "70%", scale: 1 },
+          {
+            width: "100%",
+            height: "100%",
+            scale: 1.1,
+            ease: "power3.inOut",
+          }
+        );
+    }
+
+    init();
+
+    return () => {
+      if (ScrollTrigger) ScrollTrigger.getAll().forEach((t: any) => t.kill());
+    };
+  }, [imageUrl]);
+
+  if (!imageUrl) {
+    return (
+      <div className="flex justify-center items-center min-h-[60vh] text-gray-500">
+        Loading Scroll Section...
       </div>
-    </div>
+    );
+  }
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative w-full h-screen flex items-center justify-center overflow-hidden "
+    >
+      <div
+        ref={imageWrapperRef}
+        className="relative flex items-center justify-center will-change-transform transition-transform duration-1000 ease-[cubic-bezier(0.77,0,0.175,1)] w-[70%] h-[70%]"
+      >
+        <Image
+          src={imageUrl}
+          alt="Scroll Zoom Image"
+          fill
+          priority
+          unoptimized
+          onLoadingComplete={() => setIsLoaded(true)}
+          className={`object-cover transition-opacity duration-700 ease-in-out ${
+            isLoaded ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      </div>
+    </section>
   );
 }

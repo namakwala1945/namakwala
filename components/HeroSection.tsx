@@ -1,56 +1,112 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Globe,
-  TrendingUp,
-  Shield,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, Globe, TrendingUp, Shield } from "lucide-react";
 import Image from "next/image";
-// Import JSON data
-import slides from "../locales/en/heroBanner.json";
 import YearsOfExcellence from "./YearsOfExcellence";
 import Link from "next/link";
+
 const features = [
   { icon: Globe, text: "21+ Countries" },
   { icon: TrendingUp, text: <YearsOfExcellence /> },
   { icon: Shield, text: "ISO Certified" },
 ];
 
+interface HeroBannerData {
+  id: number;
+  title: string;
+  subtitle: string;
+  description?: string;
+  buttonText?: string;
+  buttonLink?: string;
+  imageUrl: string;
+  bannerPosition?: string;
+}
+
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [banners, setBanners] = useState<HeroBannerData[]>([]);
 
   useEffect(() => {
+  async function fetchBanners() {
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/home-banners?populate=*`
+      );
+      const data = await res.json();
+
+      if (!data.data) return;
+
+      const mapped = data.data
+        .map((item: any) => {
+          const desc = item.description
+            ?.map((block: any) =>
+              block.children?.map((c: any) => c.text).join(" ")
+            )
+            .join(" ") || "";
+
+          // Safely handle image URL
+          const imageUrl =
+            item.image?.url
+              ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${item.image.url}`
+              : "/optimized/placeholder-large.webp";
+          return {
+            id: item.id,
+            title: item.title,
+            subtitle: item.subtitle,
+            description: desc,
+            buttonText: item.buttonText,
+            buttonLink: item.buttonLink,
+            bannerPosition: item.bannerPositions,
+            imageUrl,
+          };
+        })
+        .sort((a: HeroBannerData, b: HeroBannerData) =>
+          (a.bannerPosition || "0").localeCompare(b.bannerPosition || "0")
+        );
+
+      setBanners(mapped);
+    } catch (err) {
+      console.error("Error fetching banners:", err);
+    }
+  }
+
+  fetchBanners();
+}, []);
+
+
+  // Slider interval
+  useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setCurrentSlide(
+        (prev) => (banners.length ? (prev + 1) % banners.length : 0)
+      );
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [banners]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+  const nextSlide = () =>
+    setCurrentSlide((prev) => (banners.length ? (prev + 1) % banners.length : 0));
+  const prevSlide = () =>
+    setCurrentSlide((prev) =>
+      banners.length ? (prev - 1 + banners.length) % banners.length : 0
+    );
 
   return (
     <section className="relative h-[90vh] overflow-hidden">
       {/* Background Slider */}
       <div className="absolute inset-0 top-0">
-        {slides.map((slide) => (
+        {banners.map((slide, index) => (
           <div
             key={slide.id}
             className={`absolute inset-0 transition-opacity duration-1000 ${
-              slide.id - 1 === currentSlide ? "opacity-100" : "opacity-0"
+              index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
           >
             <Image
-              src={slide.image}
-              alt={slide.title}
+              src={slide.imageUrl}
+              alt={slide.title || "Banner"}
               fill
               className="object-cover"
               priority
@@ -68,11 +124,11 @@ export default function HeroSection() {
       <div className="relative z-10 h-full flex items-center mt-5 poppins">
         <div className="w-[95%] mx-auto px-4 md:px-8 lg:px-12 mt-5">
           <div className="max-w-6xl mt-5">
-            {slides.map((slide) => (
+            {banners.map((slide, index) => (
               <div
                 key={slide.id}
                 className={`transition-opacity duration-700 ease-in-out transform ${
-                  slide.id - 1 === currentSlide
+                  index === currentSlide
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 translate-x-8 absolute"
                 }`}
@@ -83,28 +139,23 @@ export default function HeroSection() {
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight playfair">
                   {slide.title}
                 </h1>
-                <p className="text-md md:text-1xl text-white/90 mb-8 max-w-2xl leading-relaxed">
-                  {slide.description}
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                  <Button
-                   aria-label="About Us"
-                    variant="export"
-                    size="lg"
-                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap 
-             text-base px-6 py-3 rounded-lg bg-transparent text-white border border-white 
-             hover:bg-white/10 transition"
-                  >
-                    <Link href="/about">about us</Link>
-                  </Button>
-                  {/* <Button
-                    variant="export"
-                    size="lg"
-                    className="hover-lift bg-transparent text-white border-white"
-                  >
-                    Contact Us
-                  </Button> */}
-                </div>
+                {slide.description && (
+                  <p className="text-md md:text-1xl text-white/90 mb-8 max-w-2xl leading-relaxed">
+                    {slide.description}
+                  </p>
+                )}
+                {slide.buttonText && slide.buttonLink && (
+                  <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                    <Button
+                      aria-label={slide.buttonText}
+                      variant="export"
+                      size="lg"
+                      className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-base px-6 py-3 rounded-lg bg-transparent text-white border border-white hover:bg-white/10 transition"
+                    >
+                      <Link href={slide.buttonLink}>{slide.buttonText}</Link>
+                    </Button>
+                  </div>
+                )}
               </div>
             ))}
 
@@ -117,7 +168,6 @@ export default function HeroSection() {
                   style={{ animationDelay: `${index * 0.2}s` }}
                 >
                   <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-accent flex-shrink-0" />
-
                   {typeof feature.text === "object" ? (
                     <span className="font-light flex flex-col sm:flex-row items-center gap-1 text-sm sm:text-base">
                       {feature.text} <span>Years of Excellence</span>
@@ -128,8 +178,6 @@ export default function HeroSection() {
                 </div>
               ))}
             </div>
-
-
           </div>
         </div>
       </div>
@@ -152,7 +200,7 @@ export default function HeroSection() {
 
       {/* Dots */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
-        {slides.map((_, index) => (
+        {banners.map((_, index) => (
           <button
             key={index}
             aria-label={`Go to slide ${index + 1}`}

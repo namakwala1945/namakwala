@@ -1,29 +1,33 @@
+"use client";
+
+import dynamic from "next/dynamic";
 import HeroSection from "@/components/HeroSection";
-// import CategorySlider from "@/components/CategorySlider";
-// import ProductShowcase from "@/components/ProductShowcase";
-// import VideoSection from "@/components/VideoSection";
-// import CountryExports from "@/components/CountryExports";
-// import BlogSection from "@/components/BlogSection";
 import BrandSection from "@/components/BrandSection";
-// import TestimonialsSection from "@/components/TestimonialsSection";
-// import BrochureSection from "@/components/BrochureSection";
-import WeCare from "@/components/WeCare";
-// import CrystalAvatar from "./crystal-avatar/page";
+import NamakwalaCare from "@/components/NamakwalaCare";
 import Foundation from "@/components/foundation";
 import BusinessSection from "@/components/business";
 import LifeAtNamakwala from "@/components/LifeAtNamakwala";
-import ScrollImageSection from "@/components/ScollZoomSection";
+
+// ✅ Dynamically import GSAP scroll section (client-only)
+const ScrollImageSection = dynamic(() => import("@/components/ScollZoomSection"), {
+  ssr: false,
+});
 
 export default function HomePage() {
   return (
     <div className="min-h-screen cursor-none">
       <HeroSection />
-      <WeCare />
-      <BusinessSection/>
-      <ScrollImageSection/>
-      <Foundation/>
+      <NamakwalaCare />
+      <BusinessSection />
+
+      {/* ✅ Wrap in hydration-safe container */}
+      <div suppressHydrationWarning>
+        <ScrollImageSection />
+      </div>
+
+      <Foundation />
       <BrandSection />
-      <LifeAtNamakwala/>
+      <LifeAtNamakwala />
     </div>
   );
 }

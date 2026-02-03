@@ -1,90 +1,128 @@
-"use client";
+// app/export-terms/page.tsx
 
-import content from "../../locales/en/content.json";
+export const dynamic = "force-dynamic"; // ⛔ no caching, always fresh
+export const revalidate = 0; // ensure dynamic rendering
+
 import PageBanner from "@/components/PageBanner";
 import Image from "next/image";
 
-interface Section {
-  heading: string;
-  text: string | string[];
-  image?: string;
+const API_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/export-terms-and-condition?populate[Metadata][populate]=*&populate[pagebanner][populate]=*&populate[CommonSection][populate]=*`;
+
+// ----------------------
+// Types
+// ----------------------
+interface StrapiImage {
+  url: string;
 }
 
-interface ExportTerms {
+interface StrapiDescription {
+  type: string;
+  children: { type: string; text: string }[];
+}
+
+interface Section {
+  id: number;
   title: string;
-  description: string;
-  banner: {
+  description: StrapiDescription[];
+  image?: StrapiImage;
+}
+
+interface ExportTermsData {
+  title: string;
+  description: StrapiDescription[];
+  Metadata: any;
+  pagebanner: {
     title: string;
     heading: string;
-    image: string;
+    image: StrapiImage;
   };
-  sections: Section[];
-  metadata: any;
+  CommonSection: Section[];
 }
 
-export default function ExportTermsPage() {
-  const page: ExportTerms = content["export-terms"];
+// ----------------------
+// Fetch Function
+// ----------------------
+async function getExportTermsData(): Promise<ExportTermsData> {
+  const res = await fetch(API_URL, {
+    cache: "no-store", // always fetch live data
+  });
+
+  if (!res.ok) {
+    console.error("❌ Failed to fetch export terms:", res.statusText);
+    throw new Error("Failed to fetch export terms data");
+  }
+
+  const json = await res.json();
+  return json.data;
+}
+
+// ----------------------
+// Page Component
+// ----------------------
+export default async function ExportTermsPage() {
+  const data = await getExportTermsData();
+  const baseUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
+
+  const banner = data.pagebanner;
+  const sections = data.CommonSection;
 
   return (
     <section className="relative poppins">
-      {/* Banner */}
+      {/* ✅ Banner */}
       <PageBanner
-        title={page.banner.title}
-        image={page.banner.image}
-        category={page.banner.heading}
+        title={banner?.title}
+        image={`${baseUrl}${banner?.image?.url}`}
+        category={banner?.heading}
       />
 
-      {/* Main Content */}
+      {/* ✅ Main Content */}
       <div className="container mx-auto px-6 py-20 space-y-32">
         {/* Intro */}
         <div className="text-center max-w-3xl mx-auto space-y-6">
           <h1 className="text-5xl playfair font-extrabold text-gradient mb-4">
-            {page.title}
+            {data.title}
           </h1>
-          <p className="text-lg md:text-xl text-gray-800">{page.description}</p>
+          <p className="text-lg md:text-xl text-gray-800">
+            {data.description?.[0]?.children?.[0]?.text}
+          </p>
         </div>
 
-        {/* Sections */}
-        {page.sections.map((section, idx) => {
+        {/* ✅ Sections */}
+        {sections?.map((section, idx) => {
           const isEven = idx % 2 === 0;
+          const text =
+            section.description
+              ?.map((p) => p.children.map((c) => c.text).join(" "))
+              .join("\n\n") || "";
+
           return (
             <div
-              key={idx}
+              key={section.id}
               className={`relative flex flex-col md:flex-row items-center md:items-start md:gap-12 poppins ${
                 isEven ? "md:flex-row" : "md:flex-row-reverse"
               }`}
             >
               {/* Text Card */}
-              <div className="md:w-1/2 bg-white/70 backdrop-blur-md p-8 rounded-3xl shadow-2xl z-10 relative border border-white/30">
+              <div className="md:w-1/2 bg-white/70 backdrop-blur-md p-8 shadow-2xl z-10 relative border border-white/30">
                 <h2 className="text-4xl playfair font-extrabold text-gradient mb-4">
-                  {section.heading}
+                  {section.title}
                 </h2>
-                {Array.isArray(section.text) ? (
-                  <ul className="list-disc list-inside text-gray-700 space-y-2">
-                    {section.text.map((item, idx) => (
-                      <li key={idx}>{item}</li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-gray-700 whitespace-pre-line">
-                    {section.text}
-                  </p>
-                )}
+                <p className="text-gray-700 whitespace-pre-line">{text}</p>
               </div>
 
               {/* Image */}
-              {section.image && (
+              {section.image?.url && (
                 <div
-                  className={`md:w-1/2 mt-8 md:mt-0 relative md:-top-10 overflow-hidden rounded-3xl shadow-2xl flex-shrink-0 ${
+                  className={`md:w-1/2 mt-8 md:mt-0 relative md:-top-10 overflow-hidden shadow-2xl flex-shrink-0 ${
                     isEven ? "md:-ml-20" : "md:-mr-20"
                   }`}
                   style={{ minHeight: "300px" }}
                 >
                   <Image
-                    src={section.image}
-                    alt={section.heading}
+                    src={`${baseUrl}${section.image.url}`}
+                    alt={section.title}
                     fill
-                    className="object-cover rounded-3xl"
+                    className="object-cover"
                   />
                 </div>
               )}

@@ -1,125 +1,160 @@
-// app/privacy-policy/page.tsx
-import content from "@/locales/en/content.json";
 import PageBanner from "@/components/PageBanner";
 import Image from "next/image";
-import Script from "next/script";
+import { notFound } from "next/navigation";
+import { Metadata as NextMetadata } from "next";
 
-// TypeScript types
+// ----------------------
+// Types
+// ----------------------
 interface Section {
   title: string;
-  content: string | string[];
-  image: string;
+  description: string[] | string;
+  image?: string;
 }
 
-interface PrivacyPolicy {
+interface PageData {
   title: string;
-  content: string;
+  description: string;
   banner: {
-    title: string;
-    heading: string;
-    image: string;
+    title?: string;
+    heading?: string;
+    image?: string;
   };
-  sections: Record<string, Section>;
-  metadata: any;
+  sections: Section[];
+  meta?: {
+    metaTitle?: string;
+    metaDescription?: string;
+    metaKeywords?: string;
+    canonicalURL?: string;
+    metaImage?: string;
+  };
 }
 
-// ✅ Generate SEO metadata dynamically
-export async function generateMetadata() {
-  const page: PrivacyPolicy = content["privacy-policy"];
+// ----------------------
+// Fetch function
+// ----------------------
+async function getPrivacyPolicyData(): Promise<any> {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/privacy-policy?populate[Metadata][populate]=*&populate[pagebanner][populate]=*&populate[CommonSection][populate]=*`,
+      { next: { revalidate: 60 } }
+    );
+
+    if (!res.ok) throw new Error("Failed to fetch privacy policy data");
+    const { data } = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Privacy Policy fetch error:", error);
+    return null;
+  }
+}
+
+// ----------------------
+// Generate metadata dynamically
+// ----------------------
+export async function generateMetadata(): Promise<NextMetadata> {
+  const data = await getPrivacyPolicyData();
+  if (!data) return {};
+
+  const meta = data.Metadata || {};
 
   return {
-    title: page.metadata.title,
-    description: page.metadata.description,
-    keywords: page.metadata.keywords,
-    authors: page.metadata.authors.map((a: any) => ({ name: a.name })),
-    robots: {
-      index: true,
-      follow: true,
-    },
+    title: meta.metaTitle || "Privacy Policy | Namakwala",
+    description: meta.metaDescription || "Learn about our privacy practices at Namakwala.",
+    keywords: meta.metaKeywords,
     alternates: {
-      canonical: page.metadata.openGraph.url,
+      canonical: meta.canonicalURL || "https://www.namakwala.in/privacy-policy",
     },
     openGraph: {
-      title: page.metadata.openGraph.title,
-      description: page.metadata.openGraph.description,
-      type: page.metadata.openGraph.type,
-      url: page.metadata.openGraph.url,
-      siteName: page.metadata.openGraph.siteName,
-      images: page.metadata.openGraph.images.map((img: any) => img.url),
-      locale: page.metadata.openGraph.locale,
+      title: meta.metaTitle || data.title,
+      description: meta.metaDescription,
+      url: meta.canonicalURL || "https://www.namakwala.in/privacy-policy",
+      images: meta.metaImage?.url
+        ? [`${process.env.NEXT_PUBLIC_STRAPI_URL}${meta.metaImage.url}`]
+        : ["/default-og-image.jpg"],
+      type: "website",
     },
     twitter: {
-      card: page.metadata.twitter.card,
-      title: page.metadata.twitter.title,
-      description: page.metadata.twitter.description,
-      images: page.metadata.twitter.images,
+      card: "summary_large_image",
+      title: meta.metaTitle || data.title,
+      description: meta.metaDescription,
+      images: meta.metaImage?.url
+        ? [`${process.env.NEXT_PUBLIC_STRAPI_URL}${meta.metaImage.url}`]
+        : ["/default-og-image.jpg"],
     },
   };
 }
 
-export default function PrivacyPolicyPage() {
-  const page: PrivacyPolicy = content["privacy-policy"];
+// ----------------------
+// Component
+// ----------------------
+export default async function PrivacyPolicyPage() {
+  const data = await getPrivacyPolicyData();
+
+  if (!data) return notFound();
+
+  const page: PageData = {
+    title: data.title,
+    description: data.description?.[0]?.children?.[0]?.text || "",
+    banner: {
+      title: data.pagebanner?.title,
+      heading: data.pagebanner?.heading,
+      image:
+        data.pagebanner?.image?.url &&
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}${data.pagebanner.image.url}`,
+    },
+    sections:
+      data.CommonSection?.map((item: any) => ({
+        title: item.title,
+        description: Array.isArray(item.description)
+          ? item.description
+              .map((d: any) =>
+                d.children?.map((c: any) => c.text).join(" ")
+              )
+              .filter(Boolean)
+          : [],
+        image:
+          item.image?.url &&
+          `${process.env.NEXT_PUBLIC_STRAPI_URL}${item.image.url}`,
+      })) || [],
+    meta: data.Metadata && {
+      metaTitle: data.Metadata.metaTitle,
+      metaDescription: data.Metadata.metaDescription,
+      metaKeywords: data.Metadata.metaKeywords,
+      canonicalURL: data.Metadata.canonicalURL,
+      metaImage:
+        data.Metadata.metaImage?.url &&
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}${data.Metadata.metaImage.url}`,
+    },
+  };
 
   return (
     <section className="relative poppins">
-      {/* Structured Data */}
-      <Script type="application/ld+json" id="privacy-policy-schema">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebPage",
-          "name": page.title,
-          "description": page.content,
-          "url": page.metadata.openGraph.url,
-        })}
-      </Script>
-
-      {/* Breadcrumb structured data */}
-      <Script type="application/ld+json" id="breadcrumb-schema">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              position: 1,
-              name: "Home",
-              item: "https://www.namakwala.in/",
-            },
-            {
-              "@type": "ListItem",
-              position: 2,
-              name: "Privacy Policy",
-              item: "https://www.namakwala.in/privacy-policy",
-            },
-          ],
-        })}
-      </Script>
-
-      {/* Banner */}
+      {/* ✅ Banner */}
       <PageBanner
-        title={page.banner.title}
-        image={page.banner.image}
-        category={page.banner.heading}
-        priority={true} // LCP optimization
+        title={page.banner.title || ""}
+        image={page.banner.image || "/optimized/fallback-image.jpg"}
+        category={page.banner.heading || ""}
+        priority={true}
       />
 
-      {/* Main Content */}
+      {/* ✅ Main Content */}
       <div className="w-auto bg-[#d2ab67] mx-auto px-6 py-12 space-y-24">
         {/* Intro Section */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <h1 className="text-4xl md:text-5xl playfair text-white font-extrabold animate-slideUp">
             {page.title}
           </h1>
-          <p className="text-lg md:text-xl text-white">{page.content}</p>
+          <p className="text-lg md:text-xl text-white">{page.description}</p>
         </div>
 
-        {/* Sections with zig-zag images */}
-        {Object.entries(page.sections).map(([key, section], idx) => {
+        {/* ✅ Dynamic Sections */}
+        {page.sections.map((section: Section, idx: number) => {
           const isEven = idx % 2 === 0;
 
           return (
             <div
-              key={key}
+              key={idx}
               className={`relative flex flex-col md:flex-row items-center md:items-start md:gap-12 poppins ${
                 isEven ? "md:flex-row" : "md:flex-row-reverse"
               }`}
@@ -129,35 +164,40 @@ export default function PrivacyPolicyPage() {
                 className="md:w-1/2 bg-white p-8 md:p-12 shadow-2xl z-10 relative hover:scale-105 transition-transform duration-300"
                 style={{ minHeight: "320px" }}
               >
-                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800 animate-slideUp playfair text-gradient">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800 playfair text-gradient">
                   {section.title}
                 </h2>
-                {Array.isArray(section.content) ? (
-                  <ul className="list-disc list-inside text-gray-700 space-y-2">
-                    {section.content.map((item, idx) => (
-                      <li key={idx}>{item}</li>
+                {Array.isArray(section.description) ? (
+                  <div className="space-y-3 text-gray-700">
+                    {section.description.map((text: string, i: number) => (
+                      <p key={i} className="leading-relaxed">
+                        {text}
+                      </p>
                     ))}
-                  </ul>
+                  </div>
                 ) : (
-                  <p className="text-gray-700">{section.content}</p>
+                  <p className="text-gray-700 leading-relaxed">{section.description}</p>
                 )}
+
               </div>
 
               {/* Overlapping Image */}
-              <div
-                className={`md:w-1/2 mt-8 md:mt-0 relative md:-top-8 ${
-                  isEven ? "md:-ml-16" : "md:-mr-16"
-                } overflow-hidden shadow-2xl flex-shrink-0 hover:scale-105 transition-transform duration-500`}
-                style={{ minHeight: "320px" }}
-              >
-                <Image
-                  src={section.image}
-                  alt={section.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
+              {section.image && (
+                <div
+                  className={`md:w-1/2 mt-8 md:mt-0 relative md:-top-8 ${
+                    isEven ? "md:-ml-16" : "md:-mr-16"
+                  } overflow-hidden shadow-2xl flex-shrink-0 hover:scale-105 transition-transform duration-500`}
+                  style={{ minHeight: "320px" }}
+                >
+                  <Image
+                    src={section.image}
+                    alt={section.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              )}
             </div>
           );
         })}

@@ -1,10 +1,13 @@
-import content from "../../locales/en/content.json";
 import PageBanner from "@/components/PageBanner";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
+// ----------------------
+// Types
+// ----------------------
 interface Section {
-  heading: string;
-  text: string | string[];
+  title: string;
+  description: string[];
   image?: string;
 }
 
@@ -14,50 +17,139 @@ interface FraudAlert {
   banner: {
     title: string;
     heading: string;
-    image: string;
+    image?: string;
   };
   sections: Section[];
-  metadata: any;
+  metadata: {
+    title: string;
+    description: string;
+    keywords: string;
+    openGraph: {
+      title: string;
+      description: string;
+      url: string;
+      siteName: string;
+    };
+    twitter: {
+      card: string;
+      title: string;
+      description: string;
+    };
+  };
 }
 
+// ----------------------
+// Fetch function
+// ----------------------
+async function getFraudAlertData(): Promise<FraudAlert | null> {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/fraud-alert?populate[Metadata][populate]=*&populate[pagebanner][populate]=*&populate[CommonSection][populate]=*`,
+      { next: { revalidate: 60 } }
+    );
+
+    if (!res.ok) throw new Error("Failed to fetch Fraud Alert data");
+    const { data } = await res.json();
+
+    const fraudAlert: FraudAlert = {
+      title: data.title,
+      description:
+        data.description?.[0]?.children?.[0]?.text || "Stay alert for fraud.",
+      banner: {
+        title: data.pagebanner?.title || "",
+        heading: data.pagebanner?.heading || "",
+        image: data.pagebanner?.image?.url
+          ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${data.pagebanner.image.url}`
+          : undefined,
+      },
+      sections:
+        data.CommonSection?.map((section: any) => ({
+          title: section.title,
+          description:
+            section.description?.map(
+              (p: any) => p.children?.map((c: any) => c.text).join(" ")
+            ) || [],
+          image: section.image?.url
+            ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${section.image.url}`
+            : undefined,
+        })) || [],
+      metadata: {
+        title: data.Metadata?.title || "",
+        description:
+          data.Metadata?.description?.[0]?.children?.[0]?.text || "",
+        keywords: data.Metadata?.keywords || "",
+        openGraph: {
+          title: data.Metadata?.openGraph?.title || "",
+          description:
+            data.Metadata?.openGraph?.description?.[0]?.children?.[0]?.text ||
+            "",
+          url: data.Metadata?.openGraph?.url || "",
+          siteName: data.Metadata?.openGraph?.siteName || "",
+        },
+        twitter: {
+          card: data.Metadata?.twitter?.card || "summary_large_image",
+          title: data.Metadata?.twitter?.title || "",
+          description:
+            data.Metadata?.twitter?.description?.[0]?.children?.[0]?.text || "",
+        },
+      },
+    };
+
+    // Debug
+    console.log("🖼 Banner Image:", fraudAlert.banner.image);
+    fraudAlert.sections.forEach((s, i) =>
+      console.log(`🖼 Section ${i + 1}:`, s.image)
+    );
+
+    return fraudAlert;
+  } catch (error) {
+    console.error("Fraud Alert fetch error:", error);
+    return null;
+  }
+}
+
+// ----------------------
+// Metadata
+// ----------------------
 export async function generateMetadata() {
-  const page: FraudAlert = content["fraud-alert"];
+  const data = await getFraudAlertData();
+  if (!data) return {};
 
   return {
-    title: page.metadata.title,
-    description: page.metadata.description,
-    keywords: page.metadata.keywords,
-    authors: page.metadata.authors.map((a: any) => ({ name: a.name })),
+    title: data.metadata.title,
+    description: data.metadata.description,
+    keywords: data.metadata.keywords,
     openGraph: {
-      title: page.metadata.openGraph.title,
-      description: page.metadata.openGraph.description,
-      type: page.metadata.openGraph.type,
-      url: page.metadata.openGraph.url,
-      siteName: page.metadata.openGraph.siteName,
-      images: page.metadata.openGraph.images.map((img: any) => img.url),
+      title: data.metadata.openGraph.title,
+      description: data.metadata.openGraph.description,
+      url: data.metadata.openGraph.url,
+      siteName: data.metadata.openGraph.siteName,
     },
     twitter: {
-      card: page.metadata.twitter.card,
-      title: page.metadata.twitter.title,
-      description: page.metadata.twitter.description,
-      images: page.metadata.twitter.images,
+      card: data.metadata.twitter.card,
+      title: data.metadata.twitter.title,
+      description: data.metadata.twitter.description,
     },
   };
 }
 
-export default function FraudAlertPage() {
-  const page: FraudAlert = content["fraud-alert"];
+// ----------------------
+// Page Component
+// ----------------------
+export default async function FraudAlertPage() {
+  const page = await getFraudAlertData();
+  if (!page) return notFound();
 
   return (
     <section className="relative poppins w-auto bg-[#d2ab67] mx-auto">
-      {/* Banner */}
+      {/* ✅ Page Banner */}
       <PageBanner
         title={page.banner.title}
-        image={page.banner.image}
+        image={page.banner.image || "/optimized/fallback-image.jpg"}
         category={page.banner.heading}
       />
 
-      {/* Main Content */}
+      {/* ✅ Main Content */}
       <div className="container mx-auto px-6 py-12 space-y-24">
         {/* Intro */}
         <div className="text-center max-w-3xl mx-auto space-y-4 animate-fadeIn text-white">
@@ -69,7 +161,7 @@ export default function FraudAlertPage() {
           </p>
         </div>
 
-        {/* Sections */}
+        {/* ✅ Sections */}
         {page.sections.map((section, idx) => {
           const isEven = idx % 2 === 0;
 
@@ -80,23 +172,24 @@ export default function FraudAlertPage() {
                 isEven ? "md:flex-row" : "md:flex-row-reverse"
               } animate-fadeIn`}
             >
-              {/* Text Content */}
+              {/* Text */}
               <div
                 className="md:w-1/2 bg-white p-8 md:p-12 shadow-2xl z-10 relative hover:scale-105 transition-transform duration-300"
                 style={{ minHeight: "320px" }}
               >
-                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800 animate-slideUp playfair text-gradient">
-                  {section.heading}
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800 playfair text-gradient">
+                  {section.title}
                 </h2>
-                {Array.isArray(section.text) ? (
+                {Array.isArray(section.description) &&
+                section.description.length > 1 ? (
                   <ul className="list-disc list-inside text-gray-700 space-y-2">
-                    {section.text.map((item, i) => (
-                      <li key={i}>{item}</li>
+                    {section.description.map((text, i) => (
+                      <li key={i}>{text}</li>
                     ))}
                   </ul>
                 ) : (
                   <p className="text-gray-700 whitespace-pre-line">
-                    {section.text}
+                    {section.description.join("\n")}
                   </p>
                 )}
               </div>
@@ -111,7 +204,7 @@ export default function FraudAlertPage() {
                 >
                   <Image
                     src={section.image}
-                    alt={section.heading}
+                    alt={section.title}
                     fill
                     className="object-cover animate-fadeIn"
                   />

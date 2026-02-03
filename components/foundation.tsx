@@ -2,48 +2,77 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import content from "../locales/en/content.json";
 
-interface Section {
-  heading: string;
-  text: string;
+interface FoundationItem {
+  description: string;
   logo?: string;
   slider?: string[];
 }
 
-interface FoundationPage {
-  title: string;
-  description: string;
-  banner: {
-    title: string;
-    heading: string;
-    image: string;
-  };
-  sections: Section[];
-}
-
 export default function FoundationSection() {
-  const page: FoundationPage = content["namakwala-foundation"];
-  const section = page.sections[0]; // single section for now
-
+  const [foundation, setFoundation] = useState<FoundationItem | null>(null);
   const [current, setCurrent] = useState(0);
+  const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
 
-  // ✅ Autoplay every 4s
+  // Fetch foundation data from API
   useEffect(() => {
-    if (!section.slider) return;
+    fetch(`${STRAPI_URL}/api/namakwala-foundations?populate=*`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.data?.length > 0) {
+          const item = data.data[0];
+
+          // Convert description array to plain text
+          const descriptionText = (item.description || [])
+            .map((block: any) =>
+              block.children?.map((c: any) => c.text).join("") || ""
+            )
+            .join("\n");
+
+          // Get logo URL
+          const logoUrl = item.logo?.url
+            ? STRAPI_URL + item.logo.url
+            : undefined;
+
+          // Get slider images
+          const sliderUrls =
+            item.sliderImage?.map((img: any) => (img.url ? STRAPI_URL + img.url : null)).filter(Boolean) || [];
+
+          const foundationItem: FoundationItem = {
+            description: descriptionText,
+            logo: logoUrl,
+            slider: sliderUrls,
+          };
+          setFoundation(foundationItem);
+        }
+      })
+      .catch((err) => console.error("Error fetching foundation data:", err));
+  }, []);
+
+  // Autoplay slider
+  useEffect(() => {
+    if (!foundation?.slider || foundation.slider.length <= 1) return;
+
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % section.slider!.length);
+      setCurrent((prev) => (prev + 1) % foundation.slider!.length);
     }, 4000);
+
     return () => clearInterval(interval);
-  }, [section.slider]);
+  }, [foundation?.slider]);
 
   const nextSlide = () =>
-    setCurrent((prev) => (prev + 1) % (section.slider?.length || 1));
+    setCurrent(
+      (prev) => (prev + 1) % (foundation?.slider?.length || 1)
+    );
 
   const prevSlide = () =>
     setCurrent(
-      (prev) => (prev - 1 + (section.slider?.length || 1)) % (section.slider?.length || 1)
+      (prev) => (prev - 1 + (foundation?.slider?.length || 1)) % (foundation?.slider?.length || 1)
     );
+
+  if (!foundation) {
+    return <p className="text-center py-10">Loading foundation...</p>;
+  }
 
   return (
     <section className="h-screen w-full flex items-center bg-[#fdf2df] shadow-lg p-4 md:p-16 poppins">
@@ -51,26 +80,26 @@ export default function FoundationSection() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 h-full">
           {/* Left Side (Content) */}
           <div className="md:col-span-4 flex flex-col space-y-4 p-4 md:p-6 h-full">
-            {section.logo && (
+            {foundation.logo && (
               <Image
-                src={section.logo}
-                alt={section.heading}
+                src={foundation.logo}
+                alt="Namakwala Foundation"
                 width={300}
                 height={113}
                 className="object-contain mb-2 mx-auto"
               />
             )}
             <p className="text-gray-700 text-sm md:text-base leading-relaxed text-center md:text-left">
-              {section.text}
+              {foundation.description}
             </p>
           </div>
 
           {/* Right Side (Slider) */}
           <div className="md:col-span-8 relative w-full h-full overflow-hidden">
-            {section.slider && (
+            {foundation.slider && foundation.slider.length > 0 && (
               <Image
                 key={current}
-                src={section.slider[current]}
+                src={foundation.slider[current]!}
                 alt={`Slide ${current + 1}`}
                 fill
                 sizes="100vw"
@@ -81,7 +110,7 @@ export default function FoundationSection() {
             )}
 
             {/* Controls: show only if more than one image */}
-            {section.slider && section.slider.length > 1 && (
+            {foundation.slider && foundation.slider.length > 1 && (
               <>
                 <button
                   aria-label="Arrow Left"
@@ -100,10 +129,8 @@ export default function FoundationSection() {
               </>
             )}
           </div>
-
         </div>
       </div>
     </section>
-
   );
 }
